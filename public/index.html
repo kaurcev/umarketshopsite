@@ -1,43 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
+    <script src="%PUBLIC_URL%/assets/sw.js"></script>
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/google-translate.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Универсальный, грандиозный, неповторимый и шикарный маркетплейс товаров для тебя!"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="/assets/icons/css/font-awesome.min.css">
+
+    <title>юМаркет Шоп</title>
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="юМаркет Шоп">
+    <meta property="og:description" content="Универсальный, грандиозный, неповторимый и шикарный маркетплейс товаров для тебя!">
+    <meta property="og:url" content="https://umarketshop.site/">
+    <meta property="og:image" content="https://umarketshop.site/assets/img/banner.png">
+    <meta property="og:site_name" content="юМаркет Шоп">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="twitter:image:src" content="https://umarketshop.site/assets/img/banner.jpg">
+    <script type="application/ld+json">
+        {
+          "@context" : "http://schema.org",
+          "@type" : "Organization",
+          "name" : "юМаркет Шоп",
+          "url" : "https://umarketshop.site",
+          "sameAs" : [
+            "http://vk.com/kaurcev",
+            "https://t.me/kaurcev",
+          ]
+        }
+        </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Ваш браузер не поддерживает JavaScript</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      const firebaseConfig = {
+          apiKey: "AIzaSyDkjp9tGgP_wTp0ZPRcMCfTDGWOiGSmevc",
+          authDomain: "umarketshop-a49e1.firebaseapp.com",
+          projectId: "umarketshop-a49e1",
+          storageBucket: "umarketshop-a49e1.appspot.com",
+          messagingSenderId: "453088019176",
+          appId: "1:453088019176:web:9a8bf804b1532820787f5d",
+          measurementId: "G-8XDXLY7H11"
+      };
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+    <script>
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(95864034, "init", {
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true,
+          webvisor:true
+      });
+    </script>
   </body>
 </html>
