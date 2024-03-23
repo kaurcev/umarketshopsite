@@ -3,8 +3,12 @@
 :root {
   --color-font: #141414;
   --color-body-bg: #FFFFFF;
+  --color-body-bg-two: #f2f4f8;
   --color-header: #FFFFFF;
   --akcent: #4E50FF;
+  --akcent-two: #CECFFF;
+  --akcent-tree: #4E50FF;
+  --akcent-four: #CECFFF;
   --red: #f81c5e;
   --border: #4d4d4d;
 }
@@ -12,6 +16,10 @@
   :root {
     --color-font: #e1e3e6;
     --color-body-bg: #141414;
+    --color-body-bg-two: #4e4e4e;
+    --akcent-two: #222222;
+    --akcent-tree: #c4c4c4;
+    --akcent-four: #CECFFF;
     --color-header: #222222;
     --border: #4d4d4d;
     }
@@ -34,7 +42,7 @@ html, body{
 }
 
 main{
-  min-height: 100vh;
+  min-height: fit-content;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -104,9 +112,9 @@ a{
 }
 .mini{
   opacity: 0.6;
-  font-size: 14px;
+  font-size: 12px;
+  margin: 0px;
 }
-
 a.bt, button{
   width: 100%;
   background-color: var(--akcent);
@@ -117,11 +125,75 @@ a.bt, button{
   border: 2px solid var(--akcent);
 }
 
+main .page .bank{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: end;
+}
+
+
+.pay .cartpanel{
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+form.pay label{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+
+main .page .bank img{
+  max-width: 100px;
+  filter: grayscale(100%);
+}
+main .page .duo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 /*#region мобильный адаптив*/
 @media (max-width: 899px) {
   body{
-    padding: 50px 0px 50px 0px;
+    padding: 50px 0px 70px 0px;
     font-size: 14px;
   }
 }
 /*#endregion Мобильный адаптив*/
+
+
+@keyframes shine {
+  to {
+      background-position-x: -200%;
+  }
+}
+
+.load{
+  background: linear-gradient(90deg, var(--color-body-bg), var(--color-body-bg), var(--color-body-bg-two), var(--color-body-bg));
+  animation: 0.8s shine linear infinite;
+  background-size: 200% 100%;
+  border-radius: 5px;
+  width: 100%;
+  min-height: 16px;
+  border: 2px solid transparent;
+  margin: 10px 0px;
+}
+main.profile .page .session .cart.load{
+  min-height: 100px;
+}
+main.profile .page .cartpanel .load{
+  background: linear-gradient(90deg, var(--akcent), var(--akcent), var(--akcent-four), var(--akcent));
+  animation: 0.8s shine linear infinite;
+  background-size: 200% 100%;
+  border-radius: 5px;
+  width: 100%;
+  min-height: 16px;
+  border: 2px solid transparent;
+}
+

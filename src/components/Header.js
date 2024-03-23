@@ -29,12 +29,12 @@ export default function Header() {
             <div className="header">
                 <div className='minipan'>
                     <span>
-                        <Link to="/profile/pay">RUB</Link>
+                        <Link to="/profile/wallet">RUB</Link>
                         <Link to="/profile/"><i class="fa fa-location-arrow" aria-hidden="true"></i> Омск</Link>
                         <Link className='betatest'><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Идёт тестирование системы</Link>
                     </span>
                     <span>
-                        <Link className='info' to="/profile">Как стать поставщиком</Link>
+                        <Link className='info' to="/startposrav">Как стать поставщиком</Link>
                         <Link to="/application">Мобильное приложение</Link>
                         <Link to="/stocks">Акции</Link>
                         <Link to="/help">Помощь</Link>
@@ -50,10 +50,12 @@ export default function Header() {
                     {
                         localStorage.getItem('token') ? (
                             <>
-                            
-
+                            <Link to="/">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <span>Главная</span>
+                            </Link>
                             <Link to="/basket">
-                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             <span>Корзина</span>
                             </Link>
                             <Link to="/profile">

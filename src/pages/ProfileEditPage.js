@@ -142,7 +142,6 @@ export default function ProfileEditPage() {
                                 <button type="reset">Отменить изменения</button>
                             </p>
                         </form>
-                    <p><Link to='/profile'>Вернуться</Link></p>
                     </>
                 )}
             </div>
