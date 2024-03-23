@@ -219,6 +219,7 @@ a.bt, button{
     overflow-x: scroll;
     display: flex;
     flex-direction: row;
+    position: initial;
   }
   main.profile .w250 a.bt{
     min-width: fit-content;
