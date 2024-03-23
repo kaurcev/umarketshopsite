@@ -6,6 +6,7 @@ import E404Page from './pages/E404Page';
 import ProfilePage from './pages/ProfilePage';
 import LogoutPage from './pages/LogoutPage';
 import ProfileEditPage from './pages/ProfileEditPage';
+import E500Page from './pages/E500Page';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/profile" element={<ProfilePage />} />
         <Route exact path="/profile/edit" element={<ProfileEditPage />} />
         <Route exact path="/logout" element={<LogoutPage />} />
+        <Route exact path="/500" element={<E500Page />} />
         <Route path="*" element={<E404Page />} />
       </Routes>
     </Router>

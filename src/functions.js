@@ -39,7 +39,7 @@ export function getBrowser(userAgent) {
       return "Unknown";
     }
   }
-  
+
 
   export function getDevice(userAgent) {
     if (userAgent.includes("Mobile")) {

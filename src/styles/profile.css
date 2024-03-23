@@ -1,0 +1,139 @@
+main.profile{
+    display: flex;
+  }
+  
+  main.profile .page{
+    width: 100%;
+    padding: 10px;
+  }
+  main.profile .session{
+    max-height: 500px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  main.profile .page h4{
+  }
+  main.profile .page p{
+    margin: 10px;
+  }
+  main.profile .session .cart{ 
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  main.profile .session .cart .icod{
+    width: 100%;
+    max-width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  main.profile .session .cart .w100{
+    width: 100%;
+    max-width: 500px;
+  }
+  main.profile .session .cart .big{
+    font-size: 2pc;
+  }
+  main.profile .page .cartpanel{
+    background-color: var(--akcent);
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  main.profile .session .cart p.red{
+    width: 100%;
+    color: var(--red);
+    font-weight: 600;
+  }
+  main.profile .w250{
+    width: 100%;
+    max-width: 235px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    position: sticky;
+    top: 57px;
+    height: fit-content;
+  }
+  main.profile .w250 a.bt{
+    width: 100%;
+    background-color: #CECFFF;
+    padding: 8px;
+    font-size: 14px;
+    color: var(--akcent);
+    border-radius: 10px;
+    border: 2px solid #CECFFF;
+    text-align: center;
+    font-weight: 500;
+  }
+  a.bt, button{
+    width: 100%;
+    background-color: var(--akcent);
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 10px;
+    border: 2px solid var(--akcent);
+  }
+  
+  /*#region мобильный адаптив*/
+  @media (max-width: 899px) {
+    main.profile{
+      flex-wrap: wrap;
+    }
+    main.profile .page{
+      padding: 0px;
+    }
+    main input{
+      width: 100%;
+    }
+    main.profile .w250{
+      max-width: none;
+      width: 100%;
+      overflow-x: scroll;
+      display: flex;
+      flex-direction: row;
+      position: initial;
+      padding: 9px 0px;
+    }
+    main.profile .w250 a.bt{
+      min-width: fit-content;
+      max-width: fit-content;
+    }
+    main.profile .session .cart{
+      font-size: 14px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #c4c4c4;
+      border-radius: 0px;
+    }
+    main.profile .session .cart .w100{
+      width: 100%;
+      max-width: 200px;
+    }
+    main.centered{
+      min-height: 80vh;
+    }
+    form.auth{
+      flex-direction: column;
+      width: 100%;
+    }
+    form.auth div.info{
+      display: none;
+    }
+    form.auth div.back{
+      width: 100%;
+    }
+    main.profile .session .cart .icod {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  /*#endregion Мобильный адаптив*/

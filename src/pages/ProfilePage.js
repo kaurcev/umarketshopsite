@@ -3,6 +3,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import serverUrl from "../config";
 import {getBrowser, getDevice} from "../functions";
 import Header from '../components/Header';
+import '../styles/profile.css';
 
 export default function ProfilePage() {
     document.title = "Профиль";
@@ -41,6 +42,8 @@ export default function ProfilePage() {
         // eslint-disable-next-line
     }, []); // Пустой массив зависимостей
 
+
+
     const sessionExit = async (id) => {
         try {
             setLoading(true);        
@@ -58,13 +61,13 @@ export default function ProfilePage() {
             setLoading(false);
         }
     };
-
     return (
         <>
         <Header />
         <main className='profile'>
         <div className='w250'>
         <Link className='bt' to='/profile/edit'>Редактировать данные</Link>
+        <Link className='bt' to='/profile/wallet'>Кошелёк</Link>
         {data.roleid === "2" ? (<Link className='bt' to='/postav'>Панель поставщика</Link>) : null}
         {data.roleid === "3" ? (<Link className='bt' to='/admin'>Панель администратора</Link>) : null}
         </div>
@@ -77,18 +80,21 @@ export default function ProfilePage() {
                 <>
                     <h4>ВАШИ ДАННЫЕ</h4>
                     <hr />
-                    <p>Ваш email: {data.email}</p>
-                    <p>Ваш номер телефона: {data.phone}</p>
-                    <p>Ваше имя: {data.name}</p>
-                    <p>Ваш фамилия: {data.surname}</p>
-                    <p>Ваше отчетсво: {data.firstname}</p>
-                    <p>Дата создания аккаунта: {data.created}</p>
-                    <p>Роль: {data.role}</p>
-                    <p>Описание роли: {data.rdescription}</p>
-                    <p>Адрес доставки: {data.address}</p>
+                    <div className='cartpanel'>
+                        <h2>Карточка пользователя</h2>
+                        <p className='mini'>{data.role}</p>
+                        <p>{data.surname} {data.name} <span>{data.firstname}</span></p>
+                        <p className='mini'>В числе участников с {data.created}</p>
+                        <p><span className='mini'>{data.email}</span> <span className='mini'>{data.phone}</span></p>
+                        <p>Адрес доставки: {data.address}</p>
+                    </div>
+                    <h4>ВАШИ ВОЗМОЖНОСТИ</h4>
+                    <p>{data.rdescription}</p>
+                    
                 </>
             )}
             <h4>ТЕКУЩИЕ СЕАНСЫ</h4>
+            <p className='mini'>Если вы видете незнакомый для вас сеанс - <b>завершите сессию</b></p>
             <div className='session'>
             {loading ? (
             <>
@@ -104,7 +110,7 @@ export default function ProfilePage() {
                 <p>{getBrowser(item.useragent)}</p>
                 <p className='mini'>{item.ip} - {item.created}</p>
                 </div>
-                <p className='center red' onClick={() => sessionExit(item.id)}>Завершить сеанс <i class="fa fa-sign-out" aria-hidden="true"></i></p>
+                <p className='center red' onClick={() => sessionExit(item.id)}>Завершить сеанс</p>
               </div>
             ))
           )}

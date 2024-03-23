@@ -32,31 +32,9 @@ html, body{
   outline: none;
   text-decoration: none;
 }
-header{
-  position: sticky;
-  top: 0px;
-  width: 100%;
-  background-color: var(--color-header);
-  height: fit-content;
-  padding: 10px;
-  box-shadow: 0 0 10px 0 #0000001f;
-}
-header .header{
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px 20px;
-}
-header .header nav{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+
 main{
-  min-height: 80vh;
+  min-height: 100vh;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -68,6 +46,12 @@ main.centered{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+}
+hr{
+  border: none;
+  height: 2px;
+  background: #c4c4c4;
+  border-radius: 100px;
 }
 form.auth{
   background-color: var(--color-header);
@@ -122,68 +106,7 @@ a{
   opacity: 0.6;
   font-size: 14px;
 }
-main.profile{
-  display: flex;
-}
 
-main.profile .page{
-  width: 100%;
-  padding: 10px;
-}
-main.profile .session{
-  max-height: 500px;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-main.profile .session .cart{ 
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-main.profile .session .cart .icod{
-  width: 100%;
-  max-width: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-main.profile .session .cart .w100{
-  width: 100%;
-  max-width: 500px;
-}
-main.profile .session .cart .big{
-  font-size: 3pc;
-}
-
-main.profile .session .cart p.red{
-  width: 100%;
-  color: var(--red);
-  font-weight: 600;
-}
-main.profile .w250{
-  width: 100%;
-  max-width: 250px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-  position: sticky;
-  top: 90px;
-  height: fit-content;
-}
-main.profile .w250 a.bt{
-  width: 100%;
-  background-color: var(--akcent);
-  padding: 10px;
-  font-size: 16px;
-  color: #fff;
-  border-radius: 10px;
-  border: 2px solid var(--akcent);
-}
 a.bt, button{
   width: 100%;
   background-color: var(--akcent);
@@ -197,49 +120,8 @@ a.bt, button{
 /*#region мобильный адаптив*/
 @media (max-width: 899px) {
   body{
-    padding: 70px 0px 50px 0px;
+    padding: 50px 0px 50px 0px;
     font-size: 14px;
-  }
-  header{
-    position: fixed;
-    top: 0px;
-  }
-  main.profile{
-    flex-wrap: wrap;
-  }
-  main.profile .page{
-    padding: 0px;
-  }
-  main input{
-    width: 100%;
-  }
-  main.profile .w250{
-    max-width: none;
-    width: 100%;
-    overflow-x: scroll;
-    display: flex;
-    flex-direction: row;
-    position: initial;
-  }
-  main.profile .w250 a.bt{
-    min-width: fit-content;
-    max-width: fit-content;
-  }
-  main.profile .session .cart{
-    font-size: 14px;
-  }
-  main.centered{
-    min-height: 80vh;
-  }
-  form.auth{
-    flex-direction: column;
-    width: 100%;
-  }
-  form.auth div.info{
-    display: none;
-  }
-  form.auth div.back{
-    width: 100%;
   }
 }
 /*#endregion Мобильный адаптив*/
