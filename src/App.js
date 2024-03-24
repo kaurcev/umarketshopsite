@@ -15,6 +15,8 @@ import HelpPage from './pages/HelpPage';
 import WalletPage from './pages/WalletPage';
 import AdminPage from './pages/AdminPage';
 import PostavPage from './pages/PostavPage';
+import SearchPage from './pages/SearchPage';
+import PostavEditPage from './pages/PostavEditPage';
 
 function App() {
   return (
@@ -32,7 +34,10 @@ function App() {
         <Route exact path="/help" element={<HelpPage />} />
         <Route exact path="/profile/admin" element={<AdminPage />} />
         <Route exact path="/profile/postav" element={<PostavPage />} />
+        <Route exact path="/profile/postav/edit" element={<PostavEditPage />} />
         <Route exact path="/profile/wallet" element={<WalletPage />} />
+        <Route exact path="/search" element={<SearchPage />} />
+      
         <Route exact path="/500" element={<E500Page />} />
         <Route path="*" element={<E404Page />} />
       </Routes>

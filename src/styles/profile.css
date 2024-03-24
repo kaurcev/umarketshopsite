@@ -77,16 +77,7 @@ main.profile{
     text-align: center;
     font-weight: 500;
   }
-  a.bt, button{
-    width: 100%;
-    background-color: var(--akcent);
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    border-radius: 10px;
-    border: 2px solid var(--akcent);
-  }
-  
+
 
   .payslist .itempay{
     display: flex;

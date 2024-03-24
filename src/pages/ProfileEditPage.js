@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import serverUrl from "../config";
 import Header from '../components/Header';
+import PostMap from '../components/PostMap';
 
 export default function ProfileEditPage() {
     document.title = "Редактирование профиля";
@@ -31,15 +32,11 @@ export default function ProfileEditPage() {
     const firstnameHandler = (event) => {
         setFirstname(event.target.value);
     };
-    const addressHandler = (event) => {
-        setAddress(event.target.value);
-    };
 
     const submitHandler = (event) => {
         event.preventDefault();
         EditdataloadRequest();
-      };
-    
+    };
     function EditdataloadRequest() {
         const params = new URLSearchParams();
         params.append('email', email);
@@ -94,6 +91,11 @@ export default function ProfileEditPage() {
         fetchData();
         // eslint-disable-next-line
     }, []); // Пустой массив зависимостей
+
+    const handleButtonClick = (index, address) => {
+        setAddress(`${index} ${address}`);
+      };
+
     return (
         <>
         <Header />
@@ -109,7 +111,6 @@ export default function ProfileEditPage() {
                 ) : (
                     <>
                     <h4>РЕДАКТИРОВАНИЕ ПРОФИЛЯ</h4>
-                    <hr />
                         <form onSubmit={submitHandler}>
                             <p>
                                 <p className='mini'>Почта</p>
@@ -132,16 +133,15 @@ export default function ProfileEditPage() {
                                 <input type="text" name="firstname" defaultValue={data.firstname} onChange={firstnameHandler} />
                             </p>
                             <p>
-                                <p className='mini'>Адрес для доставки</p>
-                                <input type="text" name="address" defaultValue={data.address} onChange={addressHandler} />
-                            </p>
-                            <p>
                                 <button>Сохранить данные</button>
                             </p>
                             <p>
-                                <button type="reset">Отменить изменения</button>
+                                <button className='red' type="reset">Отменить изменения</button>
                             </p>
                         </form>
+                        <h4>МЕСТО ДОСТАВКИ</h4>
+                        <p>Вы указываете почтовое отделение для того, чтобы поставщик отправил Вам ваш товар.</p>
+                        <PostMap onButtonClick={handleButtonClick} />
                     </>
                 )}
             </div>

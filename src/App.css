@@ -95,8 +95,8 @@ form input:hover{
 form.auth button{
   width: 100%;
   background-color: var(--akcent);
-  padding: 10px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 14px;
   color: #fff;
   border-radius: 10px;
   border: 2px solid var(--akcent);
@@ -118,11 +118,35 @@ a{
 a.bt, button{
   width: 100%;
   background-color: var(--akcent);
-  padding: 10px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 14px;
   color: #fff;
   border-radius: 10px;
   border: 2px solid var(--akcent);
+}
+a.bt.red, button.red{
+  background-color: var(--red);
+  border: 2px solid var(--red);
+}
+.postlist{
+  display: grid;
+  gap: 10px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+.postlist .cart{
+  padding: 10px;
+  background: var(--color-body-bg-two);
+  border-radius: 10px;
+  width: 100%;
+  min-width: 500px;
+}
+.radform{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  align-items: baseline;
 }
 
 main .page .bank{
@@ -163,6 +187,9 @@ main .page .duo{
   body{
     padding: 50px 0px 70px 0px;
     font-size: 14px;
+  }
+  .postlist .cart {
+    min-width: 90%;
   }
 }
 /*#endregion Мобильный адаптив*/

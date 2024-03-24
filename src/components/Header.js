@@ -16,7 +16,7 @@ export default function Header() {
             }
         })
         .catch(error => {
-           // alert(error);
+            navigate('/500')
     });
     }
     getStatus();
@@ -30,8 +30,8 @@ export default function Header() {
                 <div className='minipan'>
                     <span>
                         <Link to="/profile/wallet">RUB</Link>
-                        <Link to="/profile/"><i class="fa fa-location-arrow" aria-hidden="true"></i> Омск</Link>
-                        <Link className='betatest'><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Идёт тестирование системы</Link>
+                        <Link to="/profile/"><i  className="fa fa-location-arrow" aria-hidden="true"></i> Омск</Link>
+                        <Link className='betatest'><i  className="fa fa-exclamation-triangle" aria-hidden="true"></i> Идёт тестирование системы</Link>
                     </span>
                     <span>
                         <Link className='info' to="/startposrav">Как стать поставщиком</Link>
@@ -42,7 +42,7 @@ export default function Header() {
                 </div>
                 <div className='mainpan'>
                 <img className='logo' src={logo} alt="юМаркет Шоп"/>
-                <form className='search'>
+                <form action='/search' className='search'>
                     <input placeholder='Введите для поиска' type="text" name="search" defaultValue=""/>
                     <button type="">Поиск</button>
                 </form>
@@ -51,26 +51,26 @@ export default function Header() {
                         localStorage.getItem('token') ? (
                             <>
                             <Link to="/">
-                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <i  className="fa fa-home" aria-hidden="true"></i>
                             <span>Главная</span>
                             </Link>
                             <Link to="/basket">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <i  className="fa fa-shopping-cart" aria-hidden="true"></i>
                             <span>Корзина</span>
                             </Link>
                             <Link to="/profile">
-                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <i  className="fa fa-user" aria-hidden="true"></i>
                             <span>Профиль</span>
                             </Link>
                             <Link to="/logout">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            <i  className="fa fa-sign-out" aria-hidden="true"></i>
                             <span>Выйти</span>
                             </Link>
                             </>
                         ) : (
                             <>
                             <Link to="/auth">
-                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+                            <i  className="fa fa-sign-in" aria-hidden="true"></i>
                             <span>Войти</span>
                             </Link>
                             </>

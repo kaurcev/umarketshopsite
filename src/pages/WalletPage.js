@@ -6,7 +6,7 @@ import '../styles/profile.css';
 import yoomoney from '../img/iomoney.svg'
 
 export default function WalletPage() {
-    document.title = "Профиль";
+    document.title = "Ваш кошелёк";
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [trans, setTrans] = useState([]);
