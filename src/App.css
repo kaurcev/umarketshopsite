@@ -44,7 +44,7 @@ html, body{
 }
 
 main{
-  min-height: 75vh;
+  min-height: 100vh;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -457,7 +457,7 @@ main.productpage .postavprofile p{
 
 @media (max-width: 899px) {
   body{
-    padding: 50px 0px 70px 0px;
+    padding: 50px 0px 0px 0px;
     font-size: 14px;
   }
   .postlist .cart {
@@ -469,6 +469,11 @@ main.productpage .postavprofile p{
   main .page .duo{
     flex-wrap: wrap;
   }
+  main.profile{
+    display: flex;
+    flex-direction: column;
+  }
+
   main.profile .page .duo img{
     display: none;
   }
