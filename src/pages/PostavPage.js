@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from "../components/Header";
 import serverUrl from "../config";
+import Footer from '../components/Footer';
 
 export default function PostavPage() {
   document.title = "Панель поставщика";
@@ -61,6 +62,7 @@ export default function PostavPage() {
             )}
              </div> 
         </main>
+        <Footer />
         </>
     )
   }

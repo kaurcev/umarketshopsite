@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import ProductBar from '../components/ProductBar';
 import StoksBar from '../components/StoksBar';
+import Footer from '../components/Footer';
 
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
                     <ProductBar />
                 </div>
             </main>
+            <Footer />
         </>
     )
   }

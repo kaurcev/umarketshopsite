@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import E500 from '../img/E500.png'
 import serverUrl from "../config";
+import Footer from '../components/Footer';
 
 export default function E500Page() {
     document.title = "Технические работы";
@@ -31,6 +32,7 @@ export default function E500Page() {
             <p>Перезагрузите страницу или попробуйте зайти чуть позже.</p>
             <p className='mini'>Если данная ошибка не пропала по истечению длительного строка, напишите нам на info@umarketshop.site</p>
         </main>
+        <Footer />
         </>
     )
   }

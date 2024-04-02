@@ -5,6 +5,7 @@ import walletimg from "../img/wallet.png";
 import Header from '../components/Header';
 import '../styles/profile.css';
 import yoomoney from '../img/iomoney.svg'
+import Footer from '../components/Footer';
 
 export default function WalletPage() {
     document.title = "Ваш кошелёк";
@@ -105,6 +106,7 @@ export default function WalletPage() {
               </div>
          </div>
         </main>
+        <Footer />
         </>
     )
   }

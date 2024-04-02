@@ -8,6 +8,7 @@
   --akcent: #4E50FF;
   --akcent-two: #CECFFF;
   --akcent-tree: #4E50FF;
+  --footer: #4E50FF;
   --akcent-four: #CECFFF;
   --red: #f81c5e;
   --border: #4d4d4d;
@@ -21,6 +22,7 @@
     --akcent-tree: #c4c4c4;
     --akcent-four: #CECFFF;
     --color-header: #222222;
+    --footer: #222222;
     --border: #4d4d4d;
     }
 }
@@ -42,7 +44,7 @@ html, body{
 }
 
 main{
-  min-height: fit-content;
+  min-height: 75vh;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -472,6 +474,7 @@ main.productpage .postavprofile p{
   }
   main.profile .page .duo img.imgprodo{
     display: block;
+    width: 100%;
   }
    .productbar .productcart {
     min-width: 45%;
@@ -498,6 +501,12 @@ main.productpage .postavprofile p{
     font-size: 16px;
     font-weight: 700;
     opacity: 1;
+  }
+  form .duo.start div{
+    width: 100%;
+  }
+  form .duo.start{
+    flex-direction: column-reverse;
   }
   
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from "../components/Header";
 import serverUrl from "../config";
+import Footer from '../components/Footer';
 
 export default function PostavProdoAddPage() {
   document.title = "Панель поставщика";
@@ -88,7 +89,7 @@ export default function PostavProdoAddPage() {
        <Header />
         <main className='profile pay'>
         <div className='w250'>
-        <Link className='bt' to='/profile/postav'>Вернуться назад</Link>
+        <Link className='bt' to='/profile/postav/prodo'>Вернуться назад</Link>
         </div>
         <div className='page'>
             <h3>Добавление товара</h3>
@@ -130,6 +131,7 @@ export default function PostavProdoAddPage() {
                 }
             </div>
         </main>
+        <Footer />
         </>
     )
   }

@@ -4,6 +4,7 @@ import serverUrl from "../config";
 import profileimg from '../img/profile.png';
 import Header from '../components/Header';
 import PostMap from '../components/PostMap';
+import Footer from '../components/Footer';
 
 export default function ProfileEditPage() {
     document.title = "Редактирование профиля";
@@ -150,6 +151,7 @@ export default function ProfileEditPage() {
                 )}
             </div>
         </main>
+        <Footer />
     </>
     )
 }

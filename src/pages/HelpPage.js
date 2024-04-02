@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from "../components/Header";
+import Footer from '../components/Footer';
 
 export default function HelpPage() {
   document.title = "Помощь";
@@ -12,6 +13,7 @@ export default function HelpPage() {
         <main>
             <p>Скоро</p>
         </main>
+        <Footer />
       </>
     )
   }

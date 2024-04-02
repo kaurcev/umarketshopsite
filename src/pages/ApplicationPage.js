@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from "../components/Header";
+import Footer from '../components/Footer';
 
 export default function ApplicationPage () {
   document.title = "Как установить приложение";
@@ -34,6 +35,7 @@ export default function ApplicationPage () {
             <p>4. В появившемся меню выберите пункт "На главный экран".</p>
             <p>5. Подтвердите установку PWA приложения на главный экран устройства.</p>
         </main>
+        <Footer />
       </>
     )
   }

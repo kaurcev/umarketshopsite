@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom'; 
 import Header from "../components/Header";
 import serverUrl from "../config";
+import Footer from '../components/Footer';
 
 export default function PostavProdoEditPage() {
   document.title = "Панель поставщика | Редактирование товара";
@@ -102,7 +103,7 @@ export default function PostavProdoEditPage() {
        <Header />
         <main className='profile pay'>
         <div className='w250'>
-        <Link className='bt' to='/profile/postav'>Вернуться назад</Link>
+        <Link className='bt' to='/profile/postav/prodo'>Вернуться назад</Link>
         </div>
         <div className='page'>
             <h3>Добавление товара</h3>
@@ -138,6 +139,7 @@ export default function PostavProdoEditPage() {
                 }
             </div>
         </main>
+        <Footer />
         </>
     )
   }

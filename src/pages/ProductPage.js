@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import serverUrl from "../config";
 import { Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function ProductPage() {
     const [data, setData] = useState([]);
@@ -103,6 +104,7 @@ export default function ProductPage() {
                     )
                 }
             </main>
+            <Footer />
         </>
     )
   }

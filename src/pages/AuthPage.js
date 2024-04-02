@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import serverUrl from "../config";
+import Footer from '../components/Footer';
 
 export default function AuthPage() {
   document.title = "Авторизация";
@@ -70,6 +71,7 @@ export default function AuthPage() {
           </>
         )}
         </main>
+        <Footer />
       </>
     )
   }

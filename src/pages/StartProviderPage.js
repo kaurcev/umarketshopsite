@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from "../components/Header";
+import Footer from '../components/Footer';
 
 export default function StartProvidePage() {
   document.title = "Как стать поставщиком";
@@ -14,6 +15,7 @@ export default function StartProvidePage() {
           <p>Пока идёт разработка и тестирование сервиса, некоторые тестировщики получат доступ к панели поставщика.</p>
           <p>Ближе к официальному деплою я реализую анкету для подачи заявки на поставщика</p>
         </main>
+        <Footer />
       </>
     )
   }

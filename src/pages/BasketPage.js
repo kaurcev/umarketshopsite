@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import Header from "../components/Header";
 import serverUrl from "../config";
+import Footer from '../components/Footer';
 
 export default function BasketPage() {
   document.title = "Ваша корзина";
@@ -89,6 +90,7 @@ export default function BasketPage() {
             )}
              </div> 
         </main>
+        <Footer />
       </>
     )
   }

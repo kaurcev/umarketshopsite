@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import serverUrl from "../config";
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function SearchPage() {
     document.title = "Результаты поиска";
@@ -61,6 +62,7 @@ export default function SearchPage() {
                 }
             </div>
         </main>
+        <Footer />
         </>
     )
   }

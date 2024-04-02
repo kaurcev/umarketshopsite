@@ -4,6 +4,7 @@ import serverUrl from "../config";
 import {getBrowser, getDevice} from "../functions";
 import Header from '../components/Header';
 import '../styles/profile.css';
+import Footer from '../components/Footer';
 
 export default function ProfilePage() {
     document.title = "Профиль";
@@ -141,6 +142,7 @@ export default function ProfilePage() {
             </div>
          </div>
         </main>
+        <Footer />
         </>
     )
   }
