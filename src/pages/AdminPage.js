@@ -7,6 +7,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    
       const fetchData = async () => {
       try {
           setLoading(true); 
