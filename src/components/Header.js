@@ -7,6 +7,7 @@ import '../styles/header.css';
 export default function Header() {
     const navigate = useNavigate();
     const [searchtext, setSearchtext] = useState('');
+    const [geo, setGeo] = useState('');
 
     useEffect(() => {
     const getStatus = async () => {
@@ -21,7 +22,18 @@ export default function Header() {
             navigate('/500')
     });
     }
+    const getCity = async () => {
+        fetch(`//get.geojs.io/v1/ip/geo.json`)
+        .then(response => response.json())
+        .then(data => {
+            setGeo(data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    };
     getStatus();
+    getCity();
     // eslint-disable-next-line
     }, []); // Пустой массив зависимостей
 
@@ -43,8 +55,8 @@ export default function Header() {
             <div className="header">
                 <div className='minipan'>
                     <span>
-                        <Link to="/profile/wallet">RUB</Link>
-                        <Link to="/profile/"><i  className="fa fa-location-arrow" aria-hidden="true"></i> Омск</Link>
+                        <Link to="/profile/wallet">{geo.country_code3}</Link>
+                        <Link to="/profile/"><i  className="fa fa-location-arrow" aria-hidden="true"></i> {geo.city} | {geo.region}</Link>
                         <Link className='betatest'><i  className="fa fa-exclamation-triangle" aria-hidden="true"></i> Идёт тестирование системы</Link>
                     </span>
                     <span>
@@ -54,7 +66,7 @@ export default function Header() {
                         <Link to="/help">Помощь</Link>
                     </span>
                 </div>
-                <div className='mainpan'>
+                <div className='mainpan'>       
                 <img className='logo' src={logo} alt="юМаркет Шоп"/>
                 <form className='search' onSubmit={submitHandler}>
                      <input placeholder="Введите для поиска" onChange={searchHandler}  />
