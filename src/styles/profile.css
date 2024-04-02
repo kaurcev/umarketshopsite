@@ -77,6 +77,11 @@ main.profile{
     text-align: center;
     font-weight: 500;
   }
+  main.profile .w250 a.bt.red{
+    background-color: #ffa7c2;
+    border: 2px solid #ffa7c2;
+    color: var(--red);
+  }
 
 
   .payslist .itempay{
