@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import serverUrl from "../config";
+import walletimg from "../img/wallet.png";
 import Header from '../components/Header';
 import '../styles/profile.css';
 import yoomoney from '../img/iomoney.svg'
@@ -56,12 +57,13 @@ export default function WalletPage() {
                     <h4>ВАШ КОШЕЛЁК</h4>
                     <p className='mini'>Ваши  средства будут храниться в юМаркет Шоп</p>
                     <div className='cartpanel'>
-                        <h2>{data.wallet}Р</h2>
+                        <h2>{data.wallet}₽</h2>
                         <div className='bank'> 
                         <span className='mini'>Интеграция с </span> <img src={yoomoney} alt="" />
                       </div> 
                     </div>
                     <h4>ПОПОЛНЕНИЕ</h4>
+                    <div className='duo'>
                     <form className='pay' method="POST" action="https://yoomoney.ru/quickpay/confirm">
                       <input type="hidden" name="receiver" value="4100110853907883"/>
                       <input type="hidden" name="label" defaultValue={data.username} />
@@ -77,6 +79,8 @@ export default function WalletPage() {
                       </div>
                       <button>Пополнить</button>
                   </form>
+                  <img src={walletimg} alt="Кошелёк" />
+                    </div>
                 </>
             )}
             <h4>ПОСЛЕДНИЕ ОПЕРАЦИИ</h4>
@@ -88,7 +92,7 @@ export default function WalletPage() {
           ) : (
             trans.map((item) => (        
                 <div className='itempay' key={item.id}>
-                  <span className='big'>{item.money}Р</span>
+                  <span className='big'>{item.money}₽</span>
                     <div className='info'>
                         <h5>{item.name}</h5>
                         <p>{item.description}</p>

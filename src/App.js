@@ -17,6 +17,11 @@ import AdminPage from './pages/AdminPage';
 import PostavPage from './pages/PostavPage';
 import SearchPage from './pages/SearchPage';
 import PostavEditPage from './pages/PostavEditPage';
+import ProductPage from './pages/ProductPage';
+import PostavProdoPage from './pages/PostavProdoPage';
+import PostavProdoAddPage from './pages/PostavProdoAddPage';
+import PostavProdoEditPage from './pages/PostavProdoEditPage';
+
 
 function App() {
   return (
@@ -32,12 +37,15 @@ function App() {
         <Route exact path="/stocks" element={<StocksPage />} />
         <Route exact path="/basket" element={<BasketPage />} />
         <Route exact path="/help" element={<HelpPage />} />
+        <Route exact path="/product" element={<ProductPage />} />
         <Route exact path="/profile/admin" element={<AdminPage />} />
         <Route exact path="/profile/postav" element={<PostavPage />} />
+        <Route exact path="/profile/postav/prodo" element={<PostavProdoPage />} />       
+        <Route exact path="/profile/postav/addprodo" element={<PostavProdoAddPage />} /> 
+        <Route exact path="/profile/postav/editprodo" element={<PostavProdoEditPage />} />       
         <Route exact path="/profile/postav/edit" element={<PostavEditPage />} />
         <Route exact path="/profile/wallet" element={<WalletPage />} />
         <Route exact path="/search" element={<SearchPage />} />
-      
         <Route exact path="/500" element={<E500Page />} />
         <Route path="*" element={<E404Page />} />
       </Routes>

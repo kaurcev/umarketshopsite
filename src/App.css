@@ -92,6 +92,17 @@ form input{
 form input:hover{
   border: 2px solid var(--akcent);
 }
+textarea, form textarea{
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: var(--color-header);
+  border: 2px solid  var(--border);
+  color: var(--color-font);
+  width: 100%;
+}
+textarea:hover, form textarea:hover{
+  border: 2px solid var(--akcent);
+}
 form.auth button{
   width: 100%;
   background-color: var(--akcent);
@@ -124,6 +135,19 @@ a.bt, button{
   border-radius: 10px;
   border: 2px solid var(--akcent);
 }
+
+a.bt.o, button.o{
+  width: 100%;
+  background-color: var(--akcent-two);
+  padding: 8px;
+  font-size: 14px;
+  color: var(--akcent-tree);
+  border-radius: 10px;
+  border: 2px solid var(--akcent-two);
+  text-align: center;
+  font-weight: 500;
+}
+
 a.bt.red, button.red{
   background-color: var(--red);
   border: 2px solid var(--red);
@@ -136,7 +160,7 @@ a.bt.red, button.red{
 }
 .postlist .cart{
   padding: 10px;
-  background: var(--color-body-bg-two);
+  background: var(--color-header);
   border-radius: 10px;
   width: 100%;
   min-width: 500px;
@@ -180,19 +204,96 @@ main .page .duo{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+main .page .duo.start{
+  align-items: start;
+  padding: 5px;
+}
+main .coll{
+  display: flex;
+  flex-direction: column;
 }
 
-/*#region мобильный адаптив*/
-@media (max-width: 899px) {
-  body{
-    padding: 50px 0px 70px 0px;
-    font-size: 14px;
-  }
-  .postlist .cart {
-    min-width: 90%;
-  }
+img{
+  object-fit: scale-down;
+  object-position: center;
 }
-/*#endregion Мобильный адаптив*/
+
+.stoksbar{
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  background-color: var(--akcent);
+  width: 100%;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.productbar{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.productbar .productcart{
+  max-width: min-content;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  flex-grow: 1;
+}
+.productbar .productcart:hover{
+  box-shadow: 0 0 10px 0 #00000022;
+  border-radius: 20px;
+}
+.productbar .productcart h5{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.productbar .productcart .money{
+  font-weight: 700;
+}
+
+.productbar .productcart .desc{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.productbar .productcart img{
+  background-color: var(--color-body-bg-two);
+  width: 200px;
+  height: 20vh;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  min-height: 200px;
+  object-fit: scale-down;
+}
+.productbar .productcart p, .productbar .productcart h5{
+  margin: 0px;
+}
+
+
+.stoksbar .stokcart{
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
 
 
 @keyframes shine {
@@ -223,4 +324,181 @@ main.profile .page .cartpanel .load{
   min-height: 16px;
   border: 2px solid transparent;
 }
+main.productpage h1{
+  margin: 0px;
+}
+main.productpage .duo{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 10px;
+}
 
+
+main.productpage .duob{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+main.productpage img{
+  flex-grow: 4;
+  background-color: var(--color-body-bg-two);
+  border-radius: 10px;
+  max-width: 60%;
+  max-height: 50vh;
+}
+main.productpage .h1.mini{
+  opacity: 1;
+}
+
+main.productpage .dop{
+  flex-grow: 2;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+main.productpage h1{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+main .page form{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+main form.photoload input[type="file"]{
+  min-height: 25vh;
+  border: 4px dotted var(--akcent-four);
+  border-radius: 10px;
+  transition: border-color 0.3s ease-in-out;
+  background: url("./img/logo.png");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.8;
+  padding: 10px;
+}
+
+main form.photoload input[type="file"]:hover{
+  animation: scroll-border 0.5s infinite;
+}
+
+/* Ключевые кадры анимации */
+@keyframes scroll-border {
+  0% {
+    border-color: var(--akcent-four);
+  }
+  50% {
+    border-color: var(--akcent);
+  }
+  100% {
+    border-color: var(--akcent-four);
+  }
+}
+
+.imgprodo {
+  max-height: 33vh;
+  object-fit: scale-down;
+  object-position: center;
+  background-color: var(--color-header);
+  border: 4px dotted var(--akcent);
+  border-radius: 10px;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+
+main.productpage .moneycart{
+  width: 100%;
+  box-shadow: 0 4px 10px 0 #13213335;
+  padding: 10px;
+  border-radius: 20px;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  background-color: var(--color-header);
+}
+
+main.productpage .postavprofile{
+  background-color: var(--akcent);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+main.productpage .postavprofile p{
+  margin: 0px;
+}
+
+
+
+
+
+
+
+
+/*#region мобильный адаптив*/
+
+
+@media (max-width: 899px) {
+  body{
+    padding: 50px 0px 70px 0px;
+    font-size: 14px;
+  }
+  .postlist .cart {
+    min-width: 90%;
+  }
+  main .page form{
+    width: 100%;
+  }
+  main .page .duo{
+    flex-wrap: wrap;
+  }
+  main.profile .page .duo img{
+    display: none;
+  }
+  main.profile .page .duo img.imgprodo{
+    display: block;
+  }
+   .productbar .productcart {
+    min-width: 45%;
+ }
+  .productbar .productcart img{
+    width: 100%;
+  }
+  main.productpage .duo{
+    flex-direction: column;
+  }
+  main.productpage img{
+    width: 100%;
+    max-width: none;
+    min-height: 50vh;
+  }
+  main.productpage .h1{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+  main.productpage .h1 .big {
+    font-size: 16px;
+    font-weight: 700;
+    opacity: 1;
+  }
+  
+}
+/*#endregion Мобильный адаптив*/

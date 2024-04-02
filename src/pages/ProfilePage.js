@@ -70,6 +70,7 @@ export default function ProfilePage() {
         <Link className='bt' to='/profile/wallet'>Кошелёк</Link>
         {data.roleid === "2" ? (<Link className='bt' to='/profile/postav'>Панель поставщика</Link>) : null}
         {data.roleid === "3" ? (<Link className='bt' to='/profile/admin'>Панель администратора</Link>) : null}
+        <Link className='bt red' to='/logout'>Выход</Link>
         </div>
         <div className='page'>
             {loading ? (

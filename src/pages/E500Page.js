@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import E500 from '../img/E500.png'
 import serverUrl from "../config";
 
 export default function E500Page() {
@@ -24,7 +25,8 @@ export default function E500Page() {
     return (
         <>
         <main className='centered'>
-            <h1>505</h1>
+            <img src={E500} alt='500' />
+            <h1>500</h1>
             <p>Сервер ответил 500 ошибкой</p>
             <p>Перезагрузите страницу или попробуйте зайти чуть позже.</p>
             <p className='mini'>Если данная ошибка не пропала по истечению длительного строка, напишите нам на info@umarketshop.site</p>
