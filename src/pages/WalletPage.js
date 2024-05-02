@@ -88,23 +88,40 @@ export default function WalletPage() {
               <div className='payslist'>
               {loading ? (
             <>
-            Загрузка
+            <p className='noauth'>
+              Загрузка
+            </p>
             </>
           ) : (
-            trans.map((item) => (        
-                <div className='itempay' key={item.id}>
-                  <span className='big'>{item.money}₽</span>
-                    <div className='info'>
-                        <h5>{item.name}</h5>
-                        <p>{item.description}</p>
-                        <p className='mini'>Дата и время операции: {item.date}</p>
+            <>
+            {
+              trans.length < 1 ? (
+                <>
+                    <p className='noauth'>
+                Транкзакций не проводилось
+                    </p>
+                </>
+              ) : (
+                <>
+                {
+                  trans.map((item) => (        
+                    <div className='itempay' key={item.id}>
+                      <span className='big'>{item.money}₽</span>
+                        <div className='info'>
+                            <h5>{item.name}</h5>
+                            <p>{item.description}</p>
+                            <p className='mini'>Дата и время операции: {item.date}</p>
+                        </div>
                     </div>
-                </div>
-            ))
+                ))
+                }
+                </>
+              )
+            }
+            </>
           )}
-
-              </div>
-         </div>
+        </div>
+        </div>
         </main>
         <Footer />
         </>

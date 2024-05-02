@@ -100,22 +100,22 @@ form input{
   padding: 10px 15px;
   border-radius: 10px;
   background-color: var(--color-header);
-  border: 2px solid  var(--border);
+  border: 1px solid  var(--border);
   color: var(--color-font);
 }
 form input:hover{
-  border: 2px solid var(--akcent);
+  border: 1px solid var(--akcent);
 }
 textarea, form textarea{
   padding: 10px 15px;
   border-radius: 10px;
   background-color: var(--color-header);
-  border: 2px solid  var(--border);
+  border: 1px solid  var(--border);
   color: var(--color-font);
   width: 100%;
 }
 textarea:hover, form textarea:hover{
-  border: 2px solid var(--akcent);
+  border: 1px solid var(--akcent);
 }
 form.auth button{
   width: 100%;
@@ -124,7 +124,7 @@ form.auth button{
   font-size: 14px;
   color: #fff;
   border-radius: 10px;
-  border: 2px solid var(--akcent);
+  border: 1px solid var(--akcent);
 }
 p.center{
   text-align: center;
@@ -147,7 +147,7 @@ a.bt, button{
   font-size: 14px;
   color: #fff;
   border-radius: 10px;
-  border: 2px solid var(--akcent);
+  border: 1px solid var(--akcent);
 }
 
 a.bt.o, button.o{
@@ -157,14 +157,14 @@ a.bt.o, button.o{
   font-size: 14px;
   color: var(--akcent-tree);
   border-radius: 10px;
-  border: 2px solid var(--akcent-two);
+  border: 1px solid var(--akcent-two);
   text-align: center;
   font-weight: 500;
 }
 
 a.bt.red, button.red{
   background-color: var(--red);
-  border: 2px solid var(--red);
+  border: 1px solid var(--red);
 }
 .postlist{
   display: grid;
@@ -353,7 +353,7 @@ main.productpage .moneycart .money{
   border-radius: 5px;
   width: 100%;
   min-height: 16px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   margin: 10px 0px;
 }
 main.profile .page .session .cart.load{
@@ -366,7 +366,7 @@ main.profile .page .cartpanel .load{
   border-radius: 5px;
   width: 100%;
   min-height: 16px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 }
 
 main.productpage .duo{
@@ -495,6 +495,7 @@ main.productpage .moneycart{
   align-items: stretch;
   justify-content: space-between;
   background-color: var(--color-header);
+  padding: 20px;
 }
 
 main.productpage .postavprofile{
@@ -549,6 +550,13 @@ main.productpage .postavprofile p{
   }
    .productbar .productcart {
     min-width: 45%;
+    flex-basis: 170px;
+ }
+ main.productpage form.addtew{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 15px;
  }
   main.productpage .duo{
     flex-direction: column;

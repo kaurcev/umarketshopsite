@@ -45,19 +45,37 @@ export default function SearchPage() {
             <div className='productbar'>
                 {loading ? (
                     <>
-                        Загрузка
+                    <p className='noauth'>
+                    Загрузка
+                    </p>
                     </>
                 ) : (
-                    data.map((item) => (        
-                        <div className='productcart' key={item.id}>
-                            <img src={`//${serverUrl}/img/${item.img}`} alt={item.name} />
-                            <p className='money'>{item.money}Р</p>   
-                            <h5>{item.name}</h5>
-                            <p className='desc mini'>{item.description}</p>
-                        <button className='o' onClick={() => openprodo(item.id)}>Подробнее</button>
-                        <button>В корзину</button>
-                        </div>
-                    ))
+                    <>
+                    {
+                        data.length < 1 ? (
+                            <>
+                            <p className='noauth'>
+                            По вашему запросу ничего не найдено
+                            </p>
+                            </>
+                        ) : (
+                            <>
+                            {
+                            data.map((item) => (        
+                                <div className='productcart' key={item.id}>
+                                    <img src={`//${serverUrl}/img/${item.img}`} alt={item.name} />
+                                    <p className='money'>{item.money} ₽</p>   
+                                    <h5>{item.name}</h5>
+                                    <p className='desc mini'>{item.description}</p>
+                                <button className='o' onClick={() => openprodo(item.id)}>Подробнее</button>
+                                <button>В корзину</button>
+                                </div>
+                                ))
+                            }
+                            </>
+                        )
+                    }
+                    </>
                 )
                 }
             </div>

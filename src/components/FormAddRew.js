@@ -1,10 +1,43 @@
-import React from 'react';
+import { useState } from 'react';
+import serverUrl from "../config";
 
 import '../styles/footer.css';
 import { Link } from 'react-router-dom';
 
-export default function FormAddRew() {
+const FormAddRew = ({ produ }) => {
+    const [review, setReview] = useState('');
 
+    const reviewHandler = (event) => {
+        setReview(event.target.value);
+    };
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        SigninRequest();
+      };
+    
+      function SigninRequest() {
+        const params = new URLSearchParams();
+        params.append('id', produ);
+        params.append('text', review);
+        params.append('me', localStorage.getItem("token"));
+        fetch(`//${serverUrl}/api/review/add.php?${params.toString()}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.status) {
+              alert("Отзыв добавлен");
+              setReview("");
+              window.scrollTo(0, 0);
+            } else {
+              alert("Что-то пошло не так");
+            }
+          })
+          .catch(error => {
+            alert(`501 ошибка: ${error.message}`);
+            console.error(error);
+          });
+      }
+    
     return (
         <>
           <div>
@@ -18,14 +51,11 @@ export default function FormAddRew() {
             </p>
             </>) : (
                 <>
-                    <form className='addtew'>
+                    <form onSubmit={submitHandler} className='addtew'>
                         <p className='mini'>Напишите ваш отзыв</p>
-                        <textarea></textarea>
+                        <textarea type="text" value={review} onChange={reviewHandler} ></textarea>
                         <p className='mini'>Перед отпраавкой задумйтесь - ваш отзыв увидят все</p>
-                        <div className='duo'>
                         <button>Отправить</button>
-                        <button className='red'>Отменить изменения</button>
-                        </div>
                     </form>
                 </>
             )
@@ -34,3 +64,5 @@ export default function FormAddRew() {
           </>
     );
 }
+
+export default FormAddRew;

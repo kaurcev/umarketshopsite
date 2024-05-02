@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import serverUrl from "../config";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ReviewsBar from '../components/ReviewsBar';
@@ -45,11 +45,22 @@ export default function ProductPage() {
             const jsonData = await response.json();
             if(jsonData.status){
                 alert("Добавлено");
+            }else{
+                alert("Ошибка при добавлении товара в корзину :(");
             }
         } catch (error) {
             console.log(error);
         } 
         };
+
+    const showAlert = () => {
+        alert("Добавьте в корзину и ожидайте товар после оплаты по указанному в проофиле адресу почтового отделения");
+    }
+    const shareLink = () => {
+        navigator.clipboard.writeText(`Взгляните на товар по ссылке ${window.location.href}`)
+        .then(() => alert(`Ссылка на ${data.name} скопировна!`))
+        .catch(err => alert(`Ссылка не скопирована, причина: ${err}`))
+    }
 
     return (
         <>
@@ -69,7 +80,7 @@ export default function ProductPage() {
                         <hr />
                         <div className='duob'>
                             <div className='linkpanel'>
-                            <Link to="#">Поделиться</Link>
+                            <span onClick={() => shareLink()}>Поделиться</span>
                             </div>
                             <span className='mini'>
                             Артикул: {data.id}
@@ -92,7 +103,7 @@ export default function ProductPage() {
                             )
                             }
                            </div>
-                           <button>Купить в один клик</button>
+                           <button onClick={() => showAlert()}>Купить в один клик</button>
                             <div className='postavprofile'>
                                 <p className='mini'>Связаться с поставщиком</p>
                                 <p>{data.provider_email}</p>
@@ -115,7 +126,7 @@ export default function ProductPage() {
                 <div className='reviews'>
                     {ReviewsBar(productid)}
                 </div>
-                <FormAddRew />
+                <FormAddRew produ={productid}/>
             </main>
             <Footer />
         </>

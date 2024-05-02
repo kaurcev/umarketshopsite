@@ -38,7 +38,7 @@ export default function BasketPage() {
         const response = await fetch(`//${serverUrl}/api/basket/delete.php?${params.toString()}`);
         const jsonData = await response.json();
         if(jsonData.status){
-            // alert("Удалено");
+            alert("Удалено");
             setData(prevData => prevData.filter(item => item.id !== id));
         }
     } catch (error) {
@@ -75,15 +75,30 @@ export default function BasketPage() {
                     Загрузка
                 </>
             ) : (
-                data.map((item) => (        
-                    <div className='productcart' key={item.id}>
-                      <img src={`//${serverUrl}/img/${item.img}`} alt={item.name} />
-                      <h5>{item.name}</h5>
-                        <p className='desc mini'>{item.description}</p>  
-                        <button className='o' onClick={() => openprodo(item.product_id)}>Открыть товар</button>
-                        <button className='red' onClick={() => dropbasket(item.id)}>Удалить из корзины</button>     
-                    </div>
-                ))
+                <>
+                {
+                    data.length < 1 ? (
+                        <>
+                        <p className='noauth'>Вы ещё ничего не добавили в свю корзину</p>
+                        </>
+                    ) : (
+                        <>
+                        {
+                            data.map((item) => (        
+                                <div className='productcart' key={item.id}>
+                                    <img src={`//${serverUrl}/img/${item.img}`} alt={item.name} />
+                                    <h5>{item.name}</h5>
+                                    <p>{item.money} ₽</p>  
+                                <p className='desc mini'>{item.description}</p>  
+                                <button className='o' onClick={() => openprodo(item.product_id)}>Открыть товар</button>
+                                <button className='red' onClick={() => dropbasket(item.id)}>Удалить из корзины</button>
+                                </div>
+                            ))
+                        }
+                        </>
+                    )
+                }
+                </>
             )
             }
           </div>

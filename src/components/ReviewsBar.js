@@ -31,24 +31,26 @@ export default function ReviewsBar(productid) {
                     Загрузка
                 </>
             ) : (
-                data === "" ? (
-                    <>
-                    <div className='review'>
-                            <h4>Отзывов пока нет</h4>
-                        </div>
-                    </>
-                ) : (
                 <>
                 {
-                    data.map((item) => (        
-                        <div className='review' key={item.id}>
-                            <h5>{item.username}</h5>
-                            <p>{item.message}</p>
-                            <p>{item.date}</p>
-                        </div>
-                    ))
+                    data.length < 1 ? (
+                        <>
+                        <p className='noauth'>Отзывов пока нет</p>
+                        </>
+                    ) : (
+                    <>
+                    {
+                        data.map((item) => (        
+                            <div className='review' key={item.id}>
+                                <h5>{item.username}</h5>
+                                <p>{item.message}</p>
+                                <p>{item.date}</p>
+                            </div>
+                        ))
+                    }
+                    </>)
                 }
-                </>)
+                </>
             )
             }
           </>

@@ -32,6 +32,8 @@ export default function AuthPage() {
           console.log(data.data.token);
           localStorage.setItem('token', data.data.token);
           navigate('/');
+        }else{
+          alert("Прверьте правильность введеных данных");
         }
       })
       .catch(error => {
@@ -61,9 +63,9 @@ export default function AuthPage() {
               <div className='back'>
                 <h2>Авторизация</h2>
                 <p>Логин</p>
-                <input type="text" value={username} onChange={usernameHandler} />
+                <input maxLength="30" type="text" value={username} onChange={usernameHandler} />
                 <p>Пароль</p>
-                <input type="password" value={password} onChange={passwordHandler} />
+                <input maxLength="30" type="password" value={password} onChange={passwordHandler} />
                 <p><button>Войти</button></p>
                 <p className='center'><Link to='/signup'>Ещё нет аккаунта</Link></p>
               </div>

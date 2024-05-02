@@ -54,7 +54,7 @@ export default function Signup() {
       .then(response => response.json())
       .then(data => {
         if (data.status) {
-          alert("Теперь вы можете вторизироваться!");
+          alert("Теперь вы можете авторизироваться!");
           navigate('/auth');
         } else {
           alert("Данный логин занят");
@@ -81,22 +81,22 @@ export default function Signup() {
             <div>
               <h2>юМаркет шоп</h2>
               <p>Фамилия</p>
-                <input type="text" value={surname} onChange={surnameHandler} />
+                <input type="text" maxLength="100" value={surname} onChange={surnameHandler} />
                 <p>Имя</p>
-                <input type="text" value={name} onChange={nameHandler} />
+                <input type="text" maxLength="100" value={name} onChange={nameHandler} />
                 <p>Отчество</p>
-                <input type="text" value={firstname} onChange={firstnameHandler} />
+                <input type="text" maxLength="100" value={firstname} onChange={firstnameHandler} />
               </div>
               <div>
               <h2>Регистрация</h2>
               <p>Ваш email</p>
-                <input type="email" value={email} onChange={emailHandler} />
+                <input type="email"  maxLength="100" value={email} onChange={emailHandler} />
                 <p>Логин</p>
-                <input type="text" value={username} onChange={usernameHandler} />
+                <input type="text"  maxLength="100" value={username} onChange={usernameHandler} />
                 <p>Пароль</p>
-                <input type="password" value={password} onChange={passwordHandler} />
+                <input type="password" maxLength="100"  value={password} onChange={passwordHandler} />
                 <p>Повторите пароль</p>
-                <input type="password" value={password} onChange={passwordHandler} />
+                <input type="password" maxLength="100" value={password} onChange={passwordHandler} />
               </div>
             </div>
               <div>

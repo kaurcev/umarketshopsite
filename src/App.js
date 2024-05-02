@@ -22,6 +22,7 @@ import PostavProdoPage from './pages/PostavProdoPage';
 import PostavProdoAddPage from './pages/PostavProdoAddPage';
 import PostavProdoEditPage from './pages/PostavProdoEditPage';
 import Signup from './pages/SignupPage';
+import PaySuccessPage from './pages/PaySuccessPage';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/stocks" element={<StocksPage />} />
         <Route exact path="/basket" element={<BasketPage />} />
         <Route exact path="/help" element={<HelpPage />} />
+        <Route exact path="/pay/success" element={<PaySuccessPage />} />
         <Route exact path="/product" element={<ProductPage />} />
         <Route exact path="/profile/admin" element={<AdminPage />} />
         <Route exact path="/profile/postav" element={<PostavPage />} />

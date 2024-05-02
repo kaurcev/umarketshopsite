@@ -11,7 +11,7 @@ export default function StocksPage() {
       <>
       <Header />
         <main>
-            <p>Скоро</p>
+            <p>Скоро вы сможете тут увидеть акции от наших поставщикв!</p>
         </main>
         <Footer />
       </>
