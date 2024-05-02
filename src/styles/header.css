@@ -7,7 +7,7 @@ header{
     padding: 10px;
     box-shadow: 0 0 10px 0 #0000001f;
     z-index: 100;
-  }
+  } 
   header .header{
     width: 100%;
     max-width: 1200px;

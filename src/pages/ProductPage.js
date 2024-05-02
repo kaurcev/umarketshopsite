@@ -15,7 +15,7 @@ export default function ProductPage() {
     useEffect(() => {
         const fetchData = async () => {
         try {
-            setLoading(true);        
+            setLoading(true);         
             const params = new URLSearchParams();
             params.append('id', productid);
             const responses = await fetch(`//${serverUrl}/api/product/item.php?${params.toString()}`);

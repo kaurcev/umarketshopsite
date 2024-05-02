@@ -12,7 +12,7 @@ export default function E500Page() {
         fetch(`//${serverUrl}/api/status.php`)
         .then(response => response.json())
         .then(data => {
-            if(data.status){
+            if(data.status){ 
                 navigate('/')
             }
         })

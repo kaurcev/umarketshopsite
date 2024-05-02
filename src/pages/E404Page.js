@@ -11,7 +11,7 @@ export default function E404Page() {
     return (
         <>
         <main className='centered'>
-            <img src={E404} alt='404' />
+            <img src={E404} alt='404' /> 
             <h1>404</h1>
             <p>Страница не найдена</p>
             <p className='mini'>Страница была удалена или не существовала вовсе</p>

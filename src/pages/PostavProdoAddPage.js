@@ -15,7 +15,7 @@ export default function PostavProdoAddPage() {
   const [banner, setBanner] = useState(null);
   const [money, setMoney] = useState('');
 
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState(null); 
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);

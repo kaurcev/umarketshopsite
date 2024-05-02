@@ -15,7 +15,7 @@ export default function PostavProdoEditPage() {
   const [money, setMoney] = useState('');
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const productid = searchParams.get('id');
+  const productid = searchParams.get('id'); 
   
   useEffect(() => {
     const fetchData = async () => {

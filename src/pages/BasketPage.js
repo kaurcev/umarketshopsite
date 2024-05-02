@@ -10,7 +10,7 @@ export default function BasketPage() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-      const fetchData = async () => {
+      const fetchData = async () => { 
       try {
           setLoading(true);       
           const params = new URLSearchParams();

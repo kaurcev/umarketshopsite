@@ -7,7 +7,7 @@ main.profile{
     padding: 10px;
   }
   main.profile .session{
-    max-height: 500px;
+    max-height: 500px; 
     overflow-y: scroll;
     display: flex;
     flex-direction: column;

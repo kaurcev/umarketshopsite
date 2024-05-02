@@ -15,7 +15,7 @@ export default function ProfilePage() {
 
     useEffect(() => {
         const fetchData = async () => {
-        try {
+        try { 
             setLoading(true);        
             if(localStorage.getItem('token') == null){
             navigate('/auth')

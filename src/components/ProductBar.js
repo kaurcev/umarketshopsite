@@ -8,7 +8,7 @@ export default function ProductBar() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async () => { 
         try {
             setLoading(true);        
             const responses = await fetch(`//${serverUrl}/api/product/all.php`);

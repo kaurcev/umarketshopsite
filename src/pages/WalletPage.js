@@ -14,7 +14,7 @@ export default function WalletPage() {
     const [trans, setTrans] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
+    useEffect(() => { 
         const fetchData = async () => {
         try {
             setLoading(true);        

@@ -12,7 +12,7 @@ export default function HelpPage() {
       <Header />
         <main>
             <p>Скоро</p>
-        </main>
+        </main> 
         <Footer />
       </>
     )

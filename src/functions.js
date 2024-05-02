@@ -12,7 +12,7 @@ export function getBrowser(userAgent) {
         </>
       );
     } else if (userAgent.includes("Safari")) {
-      return (
+      return ( 
         <>
        <i  className="fa fa-safari" aria-hidden="true"></i> <span>Apple Safari</span>
         </>
