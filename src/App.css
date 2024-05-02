@@ -43,13 +43,25 @@ html, body{
   text-decoration: none;
 }
 
+@keyframes loadpage {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
 main{
   min-height: 100vh;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px;
+  animation: loadpage 0.5s ease;
+
 }
+
 main.centered{
   display: flex;
   flex-direction: column;
@@ -248,12 +260,22 @@ img{
   flex-direction: column;
   justify-content: space-between;
   gap: 5px;
-  flex-grow: 1;
-  flex-basis: 200px;
-}
-.productbar .productcart:hover{
-  box-shadow: 0 0 10px 0 #00000022;
+  flex-basis: 220px;
+  transition: transform 0.3s ease, box-shadow  0.3s ease;
+  box-shadow: 0 0 0 0 #00000000;
   border-radius: 20px;
+}
+
+.noauth{
+  padding: 10px;
+  border: 1px solid var(--border);
+  text-align: center;
+  border-radius: 8px;
+}
+
+.productbar .productcart:hover{
+  box-shadow: 0 4px 10px 0 #00000022;
+  transform: scale(1.05);
 }
 .productbar .productcart h5{
   overflow: hidden;
@@ -283,9 +305,16 @@ img{
   object-position: center;
   min-height: 200px;
   object-fit: scale-down;
+  width: 100%;
 }
 .productbar .productcart p, .productbar .productcart h5{
   margin: 0px;
+}
+
+main.productpage .moneycart .money{
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--akcent);
 }
 
 
@@ -339,9 +368,7 @@ main.profile .page .cartpanel .load{
   min-height: 16px;
   border: 2px solid transparent;
 }
-main.productpage h1{
-  margin: 0px;
-}
+
 main.productpage .duo{
   display: flex;
   flex-direction: row;
@@ -380,11 +407,37 @@ main.productpage .dop{
 main.productpage h1{
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 1; 
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0px;
 }
-
+form.signin{
+  background-color: var(--color-header);
+  padding: 2px;
+  box-shadow: 0 0 10px 0 #0000001f;
+  width: 60%;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form.signin button{
+  max-width: 200px;
+}
+.signin .duo{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  justify-content: space-around;
+  gap: 10px;
+}
 main .page form{
   display: flex;
   flex-direction: column;

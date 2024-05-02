@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import serverUrl from "../config";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ReviewsBar from '../components/ReviewsBar';
+import FormAddRew from '../components/FormAddRew';
 
 export default function ProductPage() {
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const location = useLocation();
@@ -59,7 +61,11 @@ export default function ProductPage() {
                     </>
                 ) : (
                     <>
-                    <h1>{data.name}</h1>
+                    <h1> 
+                        <span onClick={() => navigate(-1)}>
+                            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                        </span>
+                    {data.name}</h1>
                         <hr />
                         <div className='duob'>
                             <div className='linkpanel'>
@@ -72,18 +78,22 @@ export default function ProductPage() {
                         <div className='duo'>
                             <img src={`//${serverUrl}/img/${data.img}`} alt={data.name} />
                         <div className='dop'>
-                            {localStorage.getItem('token') === null ? (
+                            <>
+                            <div className='moneycart'>
+                            <p className='money'>{data.money} ₽</p>
+                            {
+                            localStorage.getItem('token') === null ? (
                             <>
                             Необходимо авторизироваться
                             </>) : (
-                            <>
-                            <div className='moneycart'>
-                                <p>{data.money}Р</p>
-                                <button onClick={() => FromBasket()}>В корзину</button>
+                                <>
+                                 <button onClick={() => FromBasket()}>В корзину</button>
+                                </>
+                            )
+                            }
                            </div>
                            <button>Купить в один клик</button>
                             <div className='postavprofile'>
-                                <p>{data.provider}</p>
                                 <p className='mini'>Связаться с поставщиком</p>
                                 <p>{data.provider_email}</p>
                                 <p>{data.provider_phone}</p>
@@ -91,8 +101,7 @@ export default function ProductPage() {
                                  <p className='mini'>Адрес отправки</p>
                                 <p>{data.provider_address}</p>
                             </div>
-                            </>)}
-
+                            </>
                             </div>
                         </div>
                         <h4>Полное название</h4>
@@ -106,6 +115,7 @@ export default function ProductPage() {
                 <div className='reviews'>
                     {ReviewsBar(productid)}
                 </div>
+                <FormAddRew />
             </main>
             <Footer />
         </>

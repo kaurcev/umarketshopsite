@@ -61,7 +61,7 @@ export default function ProductBar() {
                        <button className='o' onClick={() => openprodo(item.id)}>Подробнее</button>
                        {localStorage.getItem('token') === null ? (
                             <>
-                            <p className='mini'>Авторизируйтесь</p>
+                            <p className='noauth mini'>Авторизируйтесь</p>
                             </>) : (
                             <>
                             <button onClick={() => FromBasket(item.id)}>В корзину</button>

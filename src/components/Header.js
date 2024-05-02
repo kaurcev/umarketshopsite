@@ -10,6 +10,7 @@ export default function Header() {
     const [geo, setGeo] = useState('');
 
     useEffect(() => {
+        window.scrollTo(0, 0);
     const getStatus = async () => {
         fetch(`//${serverUrl}/api/status.php`)
         .then(response => response.json())
@@ -67,7 +68,7 @@ export default function Header() {
                     </span>
                 </div>
                 <div className='mainpan'>       
-                <img className='logo' src={logo} alt="юМаркет Шоп"/>
+                <img onClick={() => navigate("/")} className='logo' src={logo} alt="юМаркет Шоп"/>
                 <form className='search' onSubmit={submitHandler}>
                      <input placeholder="Введите для поиска" onChange={searchHandler}  />
                     <button type="">Поиск</button>
