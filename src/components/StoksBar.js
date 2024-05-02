@@ -7,7 +7,7 @@ export default function StoksBar() {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
-        try { 
+        try {
             setLoading(true);        
             const responses = await fetch(`//${serverUrl}/api/stoks/all.php`);
             const jsonTrans = await responses.json();

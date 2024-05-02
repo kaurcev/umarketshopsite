@@ -4,7 +4,7 @@ export function getBrowser(userAgent) {
         <>
        <i  className="fa fa-chrome" aria-hidden="true"></i> <span>Google Chrome</span>
         </>
-      ); 
+      );
     } else if (userAgent.includes("Firefox")) {
       return (
         <>
@@ -12,7 +12,7 @@ export function getBrowser(userAgent) {
         </>
       );
     } else if (userAgent.includes("Safari")) {
-      return ( 
+      return (
         <>
        <i  className="fa fa-safari" aria-hidden="true"></i> <span>Apple Safari</span>
         </>

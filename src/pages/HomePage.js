@@ -12,7 +12,7 @@ export default function HomePage() {
         window.scrollTo(0, 0)
     }, [])
 
-    return ( 
+    return (
         <>
         <Header />
             <main>

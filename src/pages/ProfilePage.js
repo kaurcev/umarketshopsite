@@ -14,8 +14,9 @@ export default function ProfilePage() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const fetchData = async () => {
-        try { 
+        try {
             setLoading(true);        
             if(localStorage.getItem('token') == null){
             navigate('/auth')
@@ -46,8 +47,7 @@ export default function ProfilePage() {
 
 
     const sessionExit = async (id) => {
-        try {
-            setLoading(true);        
+        try { 
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token'));
             params.append('id', id);
@@ -58,9 +58,7 @@ export default function ProfilePage() {
             }
         } catch (error) {
             console.log(error);
-        } finally {
-            setLoading(false);
-        }
+        } 
     };
     return (
         <>

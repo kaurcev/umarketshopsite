@@ -8,7 +8,7 @@ export default function ProductBar() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
-        const fetchData = async () => { 
+        const fetchData = async () => {
         try {
             setLoading(true);        
             const responses = await fetch(`//${serverUrl}/api/product/all.php`);
@@ -32,7 +32,6 @@ export default function ProductBar() {
 
       const FromBasket = async (id) => {
         try {
-            setLoading(true);
             const params = new URLSearchParams();
             params.append('product', id);
             params.append('me', localStorage.getItem('token'));
@@ -43,8 +42,6 @@ export default function ProductBar() {
             }
         } catch (error) {
             console.log(error);
-        } finally{
-            setLoading(false);
         }
         };
 

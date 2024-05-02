@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
+ 
 :root {
   --color-font: #141414;
   --color-body-bg: #FFFFFF;
@@ -7,7 +7,7 @@
   --color-header: #FFFFFF;
   --akcent: #4E50FF;
   --akcent-two: #CECFFF;
-  --akcent-tree: #4E50FF; 
+  --akcent-tree: #4E50FF;
   --footer: #4E50FF;
   --akcent-four: #CECFFF;
   --red: #f81c5e;
@@ -243,13 +243,13 @@ img{
 }
 
 .productbar .productcart{
-  max-width: min-content;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 5px;
   flex-grow: 1;
+  flex-basis: 200px;
 }
 .productbar .productcart:hover{
   box-shadow: 0 0 10px 0 #00000022;
@@ -277,7 +277,6 @@ img{
 }
 .productbar .productcart img{
   background-color: var(--color-body-bg-two);
-  width: 200px;
   height: 20vh;
   border-radius: 10px;
   object-fit: cover;
@@ -296,6 +295,20 @@ img{
   flex-direction: column;
   padding: 20px;
 }
+
+.reviews{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 50vh;
+}
+
+.review{
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
 
 
 @keyframes shine {
@@ -484,9 +497,6 @@ main.productpage .postavprofile p{
    .productbar .productcart {
     min-width: 45%;
  }
-  .productbar .productcart img{
-    width: 100%;
-  }
   main.productpage .duo{
     flex-direction: column;
   }

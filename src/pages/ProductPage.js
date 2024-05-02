@@ -3,6 +3,7 @@ import serverUrl from "../config";
 import { Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ReviewsBar from '../components/ReviewsBar';
 
 export default function ProductPage() {
     const [data, setData] = useState([]);
@@ -13,14 +14,15 @@ export default function ProductPage() {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const fetchData = async () => {
         try {
-            setLoading(true);         
+            setLoading(true);        
             const params = new URLSearchParams();
             params.append('id', productid);
             const responses = await fetch(`//${serverUrl}/api/product/item.php?${params.toString()}`);
             const JsonData = await responses.json();
-            setData(JsonData.data);
+            setData(JsonData.data); 
             document.title = JsonData.data.name;
         } catch (error) {
             console.log(error);
@@ -34,7 +36,6 @@ export default function ProductPage() {
 
     async function FromBasket() {
         try {
-            setLoading(true);
             const params = new URLSearchParams();
             params.append('product', productid);
             params.append('me', localStorage.getItem('token'));
@@ -45,9 +46,7 @@ export default function ProductPage() {
             }
         } catch (error) {
             console.log(error);
-        } finally{
-            setLoading(false);
-        }
+        } 
         };
 
     return (
@@ -103,6 +102,10 @@ export default function ProductPage() {
                     </>
                     )
                 }
+                <h4>Отзывы</h4>
+                <div className='reviews'>
+                    {ReviewsBar(productid)}
+                </div>
             </main>
             <Footer />
         </>

@@ -10,7 +10,7 @@ export default function AuthPage() {
   const [password, setPassword] = useState('');
 
   const usernameHandler = (event) => {
-    setUsername(event.target.value); 
+    setUsername(event.target.value);
   };
 
   const passwordHandler = (event) => {

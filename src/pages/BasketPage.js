@@ -10,7 +10,8 @@ export default function BasketPage() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-      const fetchData = async () => { 
+    window.scrollTo(0, 0);
+      const fetchData = async () => {
       try {
           setLoading(true);       
           const params = new URLSearchParams();

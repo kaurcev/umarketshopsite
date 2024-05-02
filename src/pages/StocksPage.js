@@ -14,7 +14,7 @@ export default function StocksPage() {
             <p>Скоро</p>
         </main>
         <Footer />
-      </> 
+      </>
     )
   }
   

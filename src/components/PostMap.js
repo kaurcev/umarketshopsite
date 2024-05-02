@@ -6,9 +6,9 @@ export default function PostMap({ onButtonClick }) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const submitHandler = (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
         fetchData()
-    } 
+    }
     const radHandler = (event) => {
         setRad(event.target.value);
     };

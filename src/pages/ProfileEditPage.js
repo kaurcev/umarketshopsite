@@ -17,7 +17,7 @@ export default function ProfileEditPage() {
     const [surname, setSurname] = useState('');
     const [name, setName] = useState('');
     const [firstname, setFirstname] = useState('');
-    const [address, setAddress] = useState(''); 
+    const [address, setAddress] = useState('');
 
     const emailHandler = (event) => {
         setEmail(event.target.value);

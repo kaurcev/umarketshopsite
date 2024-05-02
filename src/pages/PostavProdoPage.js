@@ -12,7 +12,7 @@ export default function PostavProdoPage() {
 
   useEffect(() => {
       const fetchData = async () => {
-      try { 
+      try {
           setLoading(true); 
           window.scrollTo(0, 0)       
           const params = new URLSearchParams();

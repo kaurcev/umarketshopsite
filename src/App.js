@@ -25,7 +25,7 @@ import PostavProdoEditPage from './pages/PostavProdoEditPage';
 
 function App() {
   return (
-    <Router> 
+    <Router>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/auth" element={<AuthPage />} />

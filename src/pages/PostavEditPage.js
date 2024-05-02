@@ -13,7 +13,7 @@ export default function PostavEditPage() {
   const [description, setDescription] = useState('');
   const [prodo, SetProdo] = useState('');
 
-  useEffect(() => { 
+  useEffect(() => {
       const fetchData = async () => {
       try {
           setLoading(true); 
