@@ -4,7 +4,7 @@ export function getBrowser(userAgent) {
         <>
        <i  className="fa fa-chrome" aria-hidden="true"></i> <span>Google Chrome</span>
         </>
-      );
+      ); 
     } else if (userAgent.includes("Firefox")) {
       return (
         <>
