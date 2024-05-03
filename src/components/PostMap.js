@@ -44,7 +44,9 @@ export default function PostMap({ onButtonClick }) {
     <>
     <div>
         <form className='radform' onSubmit={submitHandler}>
+            <p className="mini>В радиусе от вас будет совершён поиск ближайших почтовых отделений</p>
             <input onChange={radHandler} placeholder='Выберите радиус, в котором есть ваш почтовый пункт' type="number" name="rad" defaultValue="1000" />
+            <p className="mini">При нажатии кнопки "Обновить список", нами будет получено ваше местоположение</p>
             <button>Обновить</button>
         </form>
     </div>
