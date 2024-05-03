@@ -124,9 +124,9 @@ export default function ProductPage() {
                 }
                 <h4>Отзывы</h4>
                 <div className='reviews'>
-                    {ReviewsBar(data.id)}
+                    {ReviewsBar(productid)}
                 </div>
-                <FormAddRew produ={data.id}/>
+                <FormAddRew produ={productid}/>
             </main>
             <Footer />
         </>
