@@ -68,7 +68,6 @@ export default function SearchPage() {
                                     <h5>{item.name}</h5>
                                     <p className='desc mini'>{item.description}</p>
                                 <button className='o' onClick={() => openprodo(item.id)}>Подробнее</button>
-                                <button>В корзину</button>
                                 </div>
                                 ))
                             }
