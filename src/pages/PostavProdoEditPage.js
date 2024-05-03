@@ -106,7 +106,7 @@ export default function PostavProdoEditPage() {
         <Link className='bt' to='/profile/postav/prodo'>Вернуться назад</Link>
         </div>
         <div className='page'>
-            <h3>Добавление товара</h3>
+            <h3>РЕДАКТИРОВАНИЕ ТОВАРА</h3>
             {loading ? (
                         <>
                             Загрузка

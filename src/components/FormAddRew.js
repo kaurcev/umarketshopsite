@@ -5,7 +5,7 @@ import '../styles/footer.css';
 import { Link } from 'react-router-dom';
 
 const FormAddRew = ({ produ }) => {
-    const [review, setReview] = useState('');
+    const [text, setReview] = useState('');
 
     const reviewHandler = (event) => {
         setReview(event.target.value);
@@ -19,7 +19,7 @@ const FormAddRew = ({ produ }) => {
       function SigninRequest() {
         const params = new URLSearchParams();
         params.append('id', produ);
-        params.append('text', review);
+        params.append('text', text);
         params.append('me', localStorage.getItem("token"));
         fetch(`//${serverUrl}/api/review/add.php?${params.toString()}`)
           .then(response => response.json())
@@ -53,7 +53,7 @@ const FormAddRew = ({ produ }) => {
                 <>
                     <form onSubmit={submitHandler} className='addtew'>
                         <p className='mini'>Напишите ваш отзыв</p>
-                        <textarea type="text" value={review} onChange={reviewHandler} ></textarea>
+                        <textarea type="text" value={text} onChange={reviewHandler} ></textarea>
                         <p className='mini'>Перед отпраавкой задумйтесь - ваш отзыв увидят все</p>
                         <button>Отправить</button>
                     </form>
