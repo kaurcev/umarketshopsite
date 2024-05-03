@@ -38,6 +38,7 @@ export default function PostMap({ onButtonClick }) {
     );}
     const handleButtonClick = (index, address) => {
         onButtonClick(index, address);
+        alert(`Указана новое почтовое отделение: ${address}`);
     };
 
   return (
