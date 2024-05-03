@@ -79,7 +79,7 @@ export default function BasketPage() {
                 {
                     data.length < 1 ? (
                         <>
-                        <p className='noauth'>Вы ещё ничего не добавили в свю корзину</p>
+                        <p className='noauth'>Вы ещё ничего не добавили в свою корзину</p>
                         </>
                     ) : (
                         <>
