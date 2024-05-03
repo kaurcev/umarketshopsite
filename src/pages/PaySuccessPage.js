@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import E404 from '../img/E404.png'
 import Footer from '../components/Footer';
 
 export default function PaySuccessPage() {
