@@ -54,7 +54,7 @@ export default function ProductPage() {
         };
 
     const showAlert = () => {
-        alert("Добавьте в корзину и ожидайте товар после оплаты по указанному в проофиле адресу почтового отделения");
+        alert("Добавьте товар в корзину и ожидайте товар после оплаты на адрес почтового отделения, указанного в профиле");
     }
     const shareLink = () => {
         navigator.clipboard.writeText(`Взгляните на товар по ссылке ${window.location.href}`)
