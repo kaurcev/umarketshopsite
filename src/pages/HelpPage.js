@@ -11,7 +11,7 @@ export default function HelpPage() {
       <>
       <Header />
         <main>
-            <p>Скоро</p>
+            <p>Пока сайт работает в тестовом режиме, по поводу вопросов обращаться на электронную почту: support@umarketshop.site</p>
         </main>
         <Footer />
       </>
