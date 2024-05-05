@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import serverUrl from "../config";
+import '../styles/ReviewBar.css';
 
-export default function ReviewsBar(productid) {
+const ReviewsBar = ({ id }) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -10,12 +11,12 @@ export default function ReviewsBar(productid) {
         try {
             setLoading(true); 
             const params = new URLSearchParams();
-            params.append('product', productid);       
-            const responses = await fetch(`//${serverUrl}/api/review/all.php?${params.toString()}`);
+            params.append('product', id);       
+            const responses = await fetch(`//${serverUrl}/reviews?${params.toString()}`);
             const jsonTrans = await responses.json();
             setData(jsonTrans.data);
         } catch (error) {
-            console.log(error);
+            setData([{id : "1",username : "Система юМаркет Шоп", message : `При загрузке данных произошла ошибка: ${error.message}.`}]);
         } finally {
             setLoading(false);
         }
@@ -23,18 +24,23 @@ export default function ReviewsBar(productid) {
         fetchData();
         // eslint-disable-next-line
     }, []); // Пустой массив зависимостей
-
+    if (!id) return null;
     return (
-        <>
+        <div className='reviews'>
+        <h4>Отзывы</h4>
+        <div className='scrool'>
             {loading ? (
                 <>
-                    Загрузка
+                    <div className='review load'>
+                    </div>
+                    <div className='review load'>
+                    </div>
+                    <div className='review load'>
+                    </div>
                 </>
             ) : (
                 <>
-                {
-                    data.length < 1 ? (
-                        <>
+                {data.length < 1 ? (<>
                         <p className='noauth'>Отзывов пока нет</p>
                         </>
                     ) : (
@@ -53,6 +59,9 @@ export default function ReviewsBar(productid) {
                 </>
             )
             }
-          </>
+             </div>
+         </div>
     );
 }
+
+export default ReviewsBar;

@@ -124,6 +124,9 @@ header{
       box-shadow: 0 0 10px 0 #0000001f;
       z-index: 100;
     }
+    header .header .mainpan nav a{
+      font-size: 12px;
+    }
     header .header{
       padding: 0px;
     }

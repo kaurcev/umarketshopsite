@@ -1,0 +1,24 @@
+form.auth{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 10px 0 #00000022;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 10px;
+    justify-content: center;
+}
+form.auth h3{
+    text-align: center;
+}
+form.auth p{
+    margin: 0px;
+}
+
+@media (max-width: 799px){
+    form.auth{
+        box-shadow: none;
+        max-width: none;
+    }
+}

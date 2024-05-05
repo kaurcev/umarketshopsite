@@ -17,11 +17,11 @@ export default function Header() {
         .then(response => response.json())
         .then(data => {
             if(!data.status){
-                navigate('/500')
+                // navigate('/500')
             }
         })
         .catch(error => {
-            navigate('/500')
+            // navigate('/500')
     });
     }
     const getCity = async () => {

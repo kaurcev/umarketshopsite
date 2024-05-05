@@ -1,0 +1,18 @@
+.alert{
+    position: fixed;
+    top: 10px;
+    background-color: var(--red);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+
+@media (max-width: 799px){
+    .alert{
+        width: 90%;
+    }
+}

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import serverUrl from "../config";
-
-import '../styles/footer.css';
+import '../styles/FormAddRew.css';
 import { Link } from 'react-router-dom';
 
-const FormAddRew = ({ produ }) => {
+const FormAddRew = ({ id }) => {
     const [text, setReview] = useState('');
 
     const reviewHandler = (event) => {
@@ -18,7 +17,7 @@ const FormAddRew = ({ produ }) => {
     
       function SigninRequest() {
         const params = new URLSearchParams();
-        params.append('id', produ);
+        params.append('id', id);
         params.append('text', text);
         params.append('me', localStorage.getItem("token"));
         fetch(`//${serverUrl}/api/review/add.php?${params.toString()}`)
@@ -37,10 +36,10 @@ const FormAddRew = ({ produ }) => {
             console.error(error);
           });
       }
-    
+    if (!id) return null;
     return (
         <>
-          <div>
+          <div className='FormAddRew'>
           {
             localStorage.getItem('token') === null ? (
             <>
@@ -53,7 +52,7 @@ const FormAddRew = ({ produ }) => {
                 <>
                     <form onSubmit={submitHandler} className='addtew'>
                         <p className='mini'>Напишите ваш отзыв</p>
-                        <textarea type="text" value={text} onChange={reviewHandler} ></textarea>
+                        <textarea placeholder='Расскажите о товаре, каков он оказался для вас?' type="text" value={text} onChange={reviewHandler} ></textarea>
                         <p className='mini'>Перед отпраавкой задумйтесь - ваш отзыв увидят все</p>
                         <button>Отправить</button>
                     </form>

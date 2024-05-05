@@ -1,0 +1,57 @@
+form.signin{
+    background-color: var(--color-header);
+    padding: 2px;
+    box-shadow: 0 4px 10px 0 #00000022;
+    width: 100%;
+    max-width: 70%;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+form.signin button{
+    max-width: 200px;
+}
+form.signin div.center p{
+    text-align: center;
+}
+
+form.signin .duo{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+form.signin .duo div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 40%;
+}
+form.signin .duo div h4,
+form.signin .duo div p{
+    margin: 0px;
+}
+
+@media (max-width: 799px){
+    form.signin{
+        box-shadow: none;
+        max-width: none;
+    }
+    form.signin .duo div{
+        width: 100%;
+    }
+    form.signin .duo{
+        flex-direction: column;
+    }
+    form.signin button{
+        max-width: none;
+    }
+}

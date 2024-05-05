@@ -1,0 +1,29 @@
+.reviews{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 50vh;
+}
+
+.reviews .review{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+.reviews .review.load{
+    min-height: 100px;
+    border: none
+}
+.reviews .review h5{
+    margin: 0px;
+}
+
+.reviews .scrool{
+    max-height: 90vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
+}
