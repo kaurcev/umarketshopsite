@@ -1,4 +1,4 @@
 // config.js
 const serverUrl = "api.umarketshop.site";
-// const serverUrl = "backend";
+// const serverUrl = "backendd";
 export default serverUrl;

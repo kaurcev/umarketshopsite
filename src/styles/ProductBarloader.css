@@ -1,0 +1,36 @@
+    @keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+  }
+
+.ProductBarloader{
+    background: linear-gradient(90deg, var(--color-body-bg), var(--color-body-bg), var(--color-body-bg-two), var(--color-body-bg));
+    animation: 0.8s shine linear infinite;
+    background-size: 200% 100%;
+    border-radius: 5px;
+    width: 100%;
+    min-height: 16px;
+    border: 1px solid transparent;
+}
+.preload{
+    background: linear-gradient(90deg, var(--color-body-bg), var(--color-body-bg), var(--color-body-bg-two), var(--color-body-bg));
+    animation: 0.8s shine linear infinite;
+    background-size: 200% 100%;
+    border-radius: 5px;
+    width: 100%;
+    min-height: 16px;
+    border: 1px solid transparent;
+}
+button.preload{
+    min-height: 40px;
+}
+
+.productbar .productcart.n{
+    transition: none;
+}
+
+.productbar .productcart:hover {
+    box-shadow: none;
+    transform: none;
+}

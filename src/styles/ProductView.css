@@ -5,7 +5,7 @@
   }
 
 .skelet-loader{
-    background: linear-gradient(90deg, var(--color-body-bg), var(--color-body-bg), var(--color-body-bg-two), var(--color-body-bg));
+    background: linear-gradient(90deg, var(--color-body-bg-two), var(--color-body-bg), var(--color-body-bg-two), var(--color-body-bg-two));
     animation: 0.8s shine linear infinite;
     background-size: 200% 100%;
     border-radius: 5px;

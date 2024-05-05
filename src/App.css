@@ -31,8 +31,8 @@ html, body{
   margin: 0px;
   background-color: var(--color-body-bg);
   color: var(--color-font);
-  -ms-overflow-style: none;  /* IE 10+ */
-  scrollbar-width: none; /* Firefox */
+   -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
 }
 
 *{
@@ -228,6 +228,13 @@ img{
   gap: 10px;
 }
 
+.noauth{
+  padding: 10px;
+  border: 1px solid var(--border);
+  text-align: center;
+  border-radius: 8px;
+}
+
 .productbar .productcart{
   padding: 10px;
   display: flex;
@@ -238,13 +245,6 @@ img{
   transition: transform 0.3s ease, box-shadow  0.3s ease;
   box-shadow: 0 0 0 0 #00000000;
   border-radius: 20px;
-}
-
-.noauth{
-  padding: 10px;
-  border: 1px solid var(--border);
-  text-align: center;
-  border-radius: 8px;
 }
 
 .productbar .productcart:hover{

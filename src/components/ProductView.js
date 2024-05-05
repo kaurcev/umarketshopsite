@@ -62,6 +62,13 @@ const ProductView = ({ id }) => {
     }
     };
 
+    const share = () =>{
+        navigator.clipboard.writeText(`Посмотрите на ${data.name} по ссылке ${window.location.href} на юМаркет Шоп!`)
+        .then(() => console.log("Done!"))
+        .catch(err => console.error(err))
+        showModalWithText("Ссылка скопирована");
+    }
+
     if (!id) return null;
     return (
         <>
@@ -118,7 +125,7 @@ const ProductView = ({ id }) => {
                     <hr />
                     <div className='duob'>
                         <div className='linkpanel'>
-                        <span>Поделиться</span>
+                        <span onClick={() => share()}>Поделиться</span>
                         </div>
                         <span className='mini'>
                         Артикул: {data.id}

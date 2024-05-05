@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import serverUrl from "../config";
 import '../styles/header.css';
+import ProductBarloader from './ProductBarloader';
 
 export default function ProductBar() {
     const navigate = useNavigate();
@@ -49,7 +50,7 @@ export default function ProductBar() {
         <>
             {loading ? (
                 <>
-                    Загрузка
+                     <ProductBarloader />
                 </>
             ) : (
                 data.map((item) => (        
