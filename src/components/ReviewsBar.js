@@ -49,7 +49,7 @@ const ReviewsBar = ({ id }) => {
                         data.map((item) => (        
                             <div className='review' key={item.id}>
                                 <h5>{item.username}</h5>
-                                <p>{item.message}</p>
+                                <pre>{item.message}</pre>
                                 <p className="mini">{item.date}</p>
                             </div>
                         ))
