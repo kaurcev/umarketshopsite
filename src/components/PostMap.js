@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 import serverUrl from "../config";
+import ModalAlert from '../components/ModalAlert';
 
 export default function PostMap({ onButtonClick }) {
     const [rad, setRad] = useState(1000);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState('');
+
+    const showModalWithText = (text) => {
+        setModalText(text); // Устанавливаем текст для модального окна
+        setShowModal(true); // Показываем модальное окно
+        setTimeout(() => {
+        setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+        }, 1500);
+    };
+
+
     const submitHandler = (event) => {
         event.preventDefault();
         fetchData()
@@ -27,22 +42,23 @@ export default function PostMap({ onButtonClick }) {
           setData(jsonData.data);
           window.scrollTo(0, 0);
         } catch (error) {
-          console.log(error);
+          showModalWithText(error.message);
         } finally {
           setLoading(false);
         }
       },
       function (error) {
-        console.error("Ошибка получения местоположения:", error);
+        showModalWithText("Ошибка получения местоположения:", error);
       }
     );}
     const handleButtonClick = (index, address) => {
         onButtonClick(index, address);
-        alert(`Указана новое почтовое отделение: ${address}`);
+        showModalWithText(`Указано новое почтовое отделение: ${address}`);
     };
 
   return (
     <>
+    <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
     <div>
         <form className='radform' onSubmit={submitHandler}>
             <p className="mini">В радиусе от вас будет совершён поиск ближайших почтовых отделений</p>

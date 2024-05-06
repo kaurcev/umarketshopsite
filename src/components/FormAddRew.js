@@ -2,9 +2,23 @@ import { useState } from 'react';
 import serverUrl from "../config";
 import '../styles/FormAddRew.css';
 import { Link } from 'react-router-dom';
+import ModalAlert from '../components/ModalAlert';
 
 const FormAddRew = ({ id }) => {
     const [text, setReview] = useState('');
+
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState('');
+
+    const showModalWithText = (text) => {
+        setModalText(text); // Устанавливаем текст для модального окна
+        setShowModal(true); // Показываем модальное окно
+        setTimeout(() => {
+        setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+        }, 1500);
+    };
+    
 
     const reviewHandler = (event) => {
         setReview(event.target.value);
@@ -24,21 +38,21 @@ const FormAddRew = ({ id }) => {
           .then(response => response.json())
           .then(data => {
             if (data.status) {
-              alert("Отзыв добавлен");
+              showModalWithText("Отзыв добавлен");
               setReview("");
               window.scrollTo(0, 0);
             } else {
-              alert("Что-то пошло не так");
+              showModalWithText("Что-то пошло не так");
             }
           })
           .catch(error => {
-            alert(`501 ошибка: ${error.message}`);
-            console.error(error);
+            showModalWithText(error.message);
           });
       }
     if (!id) return null;
     return (
         <>
+         <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
           <div className='FormAddRew'>
           {
             localStorage.getItem('token') === null ? (

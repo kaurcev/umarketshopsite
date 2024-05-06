@@ -20,7 +20,7 @@ export default function ProductBar() {
         setShowModal(true); // Показываем модальное окно
         setTimeout(() => {
         setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
-        }, 1000);
+        }, 1500);
     };
 
 

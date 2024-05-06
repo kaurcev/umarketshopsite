@@ -3,12 +3,25 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../img/logo.png'
 import serverUrl from "../config";
 import '../styles/header.css';
+import ModalAlert from './ModalAlert';
 
 export default function Header() {
     const navigate = useNavigate();
     const [searchtext, setSearchtext] = useState('');
     const [geo, setGeo] = useState('');
     const [data, setData] = useState([]);
+
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState('');
+    
+    const showModalWithText = (text) => {
+        setModalText(text); // Устанавливаем текст для модального окна
+        setShowModal(true); // Показываем модальное окно
+        setTimeout(() => {
+        setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+        }, 1500);
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -31,7 +44,7 @@ export default function Header() {
             setGeo(data);
         })
         .catch(error => {
-            console.log(error);
+            showModalWithText(error.message);
         })
     };
     getStatus();
@@ -54,7 +67,7 @@ export default function Header() {
             const jsonData = await responses.json();
             setData(jsonData.data);
         } catch (error) {
-            console.log(error);
+            showModalWithText(error.message);
         } 
       }
 
@@ -67,6 +80,7 @@ export default function Header() {
 
     return (
         <>
+        <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
           <header>
             <div className="header">
                 <div className='minipan'>

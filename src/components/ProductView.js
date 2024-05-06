@@ -18,7 +18,7 @@ const ProductView = ({ id }) => {
         setShowModal(true); // Показываем модальное окно
         setTimeout(() => {
         setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
-        }, 3000);
+        }, 1500);
     };
 
     useEffect(() => {
