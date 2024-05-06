@@ -42,6 +42,9 @@ form.signin .duo div p{
 
 @media (max-width: 799px){
     form.signin{
+        background-color: var(--color-body-bg);
+    }
+    form.signin{
         box-shadow: none;
         max-width: none;
     }
