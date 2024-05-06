@@ -35,7 +35,7 @@ export default function BasketPage() {
             const jsonTrans = await responses.json();
             setData(jsonTrans.data);
         } catch (error) {
-            console.log(error);
+            showModalWithText(error.message);
         } finally {
             setLoading(false);
         }
@@ -56,7 +56,7 @@ export default function BasketPage() {
                 setData(prevData => prevData.filter(item => item.id !== id));
             }
         } catch (error) {
-            console.log(error);
+            showModalWithText(error.message);
         }
     };
 

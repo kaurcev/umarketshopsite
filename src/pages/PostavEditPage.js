@@ -93,7 +93,7 @@ export default function PostavEditPage() {
                             </p>
                             <p>
                                 <p className='mini'>Описание</p>
-                                <input type="text" name="description" defaultValue={data.description} onChange={descriptionHandler} />
+                                <textarea name="description" defaultValue={data.description} onChange={descriptionHandler} />
                             </p>
                             <p>
                                 <p className='mini'>Работоспособнось</p>

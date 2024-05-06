@@ -263,6 +263,10 @@ img{
   font-weight: 700;
 }
 
+pre{
+  white-space: pre-wrap;
+}
+
 .productbar .productcart .desc{
   overflow: hidden;
   display: -webkit-box;

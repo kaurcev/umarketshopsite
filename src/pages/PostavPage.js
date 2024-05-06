@@ -46,17 +46,21 @@ export default function PostavPage() {
                 <>
                     <h4>ПАНЕЛЬ ПОСТАВЩИКА</h4>
                     <div>
+                        <div className='duo'>
                         <div className='cartpanel'>
                         <h2>{data.name}</h2>
                         <p>В числе поставщиков с: {data.datecreate}</p>
-                          {data.prodo === "1" ? (<><p className='mini'>Работает</p></>) : ( <><p className='mini'>Не работает</p></>) }
-                          </div>
+                          {data.prodo === "1" ? (<><p className='mini'>Организация функционирует и товары отображаются в каталоге</p></>) : ( <><p className='mini'>Организация отключена и товары не отображаются в каталоге</p></>) }
+                        </div>
+                        <div className='cartpanel'>
+                            <p className='mini'>Email: </p>
+                            <p>{data.email}</p>
+                            <p className='mini'>Номер телефона</p>
+                            <p>{data.phone}</p>
+                        </div>
+                        </div>
                         <p className='mini'>Описание</p>
-                        <p>{data.description}</p>
-                        <p className='mini'>Email: </p>
-                        <p>{data.email}</p>
-                        <p className='mini'>Номер телефона</p>
-                        <p>{data.phone}</p>
+                        <pre>{data.description}</pre>
                     </div> 
                 </>
             )}

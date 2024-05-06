@@ -48,6 +48,7 @@ main.profile{
     color: #FFFFFF;
     padding: 10px 20px;
     border-radius: 8px;
+    flex-basis: 100%;
   }
   
   main.profile .session .cart p.red{
