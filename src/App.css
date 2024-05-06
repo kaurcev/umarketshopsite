@@ -270,7 +270,7 @@ img{
 .productbar .productcart h5{
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2; 
+  -webkit-line-clamp: 1; 
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   width: 100%;

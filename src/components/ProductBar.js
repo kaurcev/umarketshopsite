@@ -10,6 +10,7 @@ export default function ProductBar() {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [basketadd, setBasketadd] = useState(false);
 
     // Для отображения модального окна
     const [showModal, setShowModal] = useState(false);
@@ -47,18 +48,23 @@ export default function ProductBar() {
 
 
 
-      const FromBasket = async (id) => {
+      async function FromBasket(id) {
         try {
+            setBasketadd(true);  
             const params = new URLSearchParams();
             params.append('product', id);
             params.append('me', localStorage.getItem('token'));
-            const response = await fetch(`//${serverUrl}/api/basket/add.php?${params.toString()}`);
-            const jsonData = await response.json();
-            if(jsonData.status){
+            const responses = await fetch(`//${serverUrl}/api/basket/add.php?${params.toString()}`);
+            const jsonTrans = await responses.json();
+            if(jsonTrans.status){
                 showModalWithText("Добавлено");
+            }else{
+                showModalWithText("Ошибка при добавлении товара в корзину :(");
             }
         } catch (error) {
-            showModalWithText(error.message);
+            showModalWithText(error.message)
+        } finally {
+            setBasketadd(false);
         }
         };
 
@@ -82,7 +88,13 @@ export default function ProductBar() {
                             <p className='noauth mini'>Авторизируйтесь</p>
                             </>) : (
                             <>
-                            <button onClick={() => FromBasket(item.id)}>В корзину</button>
+                            {
+                                basketadd ? (
+                                    <button disabled><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i></button>
+                                ) : (
+                                    <button onClick={() => FromBasket(item.id)}>В корзину</button>
+                                )
+                            }
                             </>)}
                        
                     </div>
