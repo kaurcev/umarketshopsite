@@ -4,7 +4,9 @@
     gap: 10px;
     min-height: 50vh;
 }
-
+pre{
+    word-wrap: break-word;
+}
 .reviews .review{
     padding: 10px;
     border-radius: 10px;
