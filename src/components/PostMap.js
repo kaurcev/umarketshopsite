@@ -61,9 +61,9 @@ export default function PostMap({ onButtonClick }) {
     <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
     <div>
         <form className='radform' onSubmit={submitHandler}>
-            <p className="mini">В радиусе от вас будет совершён поиск ближайших почтовых отделений</p>
+            <div className="mini">В радиусе от вас будет совершён поиск ближайших почтовых отделений</div>
             <input onChange={radHandler} placeholder='Выберите радиус, в котором есть ваш почтовый пункт' type="number" name="rad" defaultValue="1000" />
-            <p className="mini">При нажатии кнопки "Обновить список", нами будет получено ваше местоположение</p>
+            <div className="mini">При нажатии кнопки "Обновить список", нами будет получено ваше местоположение</div>
             <button>Обновить</button>
         </form>
     </div>

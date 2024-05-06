@@ -14,6 +14,7 @@ main.profile{
     gap: 15px;
   }
   main.profile .page h4{
+    margin: 8px 0px;
   }
   main.profile .page p{
     margin: 10px;

@@ -5,6 +5,7 @@ import profileimg from '../img/profile.png';
 import Header from '../components/Header';
 import PostMap from '../components/PostMap';
 import Footer from '../components/Footer';
+import ModalAlert from '../components/ModalAlert';
 
 export default function ProfileEditPage() {
     document.title = "Редактирование профиля";
@@ -18,6 +19,18 @@ export default function ProfileEditPage() {
     const [name, setName] = useState('');
     const [firstname, setFirstname] = useState('');
     const [address, setAddress] = useState('');
+
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState('');
+
+    const showModalWithText = (text) => {
+        setModalText(text); // Устанавливаем текст для модального окна
+        setShowModal(true); // Показываем модальное окно
+        setTimeout(() => {
+        setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+        }, 1500);
+    };
 
     const emailHandler = (event) => {
         setEmail(event.target.value);
@@ -52,15 +65,14 @@ export default function ProfileEditPage() {
         .then(response => response.json())
         .then(data => {
             if(data.status){
-                alert(`Ответ сервера: ${data.message}`);
+                showModalWithText(data.message);
                 navigate('/profile')
             }else{
-                alert(`Ответ сервера: ${data.message}`);
+                showModalWithText(data.message);
             }
         })
         .catch(error => {
-            alert(`501 ошибка: ${error.message}`);
-            console.error(error);
+            showModalWithText(error.message);
         });
     }
 
@@ -100,6 +112,7 @@ export default function ProfileEditPage() {
 
     return (
         <>
+         <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
         <Header />
         <main className='profile'>
         <div className='w250'>
@@ -115,32 +128,32 @@ export default function ProfileEditPage() {
                     <h4>РЕДАКТИРОВАНИЕ ПРОФИЛЯ</h4>
                     <div className='duo'>
                     <form onSubmit={submitHandler}>
-                            <p>
+                            <div>
                                 <p className='mini'>Почта</p>
                                 <input type="email" name="email" defaultValue={data.email} onChange={emailHandler} />
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <p className='mini'>Номер телефона</p>
                                 <input type="tel" name="phone" defaultValue={data.phone} onChange={phoneHandler} />
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <p className='mini'>Ваше имя</p>
                                 <input type="text" name="name" defaultValue={data.name} onChange={nameHandler} />
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <p className='mini'>Ваша фамилия</p>
                                 <input type="text" name="surname" defaultValue={data.surname} onChange={surnameHandler} />
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <p className='mini'>Ваше отчество</p>
                                 <input type="text" name="firstname" defaultValue={data.firstname} onChange={firstnameHandler} />
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <button>Сохранить данные</button>
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <button className='red' type="reset">Отменить изменения</button>
-                            </p>
+                            </div>
                         </form>
                         <img src={profileimg} alt='Профиль' />
                     </div>
