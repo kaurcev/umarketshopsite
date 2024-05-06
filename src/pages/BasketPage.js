@@ -31,7 +31,7 @@ export default function BasketPage() {
             setLoading(true);       
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token')); 
-            const responses = await fetch(`//${serverUrl}/api/basket/me_basket.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/basket?${params.toString()}`);
             const jsonTrans = await responses.json();
             setData(jsonTrans.data);
         } catch (error) {
@@ -95,11 +95,11 @@ export default function BasketPage() {
                             data.map((item) => (
                                 <div className='productcart' key={item.id}>
                                     <img src={`//${serverUrl}/img/${item.img}`} alt={item.name} />
+                                    <p class="money">{item.money} ₽</p>
                                     <h5>{item.name}</h5>
-                                    <p>{item.money} ₽</p>  
                                     <p className='desc mini'>{item.description}</p>  
                                     <button className='o' onClick={() => openprodo(item.product_id)}>Открыть товар</button>
-                                    <button className='red' onClick={() => dropbasket(item.id)}>Удалить из корзины</button>
+                                    <button className='red' onClick={() => dropbasket(item.id)}>Удалить</button>
                                 </div>
                             ))
                         }

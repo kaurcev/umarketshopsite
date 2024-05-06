@@ -26,7 +26,6 @@ export default function StoksBar() {
         <>
             {loading ? (
                 <>
-                    Загрузка
                 </>
             ) : (
                 data.map((item) => (        
