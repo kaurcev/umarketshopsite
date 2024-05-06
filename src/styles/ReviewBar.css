@@ -6,7 +6,7 @@
 }
 .reviews .review pre{
     width:100%;
-    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 .reviews .review{
     padding: 10px;
