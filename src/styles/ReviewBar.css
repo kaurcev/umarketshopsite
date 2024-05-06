@@ -4,7 +4,8 @@
     gap: 10px;
     min-height: 50vh;
 }
-pre{
+.reviews .review pre{
+    width:100%;
     word-wrap: break-word;
 }
 .reviews .review{
