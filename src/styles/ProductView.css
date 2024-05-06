@@ -88,6 +88,13 @@ main.productpage h1{
     align-items: center;
     gap: 10px;
     margin: 0px;
+
+    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 main.productpage .moneycart{

@@ -30,6 +30,7 @@ const FormAddRew = ({ id }) => {
       };
     
       function SigninRequest() {
+        if(!text) return null;
         const params = new URLSearchParams();
         params.append('id', id);
         params.append('text', text);
@@ -67,7 +68,7 @@ const FormAddRew = ({ id }) => {
                     <form onSubmit={submitHandler} className='addtew'>
                         <p className='mini'>Напишите ваш отзыв</p>
                         <textarea placeholder='Расскажите о товаре, каков он оказался для вас?' type="text" value={text} onChange={reviewHandler} ></textarea>
-                        <p className='mini'>Перед отпраавкой задумйтесь - ваш отзыв увидят все</p>
+                        <p className='mini'>Перед отправкой задумйтесь - ваш отзыв увидят все</p>
                         <button>Отправить</button>
                     </form>
                 </>

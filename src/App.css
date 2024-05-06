@@ -94,6 +94,11 @@ textarea, form textarea{
   border: 1px solid  var(--border);
   color: var(--color-font);
   width: 100%;
+  resize:vertical; 
+  overflow: hidden; 
+  height: auto;
+  min-height: 300px;
+  line-height: 1.5;
 }
 textarea:hover, form textarea:hover{
   border: 1px solid var(--akcent);
@@ -123,6 +128,17 @@ a.bt, button{
 }
 button:disabled{
   opacity: 0.8;
+}
+
+select{
+  width: 100%;
+  background-color: var(--color-body-bg-two);
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--akcent);
+  border-radius: 10px;
+  border: 1px solid var(--akcent);
 }
 
 a.bt.o, button.o{

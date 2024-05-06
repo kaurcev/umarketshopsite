@@ -6,8 +6,6 @@ form.addtew{
 }
 form.addtew textarea{
     width: 100%;
-    max-width: 100%;
-    min-width: 100%;
     height: fit-content;
     min-height: 60px;
     max-height: 300px;

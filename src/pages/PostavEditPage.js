@@ -3,6 +3,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import serverUrl from "../config";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ModalAlert from '../components/ModalAlert';
 
 export default function PostavEditPage() {
   document.title = "Панель поставщика | Редактирование";
@@ -12,6 +13,18 @@ export default function PostavEditPage() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [prodo, SetProdo] = useState('');
+
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState('');
+    
+    const showModalWithText = (text) => {
+        setModalText(text); // Устанавливаем текст для модального окна
+        setShowModal(true); // Показываем модальное окно
+        setTimeout(() => {
+        setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+        }, 1500);
+    };
 
   useEffect(() => {
       const fetchData = async () => {
@@ -27,7 +40,7 @@ export default function PostavEditPage() {
           setDescription(jsonData.data.description);
           SetProdo(jsonData.data.prodo);
       } catch (error) {
-          console.log(error);
+            showModalWithText(error.message);
       } finally {
           setLoading(false);
       }
@@ -60,19 +73,19 @@ export default function PostavEditPage() {
         .then(response => response.json())
         .then(data => {
             if(data.status){
-                alert(`Ответ сервера: ${data.message}`);
-                navigate('/profile/postav')
+                showModalWithText(data.message);
+                navigate('/profile/postav');
             }else{
-                alert(`Ответ сервера: ${data.message}`);
+                showModalWithText(data.message);
             }
         })
         .catch(error => {
-            alert(`501 ошибка: ${error.message}`);
-            console.error(error);
+            showModalWithText(error.message);
         });
     }
     return (
       <>
+       <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
        <Header />
         <main className='profile pay'>
         <div className='w250'>
@@ -87,15 +100,15 @@ export default function PostavEditPage() {
                 <>
                     <h4>ПАНЕЛЬ ПОСТАВЩИКА | РЕДАКТИРОВАНИЕ</h4>
                         <form onSubmit={submitHandler}>
-                            <p>
+                            <div>
                                 <p className='mini'>Название</p>
                                 <input type="text" name="name" defaultValue={data.name} onChange={nameHandler} />
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <p className='mini'>Описание</p>
                                 <textarea name="description" defaultValue={data.description} onChange={descriptionHandler} />
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <p className='mini'>Работоспособнось</p>
                                 <label>
                                 <select name="prodo" defaultValue={data.prodo} onChange={prodoHandler}>
@@ -104,13 +117,13 @@ export default function PostavEditPage() {
                                 </select>
                                 <p className='mini'>Если указать "Не работает", ваши товары будут недоступны и Вы не будете отображаться в списках поставщиков</p>
                                 </label>
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <button>Сохранить данные</button>
-                            </p>
-                            <p>
+                            </div>
+                            <div>
                                 <button className='red' type="reset">Отменить изменения</button>
-                            </p>
+                            </div>
                         </form>
                 </>
             )}

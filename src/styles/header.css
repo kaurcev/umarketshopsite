@@ -123,9 +123,19 @@ header{
       padding: 10px 10px 15px 10px;
       box-shadow: 0 0 10px 0 #0000001f;
       z-index: 100;
+      gap: 10px;
     }
     header .header .mainpan nav a{
       font-size: 12px;
+      flex-direction: row;
+      gap: 8px;
+      padding: 4px 6px;
+      border-radius: 8px;
+    }
+    header .header .mainpan nav a:active{
+      background: var(--akcent-two);
+      color: var(--akcent);
+      padding: 4px 6px;
     }
     header .header{
       padding: 0px;

@@ -171,7 +171,7 @@ const ProductView = ({ id }) => {
                     <h4>Полное название</h4>
                     <p>{data.name}</p>
                     <h4>Описание</h4>
-                    <p>{data.description}</p>
+                    <pre>{data.description}</pre>
                 </>
             )
         }
