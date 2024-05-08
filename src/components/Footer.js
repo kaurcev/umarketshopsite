@@ -15,6 +15,8 @@ export default function Footer() {
                <div>
                <Link href='mailto:info@umarketshop.site'>info@umarketshop.site</Link>
                <p className='mini'>Александр Каурцев - Курсовой проект "юМаркет Шоп"</p>
+               <h1>Ударным темпом деплоится хуйня!</h1>
+               <h1>СПРИНТ ЗАКРОЕМ ЗА 4 ДНЯ!</h1>
                </div>
             </div>
           </footer>
