@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import serverUrl from "../config";
 import '../styles/header.css';
+import { useNavigate } from 'react-router-dom';
 export default function StoksBar() {
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -28,9 +30,9 @@ export default function StoksBar() {
                 </>
             ) : (
                 data.map((item) => (        
-                    <div className='stokcart' key={item.id}>
+                    <div className='stokcart' onClick={() => navigate(`/stock?id=${item.id}`)}  key={item.id}>
                         <div>
-                            <h5>{item.name}</h5>
+                            <h4>{item.name}</h4>
                             <p>{item.description}</p>
                             <p>С {item.datecreate} по {item.dateend}</p>
                             <p>{item.provider}</p>
