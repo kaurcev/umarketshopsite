@@ -132,11 +132,25 @@ button:disabled{
 
 .stokitem{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px;
+  justify-content: space-between;
 }
+.stokitem .butpan{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+h1{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 10px;
+}
+
 .stoklist{
   display: flex;
   flex-direction: column;

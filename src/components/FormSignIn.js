@@ -67,7 +67,7 @@ export default function FormSignIn(){
 
     return(
         <>
-         <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
+        <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
         <form className='auth' onSubmit={submitHandler}>
             <img className='logo' src={logo} alt="юМаркет Шоп"/>
             <h3>Авторизация</h3>

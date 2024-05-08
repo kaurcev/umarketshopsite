@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import serverUrl from "../config";
 import '../styles/header.css';
-
 export default function StoksBar() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -30,10 +29,12 @@ export default function StoksBar() {
             ) : (
                 data.map((item) => (        
                     <div className='stokcart' key={item.id}>
-                        <h5>{item.name}</h5>
-                        <p>{item.description}</p>
-                        <p>С {item.datecreate} по {item.dateend}</p>
-                        <p>{item.provider}</p>
+                        <div>
+                            <h5>{item.name}</h5>
+                            <p>{item.description}</p>
+                            <p>С {item.datecreate} по {item.dateend}</p>
+                            <p>{item.provider}</p>
+                        </div>
                     </div>
                 ))
             )

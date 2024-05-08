@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from "../components/Header";
 import Footer from '../components/Footer';
-import StoksProvideBar from '../components/StoksProvideBar';
+import FormAddStoks from '../components/FormAddStoks';
 
-export default function PostavStoksPage() {
+export default function PostavStoksAddPage() {
   document.title = "Панель поставщика";
 
     return (
@@ -12,13 +12,12 @@ export default function PostavStoksPage() {
        <Header />
         <main className='profile pay'>
         <div className='w250'>
-        <Link className='bt' to='/profile/postav'>Вернуться назад</Link>
-        <Link className='bt' to='/profile/postav/addstoks'>Добавить акцию</Link>
+        <Link className='bt' to='/profile/postav/stoks'>Вернуться назад</Link>
         </div>
         <div className='page'>
-            <h3>Это все проводимые вами акции</h3>
-            <StoksProvideBar />
-        </div>
+            <h3>Добавление акции</h3>
+            <FormAddStoks />
+            </div>
         </main>
         <Footer />
         </>

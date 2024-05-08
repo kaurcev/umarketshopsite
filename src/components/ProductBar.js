@@ -42,9 +42,9 @@ export default function ProductBar() {
         // eslint-disable-next-line
     }, []); // Пустой массив зависимостей
 
-    const openprodo = async (id) => {
-        navigate(`/product?id=${id}`);
-      }; 
+        const openprodo = async (id) => {
+            navigate(`/product?id=${id}`);
+        }; 
 
 
 

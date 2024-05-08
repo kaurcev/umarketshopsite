@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import serverUrl from "../config";
 
 export default function FormAddProdo() {
-    document.title = "Ваш кошелёк";
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [bannerLoad, setBannerLoad] = useState(true);

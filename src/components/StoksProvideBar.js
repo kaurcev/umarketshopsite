@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import serverUrl from "../config";
 import '../styles/header.css';
 import ModalAlert from './ModalAlert';
 
 export default function StoksProvideBar() {
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -18,6 +20,30 @@ export default function StoksProvideBar() {
             setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
             }, 1500);
         };
+
+        const openstoks = async (id) => {
+          navigate(`/stoks?id=${id}`);
+        }; 
+
+        const editstoks = async (id) => {
+          navigate(`/profile/postav/editstoks?id=${id}`);
+        }; 
+
+        const dropstoks = async (id) => {
+          try {
+              const params = new URLSearchParams();
+              params.append('id', id);
+              params.append('me', localStorage.getItem('token'));
+              const response = await fetch(`//${serverUrl}/api/stoks/delete.php?${params.toString()}`);
+              const jsonData = await response.json();
+              if(jsonData.status){
+                  setData(prevData => prevData.filter(item => item.id !== id));
+                  alert("Удалено");
+              }
+          } catch (error) {
+              console.log(error);
+          }
+          };
 
 
     useEffect(() => {
@@ -61,11 +87,18 @@ export default function StoksProvideBar() {
               ) : (
                 <>
                 {
-                  data.map((item) => (        
+                  data.map((item) => (
                     <div className='stokitem' key={item.id}>
+                      <div>
                         <h4>{item.name}</h4>
                         <p>{item.description}</p>
                         <p className='mini'>{item.datecreate} - {item.dateend}</p>
+                      </div>
+                      <div className='butpan'>
+                          <button onClick={() => openstoks(item.id)}>Открыть</button>
+                          <button onClick={() => editstoks(item.id)}>Редактировать</button>
+                          <button onClick={() => dropstoks(item.id)} className='red'>Удалить</button>
+                      </div>
                     </div>
                 ))
                 }
