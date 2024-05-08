@@ -9,25 +9,25 @@ export default function StoksProvideBar() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-        // Для отображения модального окна
-        const [showModal, setShowModal] = useState(false);
-        const [modalText, setModalText] = useState('');
-        
-        const showModalWithText = (text) => {
-            setModalText(text); // Устанавливаем текст для модального окна
-            setShowModal(true); // Показываем модальное окно
-            setTimeout(() => {
-            setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
-            }, 1500);
-        };
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState('');
+    
+    const showModalWithText = (text) => {
+      setModalText(text); // Устанавливаем текст для модального окна
+      setShowModal(true); // Показываем модальное окно
+      setTimeout(() => {
+      setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+      }, 1500);
+    };
 
-        const openstoks = async (id) => {
-          navigate(`/stoks?id=${id}`);
-        }; 
+    const openstoks = async (id) => {
+      navigate(`/stock?id=${id}`);
+    }; 
 
-        const editstoks = async (id) => {
-          navigate(`/profile/postav/editstoks?id=${id}`);
-        }; 
+    const editstoks = async (id) => {
+      navigate(`/profile/postav/editstoks?id=${id}`);
+    }; 
 
         const dropstoks = async (id) => {
           try {
@@ -38,10 +38,10 @@ export default function StoksProvideBar() {
               const jsonData = await response.json();
               if(jsonData.status){
                   setData(prevData => prevData.filter(item => item.id !== id));
-                  alert("Удалено");
+                  showModalWithText("Удалено");
               }
           } catch (error) {
-              console.log(error);
+            showModalWithText(error.message);
           }
           };
 
@@ -91,7 +91,7 @@ export default function StoksProvideBar() {
                     <div className='stokitem' key={item.id}>
                       <div>
                         <h4>{item.name}</h4>
-                        <p>{item.description}</p>
+                        <pre>{item.description}</pre>
                         <p className='mini'>{item.datecreate} - {item.dateend}</p>
                       </div>
                       <div className='butpan'>

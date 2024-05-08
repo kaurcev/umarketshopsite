@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
 import serverUrl from "../config";
+import { useNavigate } from 'react-router-dom';
+import ModalAlert from './ModalAlert';
 
 export default function FormAddStoks() {
     document.title = "Добавление акции";
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [dateend, setDateend] = useState('');
-  
+
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState('');
+    
+    const showModalWithText = (text) => {
+        setModalText(text); // Устанавливаем текст для модального окна
+        setShowModal(true); // Показываем модальное окно
+        setTimeout(() => {
+        setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+        }, 1500);
+    };
+
+
     async function AddStok() {
       try {
           setLoading(true);
@@ -19,10 +35,11 @@ export default function FormAddStoks() {
           const response = await fetch(`//${serverUrl}/api/stoks/add.php?${params.toString()}`);
           const jsonData = await response.json();
           if(jsonData.status){
-              alert("Добавлено");
+            showModalWithText("Добавлено");
+              navigate(-1);
           }
       } catch (error) {
-          console.log(error);
+          showModalWithText(error.error);
       } finally{
           setLoading(false);
       }
@@ -47,6 +64,7 @@ export default function FormAddStoks() {
 
     return (
         <>
+        <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
         <form onSubmit={submitHandler}>
             <p className="mini">Название акции</p>
             <input maxLength="50" placeholder='Название акции' type="text" onChange={nameHandler} />

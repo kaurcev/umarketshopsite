@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import serverUrl from "../config";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import ModalAlert from './ModalAlert';
 
 export default function FormEditStoks() {
+    const navigate = useNavigate();
     document.title = "Добавление акции";
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState('');
@@ -11,7 +13,18 @@ export default function FormEditStoks() {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const stockid = searchParams.get('id');
-  
+
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState('');
+    
+    const showModalWithText = (text) => {
+        setModalText(text); // Устанавливаем текст для модального окна
+        setShowModal(true); // Показываем модальное окно
+        setTimeout(() => {
+        setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+        }, 1500);
+    };
 
     useEffect(() => {
       const fetchData = async () => {
@@ -27,7 +40,7 @@ export default function FormEditStoks() {
           setDescription(jsonData.data.description);
           setDateend(jsonData.data.dateend);
       } catch (error) {
-          console.log(error);
+          showModalWithText(error.message);
       } finally {
           setLoading(false);
       }
@@ -66,10 +79,11 @@ export default function FormEditStoks() {
           const response = await fetch(`//${serverUrl}/api/stoks/update.php?${params.toString()}`);
           const jsonData = await response.json();
           if(jsonData.status){
-              alert("Обновлено");
+            showModalWithText("Обновлено");
+            navigate(-1)
           }
       } catch (error) {
-          console.log(error);
+          showModalWithText(error.message);
       } finally{
           setLoading(false);
       }
@@ -77,6 +91,7 @@ export default function FormEditStoks() {
 
     return (
         <>
+        <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
         <form onSubmit={submitHandler}>
             <p className="mini">Название акции</p>
             <input maxLength="50" placeholder='Название акции' value={name} type="text" onChange={nameHandler} />

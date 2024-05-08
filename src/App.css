@@ -142,6 +142,7 @@ button:disabled{
   display: flex;
   flex-direction: column;
   gap: 5px;
+  justify-content: center;
 }
 
 h1{
@@ -155,7 +156,24 @@ h1{
   display: flex;
   flex-direction: column;
   gap: 10px;
+  justify-content: center;
 }
+
+.stokcart pre{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.stoklist .stokitem pre{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
 
 select{
   width: 100%;
@@ -256,10 +274,10 @@ img{
   display: flex;
   overflow-x: scroll;
   scrollbar-width: none;
-  background-color: var(--akcent);
   width: 100%;
   color: #fff;
   border-radius: 10px;
+  gap: 8px;
 }
 
 .productbar{
@@ -334,10 +352,12 @@ pre{
 
 
 .stoksbar .stokcart{
-  min-width: 100%;
+  min-width: 80%;
   display: flex;
   flex-direction: column;
   padding: 20px;
+  background-color: var(--akcent);
+  border-radius: 10px;
 }
 
 @keyframes shine {
