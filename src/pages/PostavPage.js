@@ -36,6 +36,7 @@ export default function PostavPage() {
         <Link className='bt' to='/profile'>Вернуться назад</Link>
         <Link className='bt' to='/profile/postav/edit'>Редактировать данные</Link>
         <Link className='bt' to='/profile/postav/prodo'>Ваши товары</Link>
+        <Link className='bt' to='/profile/postav/stoks'>Ваши акции</Link>
         </div>
         <div className='page'>
             {loading ? (

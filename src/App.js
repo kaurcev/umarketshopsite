@@ -23,6 +23,7 @@ import PostavProdoAddPage from './pages/PostavProdoAddPage';
 import PostavProdoEditPage from './pages/PostavProdoEditPage';
 import Signup from './pages/SignupPage';
 import PaySuccessPage from './pages/PaySuccessPage';
+import PostavStoksPage from './pages/PostavStoksPage';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route exact path="/profile/postav" element={<PostavPage />} />
         <Route exact path="/profile/postav/prodo" element={<PostavProdoPage />} />       
         <Route exact path="/profile/postav/addprodo" element={<PostavProdoAddPage />} /> 
+        <Route exact path="/profile/postav/stoks" element={<PostavStoksPage />} /> 
         <Route exact path="/profile/postav/editprodo" element={<PostavProdoEditPage />} />       
         <Route exact path="/profile/postav/edit" element={<PostavEditPage />} />
         <Route exact path="/profile/wallet" element={<WalletPage />} />

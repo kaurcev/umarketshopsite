@@ -13,11 +13,8 @@ main.profile{
     flex-direction: column;
     gap: 15px;
   }
-  main.profile .page h4{
+  main.profile .page h4,   main.profile .page p{
     margin: 8px 0px;
-  }
-  main.profile .page p{
-    margin: 10px;
   }
   main.profile .session .cart{ 
     display: flex;

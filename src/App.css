@@ -130,6 +130,19 @@ button:disabled{
   opacity: 0.8;
 }
 
+.stokitem{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+}
+.stoklist{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 select{
   width: 100%;
   background-color: var(--color-body-bg-two);
