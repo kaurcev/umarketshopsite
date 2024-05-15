@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from "../components/Header";
 import Footer from '../components/Footer';
+import { YandexMetrica, AnalyticsGoogle } from '../config'
 
 export default function AdminPage() {
   document.title = "Панель администратора";
@@ -64,6 +65,16 @@ export default function AdminPage() {
                     <div className='cartpanel'>
                         <h4>Все транкзакции</h4>
                         <p>Перейдите для контроля</p>
+                    </div>
+                    <div className='duo'>
+                    <Link to={YandexMetrica} className='cartpanel'>
+                        <h4>Yandex Metrika</h4>
+                        <p>Нажмите для перехода</p>
+                    </Link>
+                    <Link to={AnalyticsGoogle} className='cartpanel'>
+                        <h4>Google Analytics</h4>
+                        <p>Нажмите для перехода</p>
+                    </Link>
                     </div>
                     </div> 
                 </>
