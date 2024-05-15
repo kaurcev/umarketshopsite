@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import serverUrl from "../config";
+import { serverUrl } from "../config";
 import '../styles/ReviewBar.css';
 
 const ReviewsBar = ({ id }) => {

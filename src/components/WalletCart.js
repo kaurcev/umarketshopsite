@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import serverUrl from "../config";
+import { serverUrl } from "../config";
 import '../styles/header.css';
 import walletimg from "../img/wallet.png";
 import yoomoney from '../img/iomoney.svg'

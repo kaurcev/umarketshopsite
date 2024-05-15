@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import serverUrl from "../config";
+import { serverUrl } from "../config";
 import ModalAlert from '../components/ModalAlert';
 
 export default function PostMap({ onButtonClick }) {

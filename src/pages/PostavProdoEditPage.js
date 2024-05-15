@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom'; 
 import Header from "../components/Header";
-import serverUrl from "../config";
+import {serverUrl } from "../config";
 import Footer from '../components/Footer';
 
 export default function PostavProdoEditPage() {

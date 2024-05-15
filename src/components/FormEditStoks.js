@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import serverUrl from "../config";
+import { serverUrl } from "../config";
 import { useLocation, useNavigate } from 'react-router-dom';
 import ModalAlert from './ModalAlert';
 

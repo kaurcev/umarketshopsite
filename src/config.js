@@ -1,6 +1,6 @@
 // config.js
 export const serverUrl = "api.umarketshop.site";
-// const serverUrl = "backend";
+// export const serverUrl = "backend";
 
 //metrics links default
 export const YandexMetrica = "https://metrika.yandex.ru/dashboard?group=day&period=week&id=95864034";

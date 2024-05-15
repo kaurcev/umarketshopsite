@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import serverUrl from "../config";
+import { 
+  serverUrl } from "../config";
 
 export default function LogoutPage() {
   document.title = "Выход";

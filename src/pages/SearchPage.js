@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import serverUrl from "../config";
+import { serverUrl } from "../config";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 

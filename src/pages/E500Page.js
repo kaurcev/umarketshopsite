@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import E500 from '../img/E500.png'
-import serverUrl from "../config";
+import {serverUrl } from "../config";
 import Footer from '../components/Footer';
 
 export default function E500Page() {

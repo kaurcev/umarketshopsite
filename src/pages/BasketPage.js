@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import Header from "../components/Header";
-import serverUrl from "../config";
+import {serverUrl } from "../config";
 import Footer from '../components/Footer';
 import ModalAlert from '../components/ModalAlert';
 import ProductBarloader from '../components/ProductBarloader';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/FormSignUp.css';
-import serverUrl from "../config";
+import { serverUrl } from "../config";
 import ModalAlert from './ModalAlert';
 import logo from '../img/logo.png'
 

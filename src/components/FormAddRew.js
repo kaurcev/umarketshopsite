@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import serverUrl from "../config";
+import { serverUrl } from "../config";
 import '../styles/FormAddRew.css';
 import { Link } from 'react-router-dom';
 import ModalAlert from '../components/ModalAlert';

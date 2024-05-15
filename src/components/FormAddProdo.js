@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import serverUrl from "../config";
+import { serverUrl } from "../config";
 
 export default function FormAddProdo() {
     const navigate = useNavigate();
