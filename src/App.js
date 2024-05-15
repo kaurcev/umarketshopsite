@@ -27,6 +27,7 @@ import PostavStoksPage from './pages/PostavStoksPage';
 import PostavStoksAddPage from './pages/PostavStoksAddPage';
 import PostavStoksEditPage from './pages/PostavStoksEditPage';
 import StokPage from './pages/StokPage';
+import CountryError from './pages/CountryError';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         <Route exact path="/search" element={<SearchPage />} />
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/500" element={<E500Page />} />
+        <Route exact path="/oops" element={<CountryError />} />
         <Route path="*" element={<E404Page />} />
       </Routes>
     </Router>

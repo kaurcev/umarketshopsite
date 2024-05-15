@@ -360,6 +360,11 @@ pre{
   background-color: var(--akcent);
   border-radius: 10px;
 }
+.grid{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 @keyframes shine {
   to {

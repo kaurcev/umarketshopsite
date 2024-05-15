@@ -46,8 +46,25 @@ export default function AdminPage() {
             ) : (
                 <>
                     <h4>ПАНЕЛЬ АДМИНИСТРАТОРА</h4>
-                    <div>
-
+                    <div className='grid'>
+                    <div className='cartpanel'>
+                        <h4>Все товары</h4>
+                        <p>Перейдите для контроля</p>
+                    </div>
+                    <div className='duo'>
+                    <div className='cartpanel'>
+                        <h4>Все акции</h4>
+                        <p>Перейдите для контроля</p>
+                    </div>
+                    <div className='cartpanel'>
+                        <h4>Все пользователи</h4>
+                        <p>Перейдите для контроля</p>
+                    </div>
+                    </div>
+                    <div className='cartpanel'>
+                        <h4>Все транкзакции</h4>
+                        <p>Перейдите для контроля</p>
+                    </div>
                     </div> 
                 </>
             )}
