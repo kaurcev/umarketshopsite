@@ -87,7 +87,16 @@ export default function Header() {
                     <span>
                         <Link to="/profile/wallet">{geo.country_code3}</Link>
                         <Link to="/profile/"><i  className="fa fa-location-arrow" aria-hidden="true"></i> {geo.city} | {geo.region}</Link>
-                        <Link className='betatest'><i  className="fa fa-exclamation-triangle" aria-hidden="true"></i> Идёт тестирование системы</Link>
+                        {
+                        localStorage.getItem('local') === "1" ? (
+                            <>
+                                <Link className='betatest' to='//bapi.umarketshop.site'>Локальный сервер</Link>
+                            </>
+                            ) : (
+                            <>
+                                <Link className='betatest'><i  className="fa fa-exclamation-triangle" aria-hidden="true"></i> Идёт тестирование системы</Link>
+                            </>)
+                            }
                     </span>
                     <span>
                         <Link className='info' to="/startposrav">Как стать поставщиком</Link>

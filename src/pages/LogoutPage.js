@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { 
-  serverUrl } from "../config";
+import { serverUrl } from "../config";
 
 export default function LogoutPage() {
   document.title = "Выход";
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -18,7 +15,7 @@ export default function LogoutPage() {
         const jsonData = await response.json();
         if(jsonData.status){
           localStorage.removeItem('token');
-          navigate('/');
+          window.location.href = '/';
         }
     } catch (error) {
         console.log(error);
