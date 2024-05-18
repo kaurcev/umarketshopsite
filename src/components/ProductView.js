@@ -121,7 +121,7 @@ const ProductView = ({ id }) => {
                 <h1> 
                     <span onClick={() => navigate(-1)}>
                         <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
-                    </span>{data.name}</h1>
+                    </span><i>{data.name}</i></h1>
                     <hr />
                     <div className='duob'>
                         <div className='linkpanel'>
