@@ -133,7 +133,11 @@ const ProductView = ({ id }) => {
                     </div>
                     <div className='duo'>
                         <div className='imgback' style={{backgroundImage: `url("//${serverUrl}/img/${data.img}")`}} >
-                        <img src={`//${serverUrl}/img/${data.img}`} alt={data.name} />
+                        <a href={serverUrl}
+                        data-href={`//${serverUrl}/img/${data.img}`}
+                        class="progressive replace">
+                            <img src={`//${serverUrl}/img/${data.img}`} class="preview" alt={data.name} />
+                        </a>
                         </div>
                     <div className='dop'>
                         <>

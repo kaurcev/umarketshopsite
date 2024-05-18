@@ -57,12 +57,12 @@ main.productpage .duob{
     margin-bottom: 10px;
 }
 
-main.productpage img{
+main.productpage a ,main.productpage img{
     width: 100%;
     max-width: none;
     max-height: 50vh;
     backdrop-filter: blur(5px);
-    background: #0005;
+    background: #00000025;
     border-radius: 10px;
 }
 main.productpage .imgback{
@@ -145,7 +145,7 @@ main.productpage .postavprofile p{
     main.productpage .duo{
         flex-direction: column;
     }
-    main.productpage img{
+    main.productpage a img{
         min-height: 60vh;
     }
     main.productpage .dop{

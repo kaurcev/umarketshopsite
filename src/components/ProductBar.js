@@ -78,7 +78,11 @@ export default function ProductBar() {
             ) : (
                 data.map((item) => (        
                     <div className='productcart' key={item.id}>
-                        <img src={`//${serverUrl}/img/${item.img}`} alt={item.name} />
+                        <a href={serverUrl}
+                        data-href={`//${serverUrl}/img/${item.img}`}
+                        class="progressive replace">
+                            <img src={`//${serverUrl}/img/none.png`} class="preview" alt={item.name}/>
+                        </a>
                         <p className='money'>{item.money}₽</p>   
                         <h5>{item.name}</h5>
                         <p className='desc mini'>{item.description}</p>
