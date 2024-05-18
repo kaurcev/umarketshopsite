@@ -88,7 +88,7 @@ main.productpage .h1.mini{
 
 main.productpage h1{
     display: flex;
-    align-items: start;
+    align-items: center;
     gap: 10px;
     margin: 0px;
 }
