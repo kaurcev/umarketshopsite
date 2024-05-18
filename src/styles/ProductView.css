@@ -57,7 +57,14 @@ main.productpage .duob{
     margin-bottom: 10px;
 }
 
-main.productpage a ,main.productpage img{
+main.productpage a{
+    width: 100%;
+    max-width: none;
+    backdrop-filter: blur(5px);
+    background: #00000025;
+    border-radius: 10px;
+}
+main.productpage img{
     width: 100%;
     max-width: none;
     max-height: 50vh;
