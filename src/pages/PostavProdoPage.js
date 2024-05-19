@@ -76,17 +76,22 @@ export default function PostavProdoPage() {
                     Загрузка
                 </>
             ) : (
+                <>
+                {
                 data.map((item) => (        
                     <div className='productcart' key={item.id}>
                         <img src={`//${serverUrl}/img/${item.img}`} alt={item.name} />
                         <p className='money'>{item.coste}₽</p>   
                         <h5>{item.name}</h5>
                         <p className='desc mini'>{item.description}</p>
-                       <button className='o' onClick={() => openeitprodo(item.id)} >Редактировать</button>
-                       <button onClick={() => openprodo(item.id)}>Открыть</button>
-                       <button className='red' onClick={() => dropprodo(item.id, item.img)}>Удалить</button>
+                        <button className='o' onClick={() => openeitprodo(item.id)} >Редактировать</button>
+                        <button onClick={() => openprodo(item.id)}>Открыть</button>
+                        <button className='red' onClick={() => dropprodo(item.id, item.img)}>Удалить</button>
                     </div>
                 ))
+                }
+                 <div className='productcart fill'></div>
+                </>
             )
             }
             </div>

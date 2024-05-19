@@ -77,24 +77,6 @@ export default function AdminPage() {
                     </select>
                     <p>Статус локального сервера: {local === "1" ? (<>Включён</>) : (<>Выключен</>)}</p>
                     </div>
-                    <div className='cartpanel'>
-                        <h4>Все товары</h4>
-                        <p>Перейдите для контроля</p>
-                    </div>
-                    <div className='duo'>
-                    <div className='cartpanel'>
-                        <h4>Все акции</h4>
-                        <p>Перейдите для контроля</p>
-                    </div>
-                    <div className='cartpanel'>
-                        <h4>Все пользователи</h4>
-                        <p>Перейдите для контроля</p>
-                    </div>
-                    </div>
-                    <div className='cartpanel'>
-                        <h4>Все транкзакции</h4>
-                        <p>Перейдите для контроля</p>
-                    </div>
                     <div className='duo'>
                     <Link to={YandexMetrica} className='cartpanel'>
                         <h4>Yandex Metrika</h4>

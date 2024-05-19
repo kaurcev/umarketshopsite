@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom'; 
+import { Link, useLocation } from 'react-router-dom'; 
 import Header from "../components/Header";
 import {serverUrl } from "../config";
 import Footer from '../components/Footer';
+import LoadImages from '../components/LoadImages';
 
 export default function PostavProdoEditPage() {
   document.title = "Панель поставщика | Редактирование товара";
-  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
@@ -41,25 +41,6 @@ export default function PostavProdoEditPage() {
     // eslint-disable-next-line
 }, []); // Пустой массив зависимостей
 
-    const handleImageChange = (e) => {
-
-      const formData = new FormData();
-      formData.append('photo', e.target.files[0]);
-  
-      fetch(`//${serverUrl}/api/product/addphoto.php`, {
-        method: 'POST',
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('Image uploaded successfully:', data);
-          setBanner(data.imgname);
-        })
-        .catch((error) => {
-          console.error('Error uploading image:', error);
-        });
-    };
-
     const nameHandler = (event) => {
       setName(event.target.value);
     };
@@ -74,10 +55,9 @@ export default function PostavProdoEditPage() {
       event.preventDefault();
       Edit_Prodo();
     };
-    
+
     async function Edit_Prodo() {
       try {
-          setLoading(true);
           const params = new URLSearchParams();
           params.append('prodo', productid);
           params.append('name', name);
@@ -88,13 +68,10 @@ export default function PostavProdoEditPage() {
           const response = await fetch(`//${serverUrl}/api/product/edit.php?${params.toString()}`);
           const jsonData = await response.json();
           if(jsonData.status){
-              alert("Обновлено");
-              navigate('/profile/postav/prodo');
           }
       } catch (error) {
           console.log(error);
       } finally{
-          setLoading(false);
       }
       };
 
@@ -107,33 +84,26 @@ export default function PostavProdoEditPage() {
         </div>
         <div className='page'>
             <h3>РЕДАКТИРОВАНИЕ ТОВАРА</h3>
-            {loading ? (
-                        <>
-                            Загрузка
-                        </>
-                ) : (
+            {loading ? ( <> Загрузка </> ) : (
                       <>
+                      <h3>Текстовые данные</h3>
                       <form onSubmit={submitHandler}>
                         <div className='duo start'>
-                            <form >
+                          <div>
                               <p>Название товара</p>
-                                <input type="text" defaultValue={data.name} onChange={nameHandler} />
-                                <p>Стоимость товара</p>
-                                <input  defaultValue={data.money}  type="number" onChange={moneyHandler} />
-                            </form>
-                            <div className='coll'>
-                            <img className='imgprodo' src={`//${serverUrl}/img/${banner}`} alt="/" />
-                            <p className='mini'>Убедитесь, что выбрали именно тот товар на фото</p>
-                            <input type="file" name='photo' onChange={handleImageChange} />
-                            </div>
-                           
+                              <input type="text" defaultValue={data.name} onChange={nameHandler} />
+                              <p>Стоимость товара</p>
+                              <input  defaultValue={data.money}  type="number" onChange={moneyHandler} />
                           </div>
-                          <p>Описание товара</p>
-                          <textarea  defaultValue={data.description}  onChange={descriptionHandler}></textarea>
-                          <button>Сохранить изменения</button>
-                          <button className='red' type='reset'>Сбросить изменения</button>
+                          <div>
+                              <p>Описание товара</p>
+                              <textarea  defaultValue={data.description}  onChange={descriptionHandler}></textarea>
+                              <button>Сохранить изменения</button>
+                              <button className='red' type='reset'>Сбросить изменения</button>
+                          </div>
+                          </div>
                           </form>
- 
+                          <LoadImages id={productid} bannerImage={banner} />
                         </>
                      )
                 }

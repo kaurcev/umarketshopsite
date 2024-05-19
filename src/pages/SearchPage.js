@@ -71,6 +71,7 @@ export default function SearchPage() {
                                 </div>
                                 ))
                             }
+                            <div className='productcart fill'></div>
                             </>
                         )
                     }

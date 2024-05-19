@@ -3,6 +3,7 @@ import { serverUrl } from "../config";
 import { useNavigate } from 'react-router-dom';
 import ModalAlert from './ModalAlert';
 import '../styles/ProductView.css';
+import ProdImgBar from './ProdImgBar';
 const ProductView = ({ id }) => {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
@@ -132,13 +133,7 @@ const ProductView = ({ id }) => {
                         </span>
                     </div>
                     <div className='duo'>
-                        <div className='imgback' style={{backgroundImage: `url("//${serverUrl}/img/${data.img}")`}} >
-                        <a href={serverUrl}
-                        data-href={`//${serverUrl}/img/${data.img}`}
-                        class="progressive replace">
-                            <img src={`//${serverUrl}/img/${data.img}`} class="preview" alt={data.name} />
-                        </a>
-                        </div>
+                        <ProdImgBar id={id} />
                     <div className='dop'>
                         <>
                         <div className='moneycart'>
