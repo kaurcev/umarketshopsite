@@ -55,7 +55,12 @@ export default function ReplysPage() {
       <Header />
       <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
         <main>
-          {
+          { loading ? (
+          <>
+          <p className='noauth'>Идёт загрузка</p>
+          </>) : (
+          <>
+            {
              data.map((item) => (
               <div key={item.id} className="cart">
                 <h4>{item.username}</h4>
@@ -64,6 +69,8 @@ export default function ReplysPage() {
               </div>
               ))
           }
+          </>)}
+
         </main>
         <Footer />
       </>
