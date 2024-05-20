@@ -594,8 +594,8 @@ main form.photoload input[type="file"]:hover{
     width: 100%;
   }
    .productbar .productcart {
-    min-width: 45%;
-    flex-basis: 170px;
+    flex-basis: 45%;
+    flex-grow: 1;
  }
   .replypage.page .duo {
     flex-wrap: wrap-reverse;
