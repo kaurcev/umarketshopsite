@@ -11,6 +11,7 @@
   --footer: #4E50FF;
   --akcent-four: #CECFFF;
   --red: #f81c5e;
+  --green: #00bd6e;
   --border: #4d4d4d;
 }
 @media (prefers-color-scheme: dark) {
@@ -128,6 +129,22 @@ a.bt, button{
 }
 button:disabled{
   opacity: 0.8;
+}
+.statcheck{
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  border: 2px solid var(--green);
+  color: var(--green);
+  font-weight: 700;
+  width: fit-content;
+}
+.statcheck.red{
+  border: 2px solid var(--red);
+  color:var(--red);
+}
+.cart.reply{
+  padding: 20px 0px;
 }
 
 .stokitem{
@@ -415,6 +432,7 @@ pre{
   display: flex;
   flex-direction: column;
   width: 100%;
+  border-radius: 10px;
 }
 .mright{
   display: flex;
