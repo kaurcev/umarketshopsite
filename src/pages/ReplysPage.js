@@ -32,7 +32,7 @@ export default function ReplysPage() {
     try {
         setLoading(true);
         const params = new URLSearchParams();
-        params.append('id', stokid);
+        params.append('me', localStorage.getItem('token'));
         const responses = await fetch(`//${serverUrl}/api/review/allpostav.php?${params.toString()}`);
         const jsonTrans = await responses.json();
         if(jsonTrans.status){

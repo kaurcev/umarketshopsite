@@ -31,11 +31,12 @@
 }
 .reviews .replied{
     background: var(--akcent-four);
-    padding: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding: 10px;
+    color: #000;
 }
 .reviews .scrool{
     max-height: 90vh;
