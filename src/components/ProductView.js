@@ -133,11 +133,20 @@ const ProductView = ({ id }) => {
                         </span>
                     </div>
                     <div className='duo'>
-                        <ProdImgBar id={id} />
+                        <ProdImgBar id={id} banner={data.img} />
                     <div className='dop'>
                         <>
                         <div className='moneycart'>
-                        <p className='money'>{data.money} ₽</p>
+                       
+                        {data.stokpercent === null ? (<>
+                            <p className='money'>{data.money} ₽</p>
+                        </>) : (<>
+                        <div className='moneybar'>
+                            <span className='money'>{data.oldmoney} ₽</span>
+                            <span className='stokpercent'>{data.stokpercent}%</span>
+                            <span>Старая цена: <span className='money shirk'>{data.money} ₽</span></span>
+                        </div>
+                        </>)}
                         {
                         localStorage.getItem('token') === null ? (
                         <>

@@ -87,6 +87,30 @@ main.productpage .imgback{
     height: 50vh;
 }
 
+.moneybar{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: start;
+    gap: 10px;
+}
+main.productpage .moneycart .money.shirk{
+    font-size: 14px;
+    opacity: 0.8;
+    text-decoration: 3px line-through;
+	text-decoration-color: red;
+    color: var(--akcent-tree);
+}
+
+.stokpercent{
+    padding: 4px;
+    background: var(--red);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 10px;
+}
+
 main.productpage .h1.mini{
     opacity: 1;
 }

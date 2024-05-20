@@ -10,6 +10,7 @@ export default function FormAddStoks() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [dateend, setDateend] = useState('');
+    const [percent, setPercent] = useState('');
 
     // Для отображения модального окна
     const [showModal, setShowModal] = useState(false);
@@ -31,6 +32,7 @@ export default function FormAddStoks() {
           params.append('name', name);
           params.append('descr', description);
           params.append('dateend', dateend);
+          params.append('percent', percent);
           params.append('me', localStorage.getItem('token'));
           const response = await fetch(`//${serverUrl}/api/stoks/add.php?${params.toString()}`);
           const jsonData = await response.json();
@@ -57,6 +59,10 @@ export default function FormAddStoks() {
       setDateend(event.target.value);
     };
 
+    const percentHandler = (event) => {
+      setPercent(event.target.value);
+    };
+
     const submitHandler = (event) => {
       event.preventDefault();
       AddStok();
@@ -68,6 +74,8 @@ export default function FormAddStoks() {
         <form onSubmit={submitHandler}>
             <p className="mini">Название акции</p>
             <input maxLength="50" placeholder='Название акции' type="text" onChange={nameHandler} />
+            <p className="mini">Процент скидки на товар</p>
+            <input type="num" value={percent}  onChange={percentHandler} />
             <p className="mini">Описание акции</p>
             <textarea maxLength="5000" placeholder='Расскажите о акции' onChange={descHandler} />
             <p className="mini">Дата окончания акции</p>

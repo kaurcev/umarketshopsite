@@ -10,6 +10,8 @@ export default function FormEditStoks() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [dateend, setDateend] = useState('');
+    const [percent, setPercent] = useState('');
+    
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const stockid = searchParams.get('id');
@@ -39,6 +41,7 @@ export default function FormEditStoks() {
           setName(jsonData.data.name);
           setDescription(jsonData.data.description);
           setDateend(jsonData.data.dateend);
+          setPercent(jsonData.data.percent)
       } catch (error) {
           showModalWithText(error.message);
       } finally {
@@ -62,6 +65,10 @@ export default function FormEditStoks() {
       setDateend(event.target.value);
     };
 
+    const percentHandler = (event) => {
+      setPercent(event.target.value);
+    };
+
     const submitHandler = (event) => {
       event.preventDefault();
       updateStock();
@@ -75,6 +82,7 @@ export default function FormEditStoks() {
           params.append('name', name);
           params.append('descr', description);
           params.append('dateend', dateend);
+          params.append('percent', percent);
           params.append('me', localStorage.getItem('token'));
           const response = await fetch(`//${serverUrl}/api/stoks/update.php?${params.toString()}`);
           const jsonData = await response.json();
@@ -95,6 +103,8 @@ export default function FormEditStoks() {
         <form onSubmit={submitHandler}>
             <p className="mini">Название акции</p>
             <input maxLength="50" placeholder='Название акции' value={name} type="text" onChange={nameHandler} />
+            <p className="mini">Процент скидки на товар</p>
+            <input type="num" value={percent}  onChange={percentHandler} />
             <p className="mini">Описание акции</p>
             <textarea maxLength="5000" placeholder='Расскажите о акции' value={description} onChange={descHandler} />
             <p className="mini">Дата окончания акции</p>

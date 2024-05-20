@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { serverUrl } from "../config";
 import '../styles/ReviewBar.css';
 
-const ProdImgBar = ({ id }) => {
+const ProdImgBar = ({ id, banner }) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [img, setImg] = useState('');
@@ -15,10 +15,17 @@ const ProdImgBar = ({ id }) => {
             params.append('id', id);       
             const responses = await fetch(`//${serverUrl}/api/product/images.php?${params.toString()}`);
             const jsonTrans = await responses.json();
-            setData(jsonTrans.data); 
-            setImg(`//${serverUrl}/img/${jsonTrans.data[0].photo}`)
+            setData(jsonTrans.data);
+            if(jsonTrans.data.status){
+                setImg(`//${serverUrl}/img/${banner}`);
+            }else{
+                setImg(`//${serverUrl}/img/${jsonTrans.data[0].photo}`)
+            }
         } catch (error) {
-            setData([{id : "1",username : "Система юМаркет Шоп", message : `При загрузке данных произошла ошибка: ${error.message}.`}]);
+            setData([{num: "0",
+            photo:	banner,
+            prod: id}]);
+            setImg(`//${serverUrl}/img/${banner}`);
         } finally {
             setLoading(false);
         }
@@ -44,14 +51,13 @@ const ProdImgBar = ({ id }) => {
                 </>
             ) : (
                 <>
-                    {
-                        data.map((item) => (
-                           <img key={item.num} className='miniimage' onClick={() => imageopen(`//${serverUrl}/img/${item.photo}`) } src={`//${serverUrl}/img/${item.photo}`} alt={item.prod}/>
-                        ))
-                    }
-                </>
-            )
-            }
+                 {data.length < 1 ? (<> 
+                    <img className='miniimage' onClick={() => imageopen(`//${serverUrl}/img/${img}`) } src={`//${serverUrl}/img/${img}`} alt=""/>
+                 </>) : (<>{
+                    data.map((item) => (
+                        <img key={item.num} className='miniimage' onClick={() => imageopen(`//${serverUrl}/img/${item.photo}`) } src={`//${serverUrl}/img/${item.photo}`} alt={item.prod}/>
+                    ))
+            }</>)} </>)}
         </div>
         <div className='imgback' style={{backgroundImage: `url("${img}")`}} >
             <img src={img} className="preview" alt={data.name} />
