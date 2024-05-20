@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { serverUrl } from "../config";
 import Header from "../components/Header";
 import Footer from '../components/Footer';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ModalAlert from '../components/ModalAlert';
 
 export default function ReplysPage() {
@@ -10,9 +10,6 @@ export default function ReplysPage() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const stokid = searchParams.get('id');
 
   // Для отображения модального окна
   const [showModal, setShowModal] = useState(false);
