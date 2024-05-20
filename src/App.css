@@ -55,7 +55,7 @@ html, body{
 }
 
 main{
-  min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -69,7 +69,7 @@ main.centered{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100svh;
 }
 hr{
   border: none;
@@ -231,7 +231,7 @@ main .page .bank{
 }
 
 .pay .cartpanel{
-  min-height: 20vh;
+  min-height: 20svh;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -348,7 +348,7 @@ pre{
 }
 .productbar .productcart img{
   background-color: var(--color-body-bg-two);
-  height: 20vh;
+  height: 20svh;
   border-radius: 10px;
   object-fit: cover;
   object-position: center;
@@ -358,6 +358,77 @@ pre{
 }
 .productbar .productcart p, .productbar .productcart h5{
   margin: 0px;
+}
+.replypage.page .duo {
+  align-items: start;
+}
+.ProductMiniPanel{
+  flex-grow: 1;
+  flex-basis: 800px;
+}
+.ProductMiniPanel .imgback{
+  width: 100%;
+  background-color: var(--color-body-bg-two);
+  border-radius: 10px;
+  display: flex;
+  background-size: cover; 
+  background-position: center center;
+  order: 1;
+  height: 30vh;
+}
+.ProductMiniPanel img.preview {
+  display: block;
+  height: 30vh;
+  padding: 10px;
+  width: 100%;
+  backdrop-filter: blur(4px);
+  background-color: #0002;
+  border-radius: 10px;
+}
+.formgap{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.formgap .duo{
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.replymessage{
+  background: var(--akcent-four);
+  padding: 5px 20px;
+  border-radius: 20px 20px 20px 0px;
+  color: var(--akcent);
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.replymessagepostav{
+  background: var(--akcent);
+  padding: 5px 20px;
+  border-radius: 20px 20px 0px 20px;
+  color: #fff;
+  width: fit-content;
+}
+.messagebar{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.mright{
+  display: flex;
+  width: 100%;
+  align-items: end;
+  justify-content: end;
+  padding: 10px;
+  background: var(--color-body-bg-two);
+}
+.mleft{
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  background: var(--color-body-bg-two);
 }
 
 
@@ -411,7 +482,7 @@ main .page form{
   gap: 2px;
 }
 main form.photoload input[type="file"]{
-  min-height: 25vh;
+  min-height: 25svh;
   border: 4px dotted var(--akcent-four);
   border-radius: 10px;
   transition: border-color 0.3s ease-in-out;
@@ -440,7 +511,7 @@ main form.photoload input[type="file"]:hover{
 }
 
 .imgprodo {
-  height: 33vh;
+  height: 33svh;
   object-fit: scale-down;
   object-position: center;
   background-color: #00000025;
@@ -526,7 +597,12 @@ main form.photoload input[type="file"]:hover{
     min-width: 45%;
     flex-basis: 170px;
  }
-
+  .replypage.page .duo {
+    flex-wrap: wrap-reverse;
+  }
+  main .replypage.page .duo img {
+    display: inline;
+  }
   form .duo.start div{
     width: 100%;
   }

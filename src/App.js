@@ -28,6 +28,8 @@ import PostavStoksAddPage from './pages/PostavStoksAddPage';
 import PostavStoksEditPage from './pages/PostavStoksEditPage';
 import StokPage from './pages/StokPage';
 import CountryError from './pages/CountryError';
+import ReplyPage from './pages/ReplyPage';
+import ReplysPage from './pages/ReplysPage';
 
 
 function App() {
@@ -54,7 +56,9 @@ function App() {
         <Route exact path="/profile/postav/stoks" element={<PostavStoksPage />} /> 
         <Route exact path="/profile/postav/addstoks" element={<PostavStoksAddPage />} /> 
         <Route exact path="/profile/postav/editstoks" element={<PostavStoksEditPage />} /> 
-        <Route exact path="/profile/postav/editprodo" element={<PostavProdoEditPage />} />       
+        <Route exact path="/profile/postav/editprodo" element={<PostavProdoEditPage />} />
+        <Route exact path="/profile/postav/replys" element={<ReplysPage />} />
+        <Route exact path="/profile/postav/reply" element={<ReplyPage />} />
         <Route exact path="/profile/postav/edit" element={<PostavEditPage />} />
         <Route exact path="/profile/wallet" element={<WalletPage />} />
         <Route exact path="/search" element={<SearchPage />} />

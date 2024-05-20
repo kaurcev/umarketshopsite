@@ -51,6 +51,16 @@ const ReviewsBar = ({ id }) => {
                                 <h5>{item.username}</h5>
                                 <pre>{item.message}</pre>
                                 <p className="mini">{item.date}</p>
+                                {item.reply === "" ? (<></>) : (
+                                <>
+                                <div className='replied'>
+                                    <h6>Ответ поставщика</h6>
+                                    <pre>
+                                        {item.reply}
+                                    </pre>
+                                </div>
+                                </>)
+                                }
                             </div>
                         ))
                     }

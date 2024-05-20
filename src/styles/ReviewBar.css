@@ -9,9 +9,12 @@
     white-space: pre-wrap;
 }
 .reviews .review{
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
     border-radius: 10px;
-    border: 1px solid var(--border);
+    gap: 5px;
+    background-color: var(--color-body-bg-two);
 }
 .reviews .review.load{
     min-height: 100px;
@@ -20,7 +23,20 @@
 .reviews .review h5{
     margin: 0px;
 }
-
+.reviews .replied h6, .reviews .replied pre{
+    margin: 0px;
+}
+.reviews .replied h6{
+    color: var(--akcent);
+}
+.reviews .replied{
+    background: var(--akcent-four);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 .reviews .scrool{
     max-height: 90vh;
     overflow: auto;
