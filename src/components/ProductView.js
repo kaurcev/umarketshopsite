@@ -142,7 +142,7 @@ const ProductView = ({ id }) => {
                         <>
                         <div className='moneycart'>
                        
-                        {data.stokpercent === "0" ? (<>
+                        {data.stokpercent === null ? (<>
                             <p className='money'>{data.money} ₽</p>
                         </>) : (<>
                         <div className='moneybar'>
