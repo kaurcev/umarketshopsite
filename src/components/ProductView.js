@@ -155,9 +155,7 @@ const ProductView = ({ id }) => {
                         </>)}
                         {data.stokpercent !== null ? (<> 
                             <button className='outline' onClick={() => StockOpen(data.stok)}>Подробнее об акции</button>
-                        </>) : (<>
-                           <p>На этот товар акций нет</p>
-                        </>)}
+                        </>) : (<></>)}
                         {
                         localStorage.getItem('token') === null ? (
                         <>
