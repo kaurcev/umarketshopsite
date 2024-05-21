@@ -153,7 +153,7 @@ const ProductView = ({ id }) => {
                             <span className='mini'>Старая цена: <span className='money shirk'>{data.money} ₽</span></span>
                         </div>
                         </>)}
-                        {data.stok !== null ? (<> 
+                        {data.stok !== "0" ? (<> 
                             <button className='outline' onClick={() => StockOpen(data.stok)}>Подробнее об акции</button>
                         </>) : (<>
                            <p>На этот товар акций нет</p>

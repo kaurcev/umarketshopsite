@@ -134,7 +134,7 @@ export default function PostavProdoEditPage() {
                           </div>
                           </div>
                           </form>
-                          <LoadImages id={productid} bannerImage={banner} />
+                          <LoadImages id={productid} bannerImage={data.img} />
                         </>
                      )
                 }
