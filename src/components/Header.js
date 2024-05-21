@@ -99,6 +99,7 @@ export default function Header() {
                             }
                     </span>
                     <span>
+                        <Link to="https://bugs.umarketshop.site/">Баг-треккер</Link>
                         <Link className='info' to="/startposrav">Как стать поставщиком</Link>
                         <Link to="/application">Мобильное приложение</Link>
                         <Link to="/stocks">Акции</Link>
