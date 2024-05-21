@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import {serverUrl } from "../config";
 import ModalAlert from './ModalAlert';
 
-const LoadImages = ( {id , bannerImage}) => {
+const LoadImages = ( {bannerImage, id}) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [banner, setBanner] = useState(null);
+    const [banner, setBanner] = useState('');
 
     // Для отображения модального окна
     const [showModal, setShowModal] = useState(false);
@@ -24,13 +24,12 @@ const LoadImages = ( {id , bannerImage}) => {
         try {
             setLoading(true); 
             const params = new URLSearchParams();
-            params.append('id', id);       
+            params.append('id', id);
             const responses = await fetch(`//${serverUrl}/product/images?${params.toString()}`);
             const jsonTrans = await responses.json();
             setData(jsonTrans.data); 
-            setBanner(bannerImage)
+            setBanner(bannerImage);
         } catch (error) {
-          
         } finally {
             setLoading(false);
         }
@@ -107,9 +106,9 @@ const LoadImages = ( {id , bannerImage}) => {
               <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
             <h3>Баннер и фото товара</h3>
             <div className='coll'>
-                <div className='backimgprodo' style={{backgroundImage: `url("//${serverUrl}/img/${banner}")`}}>
+            <div className='backimgprodo' style={{backgroundImage: `url("//${serverUrl}/img/${banner}")`}}>
                 <img className='imgprodo' src={`//${serverUrl}/img/${banner}`} alt="Картинка подгружается..." />
-                </div>
+            </div>
             <p className='mini'>Эта картинка будет баннером товара</p>
             </div>
             <div className="photobar">

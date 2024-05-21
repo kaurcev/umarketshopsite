@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import {serverUrl } from "../config";
 import Footer from '../components/Footer';
 import LoadImages from '../components/LoadImages';
+import ModalAlert from '../components/ModalAlert';
 
 export default function PostavProdoEditPage() {
   document.title = "Панель поставщика | Редактирование товара";
@@ -13,8 +14,20 @@ export default function PostavProdoEditPage() {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [banner, setBanner] = useState(null);
+  const [banner, setBanner] = useState('');
   const [money, setMoney] = useState('');
+
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState('');
+    
+    const showModalWithText = (text) => {
+        setModalText(text); // Устанавливаем текст для модального окна
+        setShowModal(true); // Показываем модальное окно
+        setTimeout(() => {
+        setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+        }, 1500);
+    };
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -26,7 +39,7 @@ export default function PostavProdoEditPage() {
         setLoading(true); 
         window.scrollTo(0, 0)       
         const params = new URLSearchParams();
-        params.append('id',productid);
+        params.append('id', productid);
         const response = await fetch(`//${serverUrl}/provider/product?${params.toString()}`);
         const jsonData = await response.json();
         setData(jsonData.data);
@@ -35,7 +48,7 @@ export default function PostavProdoEditPage() {
         setMoney(jsonData.data.money);
         setBanner(jsonData.data.img);
     } catch (error) {
-        console.log(error);
+        showModalWithText(error.message);
     } finally {
         setLoading(false);
     }
@@ -50,7 +63,6 @@ export default function PostavProdoEditPage() {
           const jsonTrans = await responses.json();
           setStoks(jsonTrans.data);
       } catch (error) {
-         // showModalWithText(error.message);
       } finally {
           setLoading(false);
       }
@@ -69,9 +81,9 @@ export default function PostavProdoEditPage() {
       setMoney(event.target.value);
     };
 
-    const stoksHandler = (event) => {
-      setStok(event.target.value);
-  };
+      const stoksHandler = (event) => {
+        setStok(event.target.value);
+    };
 
     const submitHandler = (event) => {
       event.preventDefault();
@@ -80,6 +92,7 @@ export default function PostavProdoEditPage() {
 
     async function Edit_Prodo() {
       try {
+        setLoading(true);
           const params = new URLSearchParams();
           params.append('prodo', productid);
           params.append('name', name);
@@ -91,15 +104,21 @@ export default function PostavProdoEditPage() {
           const response = await fetch(`//${serverUrl}/product/edit?${params.toString()}`);
           const jsonData = await response.json();
           if(jsonData.status){
+            showModalWithText("Изменения сохранены");
+            window.scrollTo(0, 0);
+          }else{
+            showModalWithText("Что-то пошло не так");
           }
       } catch (error) {
-          console.log(error);
+        showModalWithText(error.message);
       } finally{
+        setLoading(false);
       }
       };
 
     return (
       <>
+       <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
        <Header />
         <main className='profile pay'>
         <div className='w250'>
@@ -107,16 +126,23 @@ export default function PostavProdoEditPage() {
         </div>
         <div className='page'>
             <h3>РЕДАКТИРОВАНИЕ ТОВАРА</h3>
-            {loading ? ( <> Загрузка </> ) : (
                       <>
+                      {
+                        loading ? (
+                              <></>
+                          ) : (
+                            <LoadImages bannerImage={data.img} id={productid} />
+                          )
+                      }
                       <h3>Текстовые данные</h3>
                       <form onSubmit={submitHandler}>
                         <div className='duo start'>
                           <div>
-                              <p>Название товара</p>
-                              <input type="text" defaultValue={data.name} onChange={nameHandler} />
-                              <p>Стоимость товара</p>
-                              <input  defaultValue={data.money} type="number" onChange={moneyHandler} />
+                              <p className='mini'>Название товара</p>
+                              <input required  type="text" defaultValue={data.name} onChange={nameHandler} />
+                              <p className='mini'>Стоимость товара</p>
+                              <input required  defaultValue={data.money} type="number" onChange={moneyHandler} />
+                              <p className='mini'>Выберите акцию (При наличии)</p>
                               <select onChange={stoksHandler}>
                                 <option value="">Не указано</option>
                                    {
@@ -127,17 +153,22 @@ export default function PostavProdoEditPage() {
                               </select>
                           </div>
                           <div>
-                              <p>Описание товара</p>
-                              <textarea  defaultValue={data.description} onChange={descriptionHandler}></textarea>
-                              <button>Сохранить изменения</button>
+                              <p className='mini'>Описание товара</p>
+                              <textarea required   defaultValue={data.description} onChange={descriptionHandler}></textarea>
+                          </div>
+                          </div>
+                          <div className='duo'>
+                                {
+                                  loading ? (
+                                        <button disabled><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i></button>
+                                    ) : (
+                                        <button>Сохранить изменения</button>
+                                    )
+                                }
                               <button className='red' type='reset'>Сбросить изменения</button>
                           </div>
-                          </div>
                           </form>
-                          <LoadImages id={productid} bannerImage={data.img} />
                         </>
-                     )
-                }
             </div>
         </main>
         <Footer />

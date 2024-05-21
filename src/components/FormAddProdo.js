@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { serverUrl } from "../config";
+import ModalAlert from '../components/ModalAlert';
 
 export default function FormAddProdo() {
     const navigate = useNavigate();
@@ -14,6 +15,18 @@ export default function FormAddProdo() {
     const [money, setMoney] = useState('');
   
     const [image, setImage] = useState(null);
+
+      // Для отображения модального окна
+      const [showModal, setShowModal] = useState(false);
+      const [modalText, setModalText] = useState('');
+      
+      const showModalWithText = (text) => {
+          setModalText(text); // Устанавливаем текст для модального окна
+          setShowModal(true); // Показываем модальное окно
+          setTimeout(() => {
+          setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+          }, 1500);
+      };
   
     const handleImageChange = (e) => {
       setImage(e.target.files[0]);
@@ -30,7 +43,6 @@ export default function FormAddProdo() {
             const jsonTrans = await responses.json();
             setStoks(jsonTrans.data);
         } catch (error) {
-           // showModalWithText(error.message);
         } finally {
             setLoading(false);
         }
@@ -40,6 +52,7 @@ export default function FormAddProdo() {
   }, []); // Пустой массив зависимостей
   
     const handleSubmit = (e) => {
+      setLoading(true);
       e.preventDefault();
   
       const formData = new FormData();
@@ -56,8 +69,9 @@ export default function FormAddProdo() {
           setBannerLoad(false);
         })
         .catch((error) => {
-          console.error('Error uploading image:', error);
+          showModalWithText(error.message);
         });
+        setLoading(false);
     };
   
     async function AddProdo() {
@@ -73,7 +87,7 @@ export default function FormAddProdo() {
           const response = await fetch(`//${serverUrl}/provider/addproduct?${params.toString()}`);
           const jsonData = await response.json();
           if(jsonData.status){
-              alert("Добавлено");
+              showModalWithText("Добавлено");
               navigate('/profile/postav/prodo');
           }
       } catch (error) {
@@ -104,27 +118,35 @@ export default function FormAddProdo() {
 
     return (
         <>
-            {loading ? (
-                        <>
-                            Загрузка
-                        </>
-                ) : (    
+        <ModalAlert show={showModal} onClose={() => setShowModal(false)} text={modalText} />
                   <>
                             {bannerLoad ? (
                             <>
                                 <form className='photoload' onSubmit={handleSubmit}>
                                     <input type="file" name='photo' onChange={handleImageChange} />
-                                    <button type="submit">Загрузить</button>
+                                    {
+                                      loading ? (
+                                            <button disabled><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i></button>
+                                        ) : (
+                                            <button type="submit">Загрузить</button>
+                                        )
+                                    }
                                 </form>
                             </>) : (
                             <>
                              <form onSubmit={submitHandler}>
+                             <img className='imgprodo' src={`//${serverUrl}/img/${banner}`} alt="/" />
                             <div className='duo start'>
-                           <div>
-                              <p>Название товара</p>
-                                <input type="text" onChange={nameHandler} />
-                                <p>Стоимость товара</p>
-                                <input type="number" onChange={moneyHandler} />
+                            <div>
+                             <p className='mini'>Описание товара</p>
+                                <textarea required  maxLength="5000" placeholder='Это наш безупречный товар...' onChange={descriptionHandler}></textarea>
+                             </div>
+                            <div>
+                                <p className='mini'>Название товара</p>
+                                <input required  placeholder='Название товара' type="text" onChange={nameHandler} />
+                                <p className='mini'>Стоимость товара</p>
+                                <input required  placeholder='Стоимость товара' min="5" max="1000000" type="number" onChange={moneyHandler} />
+                                <p className='mini'>Выберите акцию (При наличии)</p>
                                 <select onChange={stoksHandler}>
                                 <option value="">Не указано</option>
                                    {
@@ -134,19 +156,22 @@ export default function FormAddProdo() {
                                     }
                               </select>
                               </div>
-                              <img className='imgprodo' src={`//${serverUrl}/img/${banner}`} alt="/" />
                             </div>
-                            <p>Описание товара</p>
-                            <textarea onChange={descriptionHandler}></textarea>
-                            <button>Добавить</button>
+                            <div className='duo'>
+                                {
+                                  loading ? (
+                                        <button disabled><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i></button>
+                                    ) : (
+                                        <button>Добавить</button>
+                                    )
+                                } 
                                 <button className='red' type='reset'>Сбросить изменения</button>
+                            </div>
                             </form>
                             </>
                             )
                         }
                     </>
-                )
-                }
         </>
     );
 }

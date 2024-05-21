@@ -287,6 +287,7 @@ main .page .duo.start div{
   flex-direction: column;
   gap: 5px;
   flex-grow: 1;
+  width: 50%;
 }
 main .coll{
   display: flex;
