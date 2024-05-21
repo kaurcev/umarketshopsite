@@ -16,7 +16,7 @@ export default function PostavPage() {
           window.scrollTo(0, 0)       
           const params = new URLSearchParams();
           params.append('me', localStorage.getItem('token'));
-          const response = await fetch(`//${serverUrl}/api/provider/meprovider.php?${params.toString()}`);
+          const response = await fetch(`//${serverUrl}/provider/me?${params.toString()}`);
           const jsonData = await response.json();
           setData(jsonData.data);
       } catch (error) {

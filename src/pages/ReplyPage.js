@@ -34,7 +34,7 @@ export default function ReplyPage() {
     params.append('id', replyid);
     params.append('text', message);
     params.append('me', localStorage.getItem("token"));
-    fetch(`//${serverUrl}/api/review/addpostav.php?${params.toString()}`)
+    fetch(`//${serverUrl}/review/provider/add?${params.toString()}`)
       .then(response => response.json())
       .then(data => {
         if (data.status) {
@@ -65,7 +65,7 @@ export default function ReplyPage() {
         setLoading(true);
         const params = new URLSearchParams();
         params.append('id', replyid);
-        const responses = await fetch(`//${serverUrl}/api/review/onepostav.php?${params.toString()}`);
+        const responses = await fetch(`//${serverUrl}/review/provider?${params.toString()}`);
         const jsonTrans = await responses.json();
         if(jsonTrans.status){
           document.title = jsonTrans.data.name;

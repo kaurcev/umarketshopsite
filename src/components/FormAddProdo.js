@@ -26,7 +26,7 @@ export default function FormAddProdo() {
             setLoading(true);        
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token'));
-            const responses = await fetch(`//${serverUrl}/api/stoks/get_me_stoks.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/mystocks?${params.toString()}`);
             const jsonTrans = await responses.json();
             setStoks(jsonTrans.data);
         } catch (error) {
@@ -45,7 +45,7 @@ export default function FormAddProdo() {
       const formData = new FormData();
       formData.append('photo', image);
   
-      fetch(`//${serverUrl}/api/product/addphoto.php`, {
+      fetch(`//${serverUrl}/loadimage`, {
         method: 'POST',
         body: formData,
       })
@@ -70,7 +70,7 @@ export default function FormAddProdo() {
           params.append('money', money);
           params.append('stok', stok);
           params.append('me', localStorage.getItem('token'));
-          const response = await fetch(`//${serverUrl}/api/product/add.php?${params.toString()}`);
+          const response = await fetch(`//${serverUrl}/provider/addproduct?${params.toString()}`);
           const jsonData = await response.json();
           if(jsonData.status){
               alert("Добавлено");

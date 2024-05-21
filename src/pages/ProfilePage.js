@@ -23,7 +23,7 @@ export default function ProfilePage() {
             }
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token'));
-            const response = await fetch(`//${serverUrl}/api/user/getinfo.php?${params.toString()}`);
+            const response = await fetch(`//${serverUrl}/getinformation?${params.toString()}`);
             const jsonData = await response.json();
             setData(jsonData.data);
             if(!jsonData.status){
@@ -31,7 +31,7 @@ export default function ProfilePage() {
             }
             const paramso = new URLSearchParams();
             paramso.append('me', jsonData.data.id);
-            const responses = await fetch(`//${serverUrl}/api/user/sessions.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/profile/sessions?${params.toString()}`);
             const jsonSession = await responses.json();
             setSession(jsonSession.data);
         } catch (error) {
@@ -51,7 +51,7 @@ export default function ProfilePage() {
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token'));
             params.append('id', id);
-            const response = await fetch(`//${serverUrl}/api/user/session_delete.php?${params.toString()}`);
+            const response = await fetch(`//${serverUrl}/profile/session/logout?${params.toString()}`);
             const jsonData = await response.json();
             if(jsonData.status){
                 setSession(prevData => prevData.filter(item => item.id !== id));

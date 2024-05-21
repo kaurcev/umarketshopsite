@@ -34,7 +34,7 @@ export default function StoksProvideBar() {
               const params = new URLSearchParams();
               params.append('id', id);
               params.append('me', localStorage.getItem('token'));
-              const response = await fetch(`//${serverUrl}/api/stoks/delete.php?${params.toString()}`);
+              const response = await fetch(`//${serverUrl}/stok/del?${params.toString()}`);
               const jsonData = await response.json();
               if(jsonData.status){
                   setData(prevData => prevData.filter(item => item.id !== id));
@@ -52,7 +52,7 @@ export default function StoksProvideBar() {
             setLoading(true);        
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token'));
-            const responses = await fetch(`//${serverUrl}/api/stoks/get_me_stoks.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/provider/mystocks?${params.toString()}`);
             const jsonTrans = await responses.json();
             setData(jsonTrans.data);
         } catch (error) {

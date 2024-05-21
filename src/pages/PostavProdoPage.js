@@ -17,7 +17,7 @@ export default function PostavProdoPage() {
           window.scrollTo(0, 0)       
           const params = new URLSearchParams();
           params.append('me', localStorage.getItem('token'));
-          const response = await fetch(`//${serverUrl}/api/provider/getmeprodo.php?${params.toString()}`);
+          const response = await fetch(`//${serverUrl}/provider/myproducts?${params.toString()}`);
           const jsonData = await response.json();
           setData(jsonData.data);
       } catch (error) {
@@ -48,7 +48,7 @@ export default function PostavProdoPage() {
         params.append('id', id);
         params.append('me', localStorage.getItem('token'));
         params.append('img', img);
-        const response = await fetch(`//${serverUrl}/api/product/delete.php?${params.toString()}`);
+        const response = await fetch(`//${serverUrl}/product/del?${params.toString()}`);
         const jsonData = await response.json();
         if(jsonData.status){
             setData(prevData => prevData.filter(item => item.id !== id));

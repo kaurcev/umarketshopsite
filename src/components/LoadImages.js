@@ -25,7 +25,7 @@ const LoadImages = ( {id , bannerImage}) => {
             setLoading(true); 
             const params = new URLSearchParams();
             params.append('id', id);       
-            const responses = await fetch(`//${serverUrl}/api/product/images.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/product/images?${params.toString()}`);
             const jsonTrans = await responses.json();
             setData(jsonTrans.data); 
             setBanner(bannerImage)
@@ -44,7 +44,7 @@ const LoadImages = ( {id , bannerImage}) => {
             const params = new URLSearchParams();
             params.append('url', url);
             params.append('me', localStorage.getItem('token'));
-            const response = await fetch(`//${serverUrl}/api/product/deletephoto.php?${params.toString()}`);
+            const response = await fetch(`//${serverUrl}/product/images/del?${params.toString()}`);
             const jsonData = await response.json();
             if(jsonData.status){
                 setData(prevData => prevData.filter(item => item.photo !== url));
@@ -59,7 +59,7 @@ const LoadImages = ( {id , bannerImage}) => {
             params.append('prodo', id);
             params.append('banner', url);
             params.append('me', localStorage.getItem('token'));
-            const response = await fetch(`//${serverUrl}/api/product/editbanner.php?${params.toString()}`);
+            const response = await fetch(`//${serverUrl}/product/images/edit?${params.toString()}`);
             const jsonData = await response.json();
             if(jsonData.status){
                 showModalWithText("Баннер установлен");
@@ -81,7 +81,7 @@ const LoadImages = ( {id , bannerImage}) => {
         params.append('prod', id);
         params.append('me', localStorage.getItem('token'));
         formData.append('photo', e.target.files[0]);
-        fetch(`//${serverUrl}/api/product/addphotos.php?${params.toString()}`, {
+        fetch(`//${serverUrl}/product/images/add?${params.toString()}`, {
           method: 'POST',
           body: formData,
         })

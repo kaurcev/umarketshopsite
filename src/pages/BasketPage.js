@@ -49,7 +49,7 @@ export default function BasketPage() {
             const params = new URLSearchParams();
             params.append('id', id);
             params.append('me', localStorage.getItem('token'));
-            const response = await fetch(`//${serverUrl}/api/basket/delete.php?${params.toString()}`);
+            const response = await fetch(`//${serverUrl}/basket/del?${params.toString()}`);
             const jsonData = await response.json();
             if(jsonData.status){
                 showModalWithText("Удалено");

@@ -11,7 +11,7 @@ export default function LogoutPage() {
         setLoading(true);        
         const params = new URLSearchParams();
         params.append('me', localStorage.getItem('token'));
-        const response = await fetch(`//${serverUrl}/api/user/logout.php?${params.toString()}`);
+        const response = await fetch(`//${serverUrl}/logout?${params.toString()}`);
         const jsonData = await response.json();
         if(jsonData.status){
           localStorage.removeItem('token');

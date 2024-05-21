@@ -33,7 +33,7 @@ export default function StokPage() {
         setLoading(true);
         const params = new URLSearchParams();
         params.append('id', stokid);
-        const responses = await fetch(`//${serverUrl}/api/stoks/public.php?${params.toString()}`);
+        const responses = await fetch(`//${serverUrl}/stok/one?${params.toString()}`);
         const jsonTrans = await responses.json();
         if(jsonTrans.status){
           document.title = jsonTrans.data.name;

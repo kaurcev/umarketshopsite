@@ -37,7 +37,7 @@ export default function PostMap({ onButtonClick }) {
           params.append('lat', position.coords.latitude);
           params.append('lon',position.coords.longitude);
           params.append('rad',rad);
-          const response = await fetch(`//${serverUrl}/api/tools/postmap.php?${params.toString()}`);
+          const response = await fetch(`//${serverUrl}/posts?${params.toString()}`);
           const jsonData = await response.json();
           setData(jsonData.data);
           window.scrollTo(0, 0);

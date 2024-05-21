@@ -20,7 +20,7 @@ export default function SearchPage() {
             window.scrollTo(0, 0);    
             const params = new URLSearchParams();
             params.append('search', search);
-            const responses = await fetch(`//${serverUrl}/api/product/search.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/product/search?${params.toString()}`);
             const jsonTrans = await responses.json();
             setData(jsonTrans.data);
         } catch (error) {

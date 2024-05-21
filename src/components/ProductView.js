@@ -49,7 +49,7 @@ const ProductView = ({ id }) => {
         const params = new URLSearchParams();
         params.append('product', id);
         params.append('me', localStorage.getItem('token'));
-        const responses = await fetch(`//${serverUrl}/api/basket/add.php?${params.toString()}`);
+        const responses = await fetch(`//${serverUrl}/addbasket?${params.toString()}`);
         const jsonTrans = await responses.json();
         if(jsonTrans.status){
             showModalWithText("Добавлено");

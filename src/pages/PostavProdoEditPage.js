@@ -46,7 +46,7 @@ export default function PostavProdoEditPage() {
           setLoading(true);        
           const params = new URLSearchParams();
           params.append('me', localStorage.getItem('token'));
-          const responses = await fetch(`//${serverUrl}/api/stoks/get_me_stoks.php?${params.toString()}`);
+          const responses = await fetch(`//${serverUrl}/provider/mystocks?${params.toString()}`);
           const jsonTrans = await responses.json();
           setStoks(jsonTrans.data);
       } catch (error) {
@@ -88,7 +88,7 @@ export default function PostavProdoEditPage() {
           params.append('money', money);
           params.append('stok', stok);
           params.append('me', localStorage.getItem('token'));
-          const response = await fetch(`//${serverUrl}/api/product/edit.php?${params.toString()}`);
+          const response = await fetch(`//${serverUrl}/product/edit?${params.toString()}`);
           const jsonData = await response.json();
           if(jsonData.status){
           }

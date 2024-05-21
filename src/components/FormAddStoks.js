@@ -34,7 +34,7 @@ export default function FormAddStoks() {
           params.append('dateend', dateend);
           params.append('percent', percent);
           params.append('me', localStorage.getItem('token'));
-          const response = await fetch(`//${serverUrl}/api/stoks/add.php?${params.toString()}`);
+          const response = await fetch(`//${serverUrl}/provider/addstok?${params.toString()}`);
           const jsonData = await response.json();
           if(jsonData.status){
             showModalWithText("Добавлено");

@@ -36,7 +36,7 @@ export default function FormEditStoks() {
           const params = new URLSearchParams();
           params.append('id',stockid);
           params.append('me',localStorage.getItem('token'));
-          const response = await fetch(`//${serverUrl}/api/stoks/item.php?${params.toString()}`);
+          const response = await fetch(`//${serverUrl}/provider/stok?${params.toString()}`);
           const jsonData = await response.json();
           setName(jsonData.data.name);
           setDescription(jsonData.data.description);
@@ -84,7 +84,7 @@ export default function FormEditStoks() {
           params.append('dateend', dateend);
           params.append('percent', percent);
           params.append('me', localStorage.getItem('token'));
-          const response = await fetch(`//${serverUrl}/api/stoks/update.php?${params.toString()}`);
+          const response = await fetch(`//${serverUrl}/provider/updatestok?${params.toString()}`);
           const jsonData = await response.json();
           if(jsonData.status){
             showModalWithText("Обновлено");

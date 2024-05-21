@@ -31,7 +31,7 @@ export default function WalletCart() {
             setLoading(true);        
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token'));
-            const response = await fetch(`//${serverUrl}/api/user/getinfo.php?${params.toString()}`);
+            const response = await fetch(`//${serverUrl}/getinformation?${params.toString()}`);
             const jsonData = await response.json();
             setData(jsonData.data);
             if(!jsonData.status){

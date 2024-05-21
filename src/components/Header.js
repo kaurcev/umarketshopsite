@@ -26,7 +26,7 @@ export default function Header() {
     useEffect(() => {
         window.scrollTo(0, 0);
     const getStatus = async () => {
-        fetch(`//${serverUrl}/api/status.php`)
+        fetch(`//${serverUrl}/live`)
         .then(response => response.json())
         .then(data => {
             if(!data.status){
@@ -63,7 +63,7 @@ export default function Header() {
             window.scrollTo(0, 0);    
             const params = new URLSearchParams();
             params.append('search', searchtext);
-            const responses = await fetch(`//${serverUrl}/api/product/search.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/product/search?${params.toString()}`);
             const jsonData = await responses.json();
             setData(jsonData.data);
         } catch (error) {

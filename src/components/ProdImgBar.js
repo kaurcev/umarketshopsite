@@ -13,7 +13,7 @@ const ProdImgBar = ({ id, banner }) => {
             setLoading(true); 
             const params = new URLSearchParams();
             params.append('id', id);       
-            const responses = await fetch(`//${serverUrl}/api/product/images.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/product/images?${params.toString()}`);
             const jsonTrans = await responses.json();
             setData(jsonTrans.data);
             if(jsonTrans.data.status){

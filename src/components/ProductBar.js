@@ -29,7 +29,7 @@ export default function ProductBar() {
         const fetchData = async () => {
         try {
             setLoading(true);        
-            const responses = await fetch(`//${serverUrl}/api/product/all.php`);
+            const responses = await fetch(`//${serverUrl}/products`);
             const jsonTrans = await responses.json();
             setData(jsonTrans.data);
         } catch (error) {
@@ -54,7 +54,7 @@ export default function ProductBar() {
             const params = new URLSearchParams();
             params.append('product', id);
             params.append('me', localStorage.getItem('token'));
-            const responses = await fetch(`//${serverUrl}/api/basket/add.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/addbasket?${params.toString()}`);
             const jsonTrans = await responses.json();
             if(jsonTrans.status){
                 showModalWithText("Добавлено");

@@ -31,7 +31,7 @@ export default function FormPostavEdit() {
             window.scrollTo(0, 0)       
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token'));
-            const response = await fetch(`//${serverUrl}/api/provider/meprovider.php?${params.toString()}`);
+            const response = await fetch(`//${serverUrl}/provider/me?${params.toString()}`);
             const jsonData = await response.json();
             setData(jsonData.data);
             setName(jsonData.data.name);
@@ -67,7 +67,7 @@ export default function FormPostavEdit() {
         params.append('description', description);
         params.append('prodo', prodo);
         params.append('me', localStorage.getItem('token'));
-        fetch(`//${serverUrl}/api/provider/editprovider.php?${params.toString()}`)
+        fetch(`//${serverUrl}/provider/edit?${params.toString()}`)
         .then(response => response.json())
         .then(data => {
             if(data.status){

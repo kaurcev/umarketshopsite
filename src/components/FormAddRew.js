@@ -35,7 +35,7 @@ const FormAddRew = ({ id }) => {
         params.append('id', id);
         params.append('text', text);
         params.append('me', localStorage.getItem("token"));
-        fetch(`//${serverUrl}/api/review/add.php?${params.toString()}`)
+        fetch(`//${serverUrl}/review/add?${params.toString()}`)
           .then(response => response.json())
           .then(data => {
             if (data.status) {

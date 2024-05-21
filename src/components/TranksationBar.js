@@ -26,7 +26,7 @@ export default function TreanksationBar() {
             setLoading(true);        
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token'));
-            const responses = await fetch(`//${serverUrl}/api/user/gettrans.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/transactions?${params.toString()}`);
             const jsonTrans = await responses.json();
             setTrans(jsonTrans.data);
         } catch (error) {

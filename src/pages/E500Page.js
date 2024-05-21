@@ -9,7 +9,7 @@ export default function E500Page() {
     const navigate = useNavigate();
     useEffect(() => {
     const getStatus = async () => {
-        fetch(`//${serverUrl}/api/status.php`)
+        fetch(`//${serverUrl}/live`)
         .then(response => response.json())
         .then(data => {
             if(data.status){

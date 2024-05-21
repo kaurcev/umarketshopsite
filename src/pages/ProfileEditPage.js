@@ -61,7 +61,7 @@ export default function ProfileEditPage() {
         params.append('firstname', firstname);
         params.append('address', address);
         params.append('me', localStorage.getItem('token'));
-        fetch(`//${serverUrl}/api/user/edit.php?${params.toString()}`)
+        fetch(`//${serverUrl}/profile/update?${params.toString()}`)
         .then(response => response.json())
         .then(data => {
             if(data.status){
@@ -86,7 +86,7 @@ export default function ProfileEditPage() {
             }
             const params = new URLSearchParams();
             params.append('me', localStorage.getItem('token'));
-            const response = await fetch(`//${serverUrl}/api/user/getinfo.php?${params.toString()}`);
+            const response = await fetch(`//${serverUrl}/getinformation?${params.toString()}`);
             const jsonData = await response.json();
             setData(jsonData.data);
             setEmail(jsonData.data.email);

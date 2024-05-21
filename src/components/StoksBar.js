@@ -26,7 +26,7 @@ export default function StoksBar() {
         const fetchData = async () => {
         try {
             setLoading(true);        
-            const responses = await fetch(`//${serverUrl}/api/stoks/all.php`);
+            const responses = await fetch(`//${serverUrl}/stoks`);
             const jsonTrans = await responses.json();
             setData(jsonTrans.data);
         } catch (error) {

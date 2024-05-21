@@ -48,7 +48,7 @@ export default function FormSignIn(){
         params.append('password', passwordtext);
         try {
             setLoading(true);        
-            const responses = await fetch(`//${serverUrl}/api/user/login.php?${params.toString()}`);
+            const responses = await fetch(`//${serverUrl}/signin?${params.toString()}`);
             const jsonTrans = await responses.json();
             if (jsonTrans.status) {
                 console.log(jsonTrans.data.token);
