@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { serverUrl } from "../config";
 import '../styles/FormAddRew.css';
-import { Link } from 'react-router-dom';
 import ModalAlert from '../components/ModalAlert';
+import { useNavigate } from 'react-router-dom';
 
 const FormAddRew = ({ id }) => {
+    const navigate = useNavigate();
     const [text, setReview] = useState('');
 
     // Для отображения модального окна
@@ -58,11 +59,9 @@ const FormAddRew = ({ id }) => {
           {
             localStorage.getItem('token') === null ? (
             <>
-            <p className='noauth'>
-            <Link to="/auth" >
+            <div className='noauth' onClick={() => navigate('/signin')}>
                 Необходимо авторизироваться
-            </Link>
-            </p>
+            </div>
             </>) : (
                 <>
                     <form onSubmit={submitHandler} className='addtew'>

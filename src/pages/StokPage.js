@@ -58,7 +58,7 @@ export default function StokPage() {
           {
             loading ? (
               <>
-              <p className='noauth'>Загрузка</p>
+              <div className='noauth'>Загрузка</div>
               </>
             ) : (
               <>

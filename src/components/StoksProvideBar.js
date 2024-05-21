@@ -71,18 +71,18 @@ export default function StoksProvideBar() {
          <div className='stoklist'>
               {loading ? (
             <>
-            <p className='noauth'>
+            <div className='noauth'>
               Загрузка
-            </p>
+            </div>
             </>
           ) : (
             <>
             {
               data.length < 1 ? (
                 <>
-                    <p className='noauth'>
+                    <div className='noauth'>
                         Акций ещё нет
-                    </p>
+                    </div>
                 </>
               ) : (
                 <>

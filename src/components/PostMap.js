@@ -70,7 +70,7 @@ export default function PostMap({ onButtonClick }) {
       <div className='postlist'>
         {loading ? (
           <> 
-          <p className='noauth'>Загрузка ближайших отделений</p>
+          <div className='noauth'>Загрузка ближайших отделений</div>
           </>
         ) : (
           <>

@@ -41,7 +41,7 @@ const ReviewsBar = ({ id }) => {
             ) : (
                 <>
                 {data.length < 1 ? (<>
-                        <p className='noauth'>Отзывов пока нет</p>
+                        <div className='noauth'>Отзывов пока нет</div>
                         </>
                     ) : (
                     <>

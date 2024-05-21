@@ -159,7 +159,7 @@ const ProductView = ({ id }) => {
                         {
                         localStorage.getItem('token') === null ? (
                         <>
-                        <p className='noauth'>Необходимо авторизироваться</p>
+                        <div className='noauth'>Необходимо авторизироваться</div>
                         </>) : (
                             <>
                             {

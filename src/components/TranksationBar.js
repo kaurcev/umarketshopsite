@@ -45,18 +45,18 @@ export default function TreanksationBar() {
          <div className='payslist'>
               {loading ? (
             <>
-            <p className='noauth'>
+            <div className='noauth'>
               Загрузка
-            </p>
+            </div>
             </>
           ) : (
             <>
             {
               trans.length < 1 ? (
                 <>
-                    <p className='noauth'>
+                    <div className='noauth'>
                 Транкзакций не проводилось
-                    </p>
+                    </div>
                 </>
               ) : (
                 <>

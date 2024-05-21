@@ -60,7 +60,7 @@ export default function ReplysPage() {
             <p className='mini'>Последние отзывы на ваши товары</p>
             { loading ? (
           <>
-          <p className='noauth'>Идёт загрузка</p>
+          <div className='noauth'>Идёт загрузка</div>
           </>) : (
           <>
             {

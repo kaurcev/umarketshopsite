@@ -45,18 +45,18 @@ export default function SearchPage() {
             <div className='productbar'>
                 {loading ? (
                     <>
-                    <p className='noauth'>
+                    <div className='noauth'>
                     Загрузка
-                    </p>
+                    </div>
                     </>
                 ) : (
                     <>
                     {
                         data.length < 1 ? (
                             <>
-                            <p className='noauth'>
+                            <div className='noauth'>
                             По вашему запросу ничего не найдено
-                            </p>
+                            </div>
                             </>
                         ) : (
                             <>
