@@ -339,7 +339,13 @@ img{
 .productbar .productcart.fill{
   flex-grow: 1;
 }
-
+.moneybar{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: start;
+}
 .productbar .productcart:hover{
   box-shadow: 0 4px 10px 0 #00000022;
   transform: scale(1.05);
