@@ -27,7 +27,7 @@ export default function PostavProdoEditPage() {
         window.scrollTo(0, 0)       
         const params = new URLSearchParams();
         params.append('id',productid);
-        const response = await fetch(`//${serverUrl}/api/product/item.php?${params.toString()}`);
+        const response = await fetch(`//${serverUrl}/product?${params.toString()}`);
         const jsonData = await response.json();
         setData(jsonData.data);
         setName(jsonData.data.name);

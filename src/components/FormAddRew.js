@@ -59,7 +59,7 @@ const FormAddRew = ({ id }) => {
           {
             localStorage.getItem('token') === null ? (
             <>
-            <div className='noauth' onClick={() => navigate('/signin')}>
+            <div className='noauth' onClick={() => navigate('/auth')}>
                 Необходимо авторизироваться
             </div>
             </>) : (
