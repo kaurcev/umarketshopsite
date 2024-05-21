@@ -67,6 +67,7 @@ export default function ProfilePage() {
         <div className='w250'>
         <Link className='bt' to='/profile/edit'>Редактировать данные</Link>
         <Link className='bt' to='/profile/wallet'>Кошелёк</Link>
+        <Link className='bt' to='https://bugs.umarketshop.site/'>Баг-треккер</Link>
         {data.roleid === "2" ? (<Link className='bt' to='/profile/postav'>Панель поставщика</Link>) : null}
         {data.roleid === "3" ? (<Link className='bt' to='/profile/admin'>Панель администратора</Link>) : null}
         <Link className='bt red' to='/logout'>Выход</Link>
