@@ -9,7 +9,7 @@ export default function PostavProdoEditPage() {
   document.title = "Панель поставщика | Редактирование товара";
   const [data, setData] = useState([]);
   const [stoks, setStoks] = useState([]);
-  const [stok, setStock] = useState('');
+  const [stok, setStok] = useState('');
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -70,7 +70,7 @@ export default function PostavProdoEditPage() {
     };
 
     const stoksHandler = (event) => {
-      setStock(event.target.value);
+      setStok(event.target.value);
   };
 
     const submitHandler = (event) => {
@@ -128,7 +128,7 @@ export default function PostavProdoEditPage() {
                           </div>
                           <div>
                               <p>Описание товара</p>
-                              <textarea  defaultValue={data.description}  onChange={descriptionHandler}></textarea>
+                              <textarea  defaultValue={data.description} onChange={descriptionHandler}></textarea>
                               <button>Сохранить изменения</button>
                               <button className='red' type='reset'>Сбросить изменения</button>
                           </div>

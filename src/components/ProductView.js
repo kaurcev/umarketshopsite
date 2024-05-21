@@ -70,6 +70,10 @@ const ProductView = ({ id }) => {
         showModalWithText("Ссылка скопирована");
     }
 
+    const StockOpen = (sid) =>{
+        navigate(`/stock?id=${sid}`);
+    }
+
     if (!id) return null;
     return (
         <>
@@ -142,10 +146,17 @@ const ProductView = ({ id }) => {
                             <p className='money'>{data.money} ₽</p>
                         </>) : (<>
                         <div className='moneybar'>
+                            <div className='sto'>
                             <span className='money'>{data.oldmoney} ₽</span>
                             <span className='stokpercent'>{data.stokpercent}%</span>
-                            <span>Старая цена: <span className='money shirk'>{data.money} ₽</span></span>
+                            </div>
+                            <span className='mini'>Старая цена: <span className='money shirk'>{data.money} ₽</span></span>
                         </div>
+                        </>)}
+                        {data.stok !== null ? (<> 
+                            <button className='outline' onClick={() => StockOpen(data.stok)}>Подробнее об акции</button>
+                        </>) : (<>
+                           <p>На этот товар акций нет</p>
                         </>)}
                         {
                         localStorage.getItem('token') === null ? (

@@ -127,6 +127,11 @@ a.bt, button{
   border-radius: 10px;
   border: 1px solid var(--akcent);
 }
+button.outline{
+  border: 1px solid var(--akcent);
+  color:var(--akcent);
+  background-color: transparent;
+}
 button:disabled{
   opacity: 0.8;
 }
