@@ -237,12 +237,23 @@ a.bt.red, button.red{
   width: 100%;
   min-width: 500px;
 }
+.postlist .cart.load{
+  background: linear-gradient(90deg, var(--color-body-bg), var(--color-body-bg), var(--color-body-bg-two), var(--color-body-bg));
+  animation: 0.8s shine linear infinite;
+  background-size: 200% 100%;
+  border-radius: 5px;
+  width: 100%;
+  min-height: 270px;
+}
 .radform{
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px;
   align-items: baseline;
+}
+.map{
+  width: 100%;
+  height: 30vh;
 }
 
 main .page .bank{
@@ -279,7 +290,7 @@ main .page .duo{
   gap: 10px;
 }
 main .page .duo.start{
-  align-items: start;
+  align-items: stretch;
   padding: 5px;
 }
 main .page .duo.start div{
@@ -287,14 +298,18 @@ main .page .duo.start div{
   flex-direction: column;
   gap: 5px;
   flex-grow: 1;
-  width: 50%;
+  flex-basis: 50%;
 }
 main .coll{
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
+span.red{
+  color: var(--red);
+  font-family: 700;
+  font-size: 16px;
+}
 img{
   object-fit: scale-down;
   object-position: center;
@@ -509,7 +524,7 @@ main.profile .page .cartpanel .load{
 main .page form{
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 5px;
 }
 main form.photoload input[type="file"]{
   min-height: 25svh;
