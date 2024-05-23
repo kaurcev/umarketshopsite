@@ -1,227 +1,237 @@
 @keyframes shine {
-    to {
-        background-position-x: -200%;
-    }
-  }
-
-.skelet-loader{
-    background: linear-gradient(90deg, var(--color-body-bg-two), var(--color-body-bg), var(--color-body-bg-two), var(--color-body-bg-two));
-    animation: 0.8s shine linear infinite;
-    background-size: 200% 100%;
-    border-radius: 5px;
-    width: 100%;
-    min-height: 16px;
-    border: 1px solid transparent;
-}
-.skelet-loader.p{
-    margin: 7px 0;
-}
-.skelet-loader.h1{
-    margin: 7px 0;
-    min-height: 24px;
-}
-.skelet-loader.span{
-    min-height: 14px;
-    width: 100px;
+	to {
+		background-position-x: -200%;
+	}
 }
 
-
-
-
-main.productpage .dop{
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex-basis: 600px;
-    order: 2;
+.skelet-loader {
+	background: linear-gradient(90deg, var(--color-body-bg-two), var(--color-body-bg), var(--color-body-bg-two), var(--color-body-bg-two));
+	animation: 0.8s shine linear infinite;
+	background-size: 200% 100%;
+	border-radius: 5px;
+	width: 100%;
+	min-height: 16px;
+	border: 1px solid transparent;
 }
 
-main.productpage .duo{
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-between;
-    gap: 10px;
+.skelet-loader.p {
+	margin: 7px 0;
 }
 
-main.productpage .moneycart .money{
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--akcent);
+.skelet-loader.h1 {
+	margin: 7px 0;
+	min-height: 24px;
 }
 
-main.productpage .duob{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
+.skelet-loader.span {
+	min-height: 14px;
+	width: 100px;
 }
 
-main.productpage a{
-    width: 100%;
-    max-width: none;
-    backdrop-filter: blur(5px);
-    background: #00000025;
-    border-radius: 10px;
-}
-main.productpage img.preview{
-    display: block;
-    width: 100%;
-    max-width: none;
-    backdrop-filter: blur(5px);
-    background: #00000025;
-    border-radius: 10px;
-    height: 50vh;
-    padding: 10px;
-}
-main.productpage .imgback{
-    width: 100%;
-    background-color: var(--color-body-bg-two);
-    border-radius: 10px;
-    display: flex;
-    background-size: cover; 
-    background-position: center center;
-    order: 1;
-    height: 50vh;
+
+main.productpage .dop {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	flex-basis: 600px;
+	order: 2;
 }
 
-.moneybarw{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    gap: 10px;
-}
-.moneybarw .sto{
-    display: flex;
-    gap: 10px;
-    align-items: center;
+main.productpage .duo {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: space-between;
+	gap: 10px;
 }
 
-main.productpage .moneycart .money.shirk{
-    font-size: 14px;
-    opacity: 0.8;
-    text-decoration: 3px line-through;
+main.productpage .moneycart .money {
+	font-size: 24px;
+	font-weight: 800;
+	color: var(--akcent);
+}
+
+main.productpage .duob {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+main.productpage a {
+	width: 100%;
+	max-width: none;
+	backdrop-filter: blur(5px);
+	background: #00000025;
+	border-radius: 10px;
+}
+
+main.productpage img.preview {
+	display: block;
+	width: 100%;
+	max-width: none;
+	backdrop-filter: blur(5px);
+	background: #00000025;
+	border-radius: 10px;
+	height: 50vh;
+	padding: 10px;
+}
+
+main.productpage .imgback {
+	width: 100%;
+	background-color: var(--color-body-bg-two);
+	border-radius: 10px;
+	display: flex;
+	background-size: cover;
+	background-position: center center;
+	order: 1;
+	height: 50vh;
+}
+
+.moneybarw {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: start;
+	gap: 10px;
+}
+
+.moneybarw .sto {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+main.productpage .moneycart .money.shirk {
+	font-size: 14px;
+	opacity: 0.8;
+	text-decoration: 3px line-through;
 	text-decoration-color: red;
-    color: var(--akcent-tree);
+	color: var(--akcent-tree);
 }
 
-.stokpercent{
-    padding: 4px;
-    background: var(--red);
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 800;
-    font-size: 10px;
+.stokpercent {
+	padding: 4px;
+	background: var(--red);
+	border-radius: 5px;
+	color: #fff;
+	font-weight: 800;
+	font-size: 10px;
 }
 
-main.productpage .h1.mini{
-    opacity: 1;
+main.productpage .h1.mini {
+	opacity: 1;
 }
 
-main.productpage h1{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0px;
-}
-main.productpage h1 i{
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    width: 100%;
-}
-main.productpage .imagebar{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
-    width: 120px;
-    overflow-y: scroll;
-    max-height: 430px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    order: 0;
-    padding: 5px;
-}
-main.productpage .imagebar img{
-    --size: 60px;
-    width: var(--size);
-    height:  var(--size);
-    display: block;
-    object-fit: cover;
-    box-shadow: 0 4px 10px 0 #00000025;
-    border-radius: 10px;
+main.productpage h1 {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 0px;
 }
 
-main.productpage .moneycart{
-    width: 100%;
-    box-shadow: 0 4px 10px 0 #13213335;
-    padding: 10px;
-    border-radius: 20px;
-    min-height: 20vh;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: space-between;
-    background-color: var(--color-header);
-    padding: 20px;
+main.productpage h1 i {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	width: 100%;
 }
 
-main.productpage .postavprofile{
-    background-color: var(--akcent);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 12px;
+main.productpage .imagebar {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: stretch;
+	width: 120px;
+	overflow-y: scroll;
+	max-height: 430px;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	order: 0;
+	padding: 5px;
 }
 
-main.productpage .postavprofile p{
-    margin: 0px;
+main.productpage .imagebar img {
+	--size: 60px;
+	width: var(--size);
+	height: var(--size);
+	display: block;
+	object-fit: cover;
+	box-shadow: 0 4px 10px 0 #00000025;
+	border-radius: 10px;
 }
-  
-  
+
+main.productpage .moneycart {
+	width: 100%;
+	box-shadow: 0 4px 10px 0 #13213335;
+	padding: 10px;
+	border-radius: 20px;
+	min-height: 20vh;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-between;
+	background-color: var(--color-header);
+	padding: 20px;
+}
+
+main.productpage .postavprofile {
+	background-color: var(--akcent);
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 20px;
+	border-radius: 10px;
+	font-size: 12px;
+}
+
+main.productpage .postavprofile p {
+	margin: 0px;
+}
 
 
 @media (max-width: 799px) {
-    main.productpage .h1{
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1; 
-        -webkit-box-orient: vertical;
-        text-overflow: ellipsis;
-      }
-      main.productpage .h1 .big {
-        font-size: 16px;
-        font-weight: 700;
-        opacity: 1;
-      }
-    main.productpage .duo{
-        flex-direction: column;
-        height: fit-content;
-        
-    }
-    main.productpage a img{
-        min-height: 60vh;
-    }
-    main.productpage .dop{
-        height: fit-content;
-    }
-    main.productpage .dop{
-        padding: 0px;
-        flex-basis: auto;
-    }
-    main.productpage .imagebar{
-        flex-direction: row;
-        width: 100%;
-        order: 2;
-    }
-}
+	main.productpage .h1 {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+		text-overflow: ellipsis;
+	}
 
+	main.productpage .h1 .big {
+		font-size: 16px;
+		font-weight: 700;
+		opacity: 1;
+	}
+
+	main.productpage .duo {
+		flex-direction: column;
+		height: fit-content;
+
+	}
+
+	main.productpage a img {
+		min-height: 60vh;
+	}
+
+	main.productpage .dop {
+		height: fit-content;
+	}
+
+	main.productpage .dop {
+		padding: 0px;
+		flex-basis: auto;
+	}
+
+	main.productpage .imagebar {
+		flex-direction: row;
+		width: 100%;
+		order: 2;
+	}
+}

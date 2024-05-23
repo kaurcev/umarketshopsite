@@ -1,49 +1,60 @@
-.reviews{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-height: 50vh;
+.reviews {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	min-height: 50vh;
 }
-.reviews .review pre{
-    width:100%;
-    white-space: pre-wrap;
+
+.reviews .review pre {
+	width: 100%;
+	white-space: pre-wrap;
 }
-.reviews .review{
-    display: flex;
-    flex-direction: column;
-    padding: 15px 20px;
-    border-radius: 10px;
-    gap: 5px;
-    background-color: var(--color-body-bg-two);
+
+.reviews .review {
+	display: flex;
+	flex-direction: column;
+	padding: 15px 20px;
+	border-radius: 10px;
+	gap: 5px;
+	background-color: var(--color-body-bg-two);
 }
-.reviews .review.load{
-    min-height: 100px;
-    border: none
+
+.reviews .review.load {
+	min-height: 100px;
+	border: none
 }
-.reviews .review h5{
-    margin: 0px;
+
+.reviews .review h5 {
+	margin: 0px;
 }
-.reviews .replied h6, .reviews .replied pre{
-    margin: 0px;
+
+.reviews .replied h6,
+.reviews .replied pre {
+	margin: 0px;
 }
-.reviews .replied h6{
-    color: var(--akcent);
+
+.reviews .replied h6 {
+	color: var(--akcent);
 }
-.reviews .replied{
-    background: var(--akcent-four);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px;
-    color: #000;
+
+.reviews .replied {
+	background: var(--akcent-four);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 10px;
+	color: #000;
 }
-.reviews .scrool{
-    max-height: 90vh;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    -ms-overflow-style: none;  /* IE 10+ */
-    scrollbar-width: none; /* Firefox */
+
+.reviews .scrool {
+	max-height: 90vh;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	-ms-overflow-style: none;
+	/* IE 10+ */
+	scrollbar-width: none;
+	/* Firefox */
 }

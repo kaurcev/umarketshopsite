@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { serverUrl } from "../config";
-import { YMaps, Map, Circle } from '@pbe/react-yandex-maps';
+import { YMaps, Map, Circle } from "@pbe/react-yandex-maps";
 import ModalAlert from "../components/ModalAlert";
 
 export default function PostMap({ onButtonClick }) {
-  const [lat, setLat] = useState('');
-  const [lon, setLon] = useState('');
+  const [lat, setLat] = useState("");
+  const [lon, setLon] = useState("");
   const [rad, setRad] = useState(1000);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -36,7 +36,7 @@ export default function PostMap({ onButtonClick }) {
     navigator.geolocation.getCurrentPosition(
       async function (position) {
         try {
-          setMapvisible(false)
+          setMapvisible(false);
           setLat(position.coords.latitude);
           setLon(position.coords.longitude);
           const params = new URLSearchParams();
@@ -49,7 +49,6 @@ export default function PostMap({ onButtonClick }) {
           );
           const jsonData = await response.json();
           setData(jsonData.data);
-          window.scrollTo(0, 0);
         } catch (error) {
           showModalWithText(error.message);
         } finally {
@@ -64,6 +63,8 @@ export default function PostMap({ onButtonClick }) {
     );
   };
   const handleButtonClick = (index, address) => {
+    setMapvisible(false);
+    window.scrollTo(0, 0);
     onButtonClick(index, address);
     showModalWithText(`Указано новое почтовое отделение: ${address}`);
   };
@@ -91,22 +92,29 @@ export default function PostMap({ onButtonClick }) {
             При нажатии кнопки "Обновить список", нами будет получено ваше
             местоположение
           </div>
-          {mapvisible ? (<>
-            <YMaps>
-              <Map className='map' defaultState={{ center: [lat, lon], zoom: 14 }}>
-                <Circle
-                  geometry={[[lat, lon], rad]}
-                  options={{
-                    draggable: true,
-                    fillColor: "#4E50FF25",
-                    strokeColor: "#4E50FF",
-                    strokeOpacity: 0.6,
-                    strokeWidth: 3,
-                  }}
-                />
-              </Map>
-            </YMaps>
-          </>) : (<></>)}
+          {mapvisible ? (
+            <>
+              <YMaps>
+                <Map
+                  className="map"
+                  defaultState={{ center: [lat, lon], zoom: 14 }}
+                >
+                  <Circle
+                    geometry={[[lat, lon], rad]}
+                    options={{
+                      draggable: false,
+                      fillColor: "#4E50FF25",
+                      strokeColor: "#4E50FF",
+                      strokeOpacity: 0.6,
+                      strokeWidth: 3,
+                    }}
+                  />
+                </Map>
+              </YMaps>
+            </>
+          ) : (
+            <></>
+          )}
           {loading ? (
             <button disabled>
               <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>

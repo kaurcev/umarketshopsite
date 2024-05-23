@@ -98,7 +98,6 @@ export default function ProfileEditPage() {
         setName(jsonData.data.name);
         setFirstname(jsonData.data.firstname);
         setAddress(jsonData.data.address);
-        window.scrollTo(0, 0);
       } catch (error) {
         console.log(error);
       } finally {

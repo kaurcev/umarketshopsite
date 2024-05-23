@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { serverUrl } from "../config";
 
 export default function LogoutPage() {
@@ -7,38 +7,39 @@ export default function LogoutPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-    try {
-        setLoading(true);        
+      try {
+        setLoading(true);
         const params = new URLSearchParams();
-        params.append('me', localStorage.getItem('token'));
-        const response = await fetch(`//${serverUrl}/logout?${params.toString()}`);
+        params.append("me", localStorage.getItem("token"));
+        const response = await fetch(
+          `//${serverUrl}/logout?${params.toString()}`
+        );
         const jsonData = await response.json();
-        if(jsonData.status){
-          localStorage.removeItem('token');
-          window.location.href = '/';
+        if (jsonData.status) {
+          localStorage.removeItem("token");
+          window.location.href = "/";
         }
-    } catch (error) {
+      } catch (error) {
         console.log(error);
-    } finally {
+      } finally {
         setLoading(false);
-    }
+      }
     };
     fetchData();
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
 
-    return (
+  return (
     <>
       {loading ? (
-          <>
-            <p>Завершение сеанса</p>
-          </>
-        ) : (
-          <>
-            <p>Готово!</p> 
-          </>
+        <>
+          <p>Завершение сеанса</p>
+        </>
+      ) : (
+        <>
+          <p>Готово!</p>
+        </>
       )}
     </>
-  )
+  );
 }
-  
