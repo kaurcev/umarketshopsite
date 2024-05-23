@@ -29,6 +29,7 @@
     <meta property="og:site_name" content="юМаркет Шоп">
     <meta property="og:locale" content="ru_RU">
     <meta property="twitter:image:src" content="https://umarketshop.site/assets/img/banner.jpg">
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
     <script type="application/ld+json">
         {
           "@context" : "http://schema.org",
@@ -83,6 +84,10 @@
         me=x.createElement(pe),me.async=1,me.src=r,nt=x.getElementsByTagName(pe)[0],nt.parentNode.insertBefore(me,nt)})
         (window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab');
         ymab('metrika.95864034', 'init'/*, {clientFeatures}, {callback}*/);
+    </script>
+    <script>
+      // Sends event to client
+      vkBridge.send('VKWebAppInit');
     </script>
   </body>
 </html>
