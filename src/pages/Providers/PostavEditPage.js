@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import FormPostavEdit from "../components/FormPostavEdit";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import FormPostavEdit from "../../components/FormPostavEdit";
 
 export default function PostavEditPage() {
   document.title = "Панель поставщика | Редактирование";

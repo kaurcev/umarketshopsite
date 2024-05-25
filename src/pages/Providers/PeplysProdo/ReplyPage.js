@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { serverUrl } from "../config";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { serverUrl } from "../../../config";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import ModalAlert from "../components/ModalAlert";
-import ProductMiniPanel from "../components/ProductMiniPanel";
+import ModalAlert from "../../../components/ModalAlert";
+import ProductMiniPanel from "../../../components/ProductMiniPanel";
 
 export default function ReplyPage() {
   document.title = "Отзыв..";

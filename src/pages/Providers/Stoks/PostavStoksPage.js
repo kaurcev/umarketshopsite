@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import StoksProvideBar from "../components/StoksProvideBar";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import StoksProvideBar from "../../../components/StoksProvideBar";
 
 export default function PostavStoksPage() {
   document.title = "Панель поставщика";

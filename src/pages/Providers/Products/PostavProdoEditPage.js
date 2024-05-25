@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Header from "../components/Header";
-import { serverUrl } from "../config";
-import Footer from "../components/Footer";
-import LoadImages from "../components/LoadImages";
-import ModalAlert from "../components/ModalAlert";
+import Header from "../../../components/Header";
+import { serverUrl } from "../../../config";
+import Footer from "../../../components/Footer";
+import LoadImages from "../../../components/LoadImages";
+import ModalAlert from "../../../components/ModalAlert";
 
 export default function PostavProdoEditPage() {
   document.title = "Панель поставщика | Редактирование товара";
@@ -49,16 +49,15 @@ export default function PostavProdoEditPage() {
         setDescription(jsonData.data.description);
         setMoney(jsonData.data.money);
         setBanner(jsonData.data.img);
+        setStok(jsonData.data.stok);
       } catch (error) {
         showModalWithText(error.message);
       } finally {
         setLoading(false);
       }
     };
-    fetchData();
     const stoksData = async () => {
       try {
-        setLoading(true);
         const params = new URLSearchParams();
         params.append("me", localStorage.getItem("token"));
         const responses = await fetch(
@@ -67,11 +66,10 @@ export default function PostavProdoEditPage() {
         const jsonTrans = await responses.json();
         setStoks(jsonTrans.data);
       } catch (error) {
-      } finally {
-        setLoading(false);
       }
     };
     stoksData();
+    fetchData();
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
 
@@ -164,7 +162,7 @@ export default function PostavProdoEditPage() {
                   />
                   <p className="mini">Выберите акцию (При наличии)</p>
                   <select onChange={stoksHandler}>
-                    <option value="">Не указано</option>
+                    <option value={data.stok}>Не указано</option>
                     {stoks.map((item) => (
                       <option key={item.id} value={item.id}>
                         {item.name}

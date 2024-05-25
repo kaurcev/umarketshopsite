@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
-import { serverUrl } from "../config";
-import {getBrowser, getDevice} from "../functions";
-import Header from '../components/Header';
-import '../styles/profile.css';
-import Footer from '../components/Footer';
+import { serverUrl } from "../../config";
+import {getBrowser, getDevice} from "../../functions";
+import Header from '../../components/Header';
+import '../../styles/profile.css';
+import Footer from '../../components/Footer';
 
 export default function ProfilePage() {
     document.title = "Профиль";

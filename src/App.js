@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/HomePage";
 import E404Page from "./pages/E404Page";
-import ProfilePage from "./pages/ProfilePage";
 import LogoutPage from "./pages/LogoutPage";
-import ProfileEditPage from "./pages/ProfileEditPage";
 import E500Page from "./pages/E500Page";
 import ApplicationPage from "./pages/ApplicationPage";
 import StartProvidePage from "./pages/StartProviderPage";
@@ -13,23 +11,38 @@ import StocksPage from "./pages/StocksPage";
 import BasketPage from "./pages/BasketPage";
 import HelpPage from "./pages/HelpPage";
 import WalletPage from "./pages/WalletPage";
-import AdminPage from "./pages/AdminPage";
-import PostavPage from "./pages/PostavPage";
 import SearchPage from "./pages/SearchPage";
-import PostavEditPage from "./pages/PostavEditPage";
 import ProductPage from "./pages/ProductPage";
-import PostavProdoPage from "./pages/PostavProdoPage";
-import PostavProdoAddPage from "./pages/PostavProdoAddPage";
-import PostavProdoEditPage from "./pages/PostavProdoEditPage";
 import Signup from "./pages/SignupPage";
 import PaySuccessPage from "./pages/PaySuccessPage";
-import PostavStoksPage from "./pages/PostavStoksPage";
-import PostavStoksAddPage from "./pages/PostavStoksAddPage";
-import PostavStoksEditPage from "./pages/PostavStoksEditPage";
 import StokPage from "./pages/StokPage";
 import CountryError from "./pages/CountryError";
-import ReplyPage from "./pages/ReplyPage";
-import ReplysPage from "./pages/ReplysPage";
+
+// Страницы раздела профиля
+import ProfilePage from "./pages/Profile/ProfilePage";
+import ProfileEditPage from "./pages/Profile/ProfileEditPage";
+
+// Страницы раздела профиля поставщика
+import PostavPage from "./pages/Providers/PostavPage";
+import PostavEditPage from "./pages/Providers/PostavEditPage";
+import PostavProdoPage from "./pages/Providers/Products/PostavProdoPage";
+import PostavProdoAddPage from "./pages/Providers/Products/PostavProdoAddPage";
+import PostavProdoEditPage from "./pages/Providers/Products/PostavProdoEditPage";
+import PostavStoksPage from "./pages/Providers/Stoks/PostavStoksPage";
+import PostavStoksAddPage from "./pages/Providers/Stoks/PostavStoksAddPage";
+import PostavStoksEditPage from "./pages/Providers/Stoks/PostavStoksEditPage";
+import ReplyPage from "./pages/Providers/PeplysProdo/ReplyPage";
+import ReplysPage from "./pages/Providers/PeplysProdo/ReplysPage";
+
+// Страницы раздела профиля администратора
+import AdminPage from "./pages/Admin/AdminPage";
+import AdminUsersPage from "./pages/Admin/Users/AdminUsersPage";
+import AdminUserEditPage from "./pages/Admin/Users/AdminUserEditPage";
+import AdminUserAddPage from "./pages/Admin/Users/AdminUserAddPage";
+import AdminProdoPage from "./pages/Admin/Products/AdminProdoPage";
+import AdminProvidersPage from "./pages/Admin/Providers/AdminProvidersPage";
+import AdminProviderEditPage from "./pages/Admin/Providers/AdminProviderEditPage";
+import AdminProviderAddPage from "./pages/Admin/Providers/AdminProviderAddPage";
 
 function App() {
   return (
@@ -87,6 +100,34 @@ function App() {
           exact
           path="/product" 
           element={<ProductPage />} />
+        <Route 
+          exact 
+          path="/profile/admin/users" 
+          element={<AdminUsersPage />} />
+        <Route 
+          exact 
+          path="/profile/admin/user/edit" 
+          element={<AdminUserEditPage />} />
+        <Route 
+          exact 
+          path="/profile/admin/user/add" 
+          element={<AdminUserAddPage />} />
+        <Route 
+          exact 
+          path="/profile/admin/providers" 
+          element={<AdminProvidersPage />} />
+        <Route 
+          exact 
+          path="/profile/admin/provider/edit" 
+          element={<AdminProviderEditPage />} />
+        <Route 
+          exact 
+          path="/profile/admin/provider/add" 
+          element={<AdminProviderAddPage />} />
+        <Route 
+          exact 
+          path="/profile/admin/prodo" 
+          element={<AdminProdoPage />} />
         <Route 
           exact 
           path="/profile/admin" 

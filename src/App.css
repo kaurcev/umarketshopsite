@@ -67,7 +67,14 @@ main {
 	margin: 0 auto;
 	padding: 10px;
 	animation: loadpage 0.5s ease;
+}
 
+main input{
+	padding: 10px 15px;
+	border-radius: 10px;
+	background-color: var(--color-header);
+	border: 1px solid var(--border);
+	color: var(--color-font);
 }
 
 main.centered {
@@ -164,6 +171,68 @@ button:disabled {
 	color: var(--green);
 	font-weight: 700;
 	width: fit-content;
+}
+.green{
+	color: var(--green);
+}
+.reds{
+	color: var(--red);
+}
+
+
+@keyframes bluropen {
+	
+}
+
+@keyframes bluropen {
+	0% {
+		backdrop-filter: blur(0px);
+		opacity: 0;
+	}
+
+	100% {
+		backdrop-filter: blur(3px);
+		opacity: 1;
+	}
+}
+
+.fullscreen{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100vh;
+	background-color: #00000025;
+	backdrop-filter: blur(3px);
+	z-index: 1000;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	animation: bluropen 0.1s ease-in;
+}
+
+.fullscreen .panel{
+	background-color: var(--color-body-bg);
+	padding: 15px;
+	width: 100%;
+	max-width: 600px;
+	min-height: 30vh;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px 0 #00000025;
+}
+.fullscreen .panel .center{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.fullscreen .panel form{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .statcheck.red {
@@ -732,6 +801,56 @@ main form.photoload input[type="file"]:hover {
 		flex-direction: column-reverse;
 	}
 
+	.fullscreen{
+		justify-content: end;
+	}
+	.fullscreen .panel h3.duo.b{
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+	@keyframes swap {
+		0%{
+			bottom: -100px;
+		}
+		100%{
+			bottom: 0px;
+		}
+	}
+	.fullscreen .panel{
+		position: absolute;
+		animation: con 0.15s ease-in;
+	}
+
+}
+
+.duo.b.w{
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+
+@keyframes con {
+	0% {
+		bottom: -100px;
+		opacity: 0;
+	}
+
+	100% {
+		bottom: 0px;
+		opacity: 1;
+	}
+}
+
+@keyframes con {
+	0% {
+		bottom: -100px;
+		opacity: 0;
+	}
+
+	100% {
+		bottom: 0px;
+		opacity: 1;
+	}
 }
 
 /*#endregion Мобильный адаптив*/

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { YandexMetrica, AnalyticsGoogle } from "../config";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { YandexMetrica, AnalyticsGoogle } from "../../config";
 
 export default function AdminPage() {
   document.title = "Панель администратора";
@@ -60,14 +60,20 @@ export default function AdminPage() {
           <Link className="bt" to="/profile/admin/users">
             Пользователи
           </Link>
+          <Link className="bt" to="/profile/admin/providers">
+            Поставщики
+          </Link>
           <Link className="bt" to="/profile/admin/prodo">
             Товары
           </Link>
-          <Link className="bt" to="/profile/admin/stocks">
-            Акции
+          <Link className="bt" to="/profile/admin/providers">
+            Жалобы пользователей
           </Link>
           <Link className="bt" to="/profile/admin/trans">
-            Тракнзакции
+            Финансовый отдел
+          </Link>
+          <Link className="bt" to="/profile">
+            Руководство молодого администратора
           </Link>
         </div>
         <div className="page">

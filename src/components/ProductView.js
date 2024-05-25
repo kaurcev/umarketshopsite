@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { serverUrl } from "../config";
 import { useNavigate } from "react-router-dom";
 import ModalAlert from "./ModalAlert";
+import ComplaintAlert from "./ComplaintAlert";
 import "../styles/ProductView.css";
 import ProdImgBar from "./ProdImgBar";
 const ProductView = ({ id }) => {
@@ -9,6 +10,14 @@ const ProductView = ({ id }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [basketadd, setBasketadd] = useState(false);
+
+  const [showComplaint, setShowComplaint] = useState(false);
+  const [typeComplaint, setTypeComplaint] = useState("");
+  
+  const showComplaintAlert = () => {
+    setShowComplaint(true); // Показываем модальное окно
+  };
+
 
   // Для отображения модального окна
   const [showModal, setShowModal] = useState(false);
@@ -74,12 +83,17 @@ const ProductView = ({ id }) => {
       )
       .then(() => console.log("Done!"))
       .catch((err) => console.error(err));
-    showModalWithText("Ссылка скопирована");
+      showModalWithText("Ссылка скопирована");
   };
 
   const StockOpen = (sid) => {
     navigate(`/stock?id=${sid}`);
   };
+
+  const ComplaintProdo = () =>{
+    setTypeComplaint("1");
+    showComplaintAlert();
+  }
 
   if (!id) return null;
   return (
@@ -88,6 +102,12 @@ const ProductView = ({ id }) => {
         show={showModal}
         onClose={() => setShowModal(false)}
         text={modalText}
+      />
+      <ComplaintAlert
+        show={showComplaint}
+        type={typeComplaint}
+        to={id}
+        onClose={() => setShowComplaint(false)}
       />
       {loading ? (
         <>
@@ -199,6 +219,7 @@ const ProductView = ({ id }) => {
                       ) : (
                         <button onClick={() => FromBasket()}>В корзину</button>
                       )}
+                      <p onClick={() => ComplaintProdo()} className="mini">Пожаловаться</p>
                     </>
                   )}
                 </div>
