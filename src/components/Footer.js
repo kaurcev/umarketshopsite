@@ -17,9 +17,9 @@ export default function Footer() {
               </Link>
             </p>
             <p className="mini">
-              <Link href="https://kaurcev.t.me">
+              <a href="https://kaurcev.t.me">
                 Александр Каурцев
-              </Link>
+              </a>
             </p>
           </div>
           <div>
