@@ -10,6 +10,7 @@ export default function Header() {
   const [searchtext, setSearchtext] = useState("");
   const [geo, setGeo] = useState("");
   const [data, setData] = useState([]);
+  let searchTimeout;
 
   // Для отображения модального окна
   const [showModal, setShowModal] = useState(false);
@@ -39,18 +40,21 @@ export default function Header() {
     };
 
     const fetchData = async () => {
-      const params = new URLSearchParams();
-      params.append('me', localStorage.getItem('token'));
-      fetch(`//${serverUrl}/getinformation?${params.toString()}`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (localStorage.getItem('token') && !data.data.id) {
-            navigate('/logout')
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      if (localStorage.getItem('token') !== null) {
+        const params = new URLSearchParams();
+        params.append('me', localStorage.getItem('token'));
+        fetch(`//${serverUrl}/getinformation?${params.toString()}`)
+          .then((response) => response.json())
+          .then((data) => {
+            if (localStorage.getItem('token') && data.data.block === "1") {
+              alert("Ваш аккаунт был заблокирован администратором. Свяжитесь с нами по почте, указанной в подвале сайта для уточнения деталей");
+              navigate('/logout')
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     };
 
     const getCity = async () => {
@@ -74,13 +78,14 @@ export default function Header() {
   }, []); // Пустой массив зависимостей
 
   const searchHandler = (event) => {
+    clearTimeout(searchTimeout);
     setSearchtext(event.target.value);
-    varik(event.target.value);
+    searchTimeout = setTimeout(varik, 500);
   };
+
 
   const varik = async () => {
     try {
-      window.scrollTo(0, 0);
       const params = new URLSearchParams();
       params.append("search", searchtext);
       const responses = await fetch(
@@ -92,6 +97,7 @@ export default function Header() {
       showModalWithText(error.message);
     }
   };
+
 
   const submitHandler = (event) => {
     event.preventDefault();
