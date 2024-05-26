@@ -122,7 +122,7 @@ export default function ProfileEditPage() {
       <Header />
       <main className="profile">
         <div className="w250">
-          <Link className="bt" to="/profile">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
         </div>

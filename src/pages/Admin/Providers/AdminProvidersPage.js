@@ -52,7 +52,7 @@ export default function AdminProvidersPage() {
         `//${serverUrl}/api/adminpanel/providers/all.php?${params.toString()}`
       );
       const jsonTrans = await responses.json();
-        setData(jsonTrans.data);
+      setData(jsonTrans.data);
     } catch (error) {
       showModalWithText(error.message);
     } finally {
@@ -78,28 +78,28 @@ export default function AdminProvidersPage() {
       />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/admin">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
           <Link className="bt" to="/profile/admin/provider/add">
-           Добавить поставщика
+            Добавить поставщика
           </Link>
         </div>
         <div className="page">
           <h3>ПОСТАВЩИКИ</h3>
-          <form className="signup" onSubmit={searchstart}> 
-          <p className="mini">Найдите организацию по ключевым словам</p>
+          <form className="signup" onSubmit={searchstart}>
+            <p className="mini">Найдите организацию по ключевым словам</p>
             <input required placeholder="Наименование организации или ключевые слова" onChange={searchHandler} type="text" />
-          {loading ? (
-                  <button disabled>
-                    <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-                  </button>
-                ) : (
-                  <button>Поиск</button>
-                )}
-                <button onClick={() => fetchData()} className="red" type="reset">
-                  Сбросить изменения
-                </button>
+            {loading ? (
+              <button disabled>
+                <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              </button>
+            ) : (
+              <button>Поиск</button>
+            )}
+            <button onClick={() => fetchData()} className="red" type="reset">
+              Сбросить изменения
+            </button>
           </form>
           {loading ? (
             <>
@@ -122,21 +122,21 @@ export default function AdminProvidersPage() {
                   <p>{item.phone}</p>
                   <p></p>
                   <div className="duo">
-                  <button
-                    onClick={() =>
-                      navigate(`/profile/admin/provider/edit?id=${item.id}`)
-                    }
-                  >
-                    Редактировать поставщика
-                  </button>
-                  <button
-                  className="o"
-                    onClick={() =>
-                      navigate(`/profile/admin/user/edit?id=${item.manager}`)
-                    }
-                  >
-                    Редактировать менеджера
-                  </button>
+                    <button
+                      onClick={() =>
+                        navigate(`/profile/admin/provider/edit?id=${item.id}`)
+                      }
+                    >
+                      Редактировать поставщика
+                    </button>
+                    <button
+                      className="o"
+                      onClick={() =>
+                        navigate(`/profile/admin/user/edit?id=${item.manager}`)
+                      }
+                    >
+                      Редактировать менеджера
+                    </button>
                   </div>
                 </div>
               ))}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Header from "../../../components/Header";
 import { serverUrl } from "../../../config";
 import Footer from "../../../components/Footer";
@@ -7,6 +7,7 @@ import LoadImages from "../../../components/LoadImages";
 import ModalAlert from "../../../components/ModalAlert";
 
 export default function PostavProdoEditPage() {
+  const navigate = useNavigate();
   document.title = "Панель поставщика | Редактирование товара";
   const [data, setData] = useState([]);
   const [stoks, setStoks] = useState([]);
@@ -110,6 +111,7 @@ export default function PostavProdoEditPage() {
       if (jsonData.status) {
         showModalWithText("Изменения сохранены");
         window.scrollTo(0, 0);
+        navigate('/profile/postav/prodo');
       } else {
         showModalWithText("Что-то пошло не так");
       }
@@ -130,7 +132,7 @@ export default function PostavProdoEditPage() {
       <Header />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/postav/prodo">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
         </div>

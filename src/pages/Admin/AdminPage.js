@@ -54,7 +54,7 @@ export default function AdminPage() {
       <Header />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
           <Link className="bt" to="/profile/admin/users">
@@ -66,7 +66,7 @@ export default function AdminPage() {
           <Link className="bt" to="/profile/admin/prodo">
             Товары
           </Link>
-          <Link className="bt" to="/profile/admin/providers">
+          <Link className="bt" to="/profile/admin/complaints">
             Жалобы пользователей
           </Link>
           <Link className="bt" to="/profile/admin/trans">

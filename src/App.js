@@ -43,97 +43,102 @@ import AdminProdoPage from "./pages/Admin/Products/AdminProdoPage";
 import AdminProvidersPage from "./pages/Admin/Providers/AdminProvidersPage";
 import AdminProviderEditPage from "./pages/Admin/Providers/AdminProviderEditPage";
 import AdminProviderAddPage from "./pages/Admin/Providers/AdminProviderAddPage";
+import AdminComplaintsPage from "./pages/Admin/Complaints/AdminComplaintsPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route 
+        <Route
           exact
-          path="/" 
+          path="/"
           element={<HomePage />} />
-        <Route 
-          exact 
-          path="/auth" 
+        <Route
+          exact
+          path="/auth"
           element={<AuthPage />} />
-        <Route 
-          exact 
-          path="/profile" 
+        <Route
+          exact
+          path="/profile"
           element={<ProfilePage />} />
         <Route
-          exact 
-          path="/profile/edit" 
+          exact
+          path="/profile/edit"
           element={<ProfileEditPage />} />
-        <Route 
-          exact 
-          path="/logout" 
+        <Route
+          exact
+          path="/logout"
           element={<LogoutPage />} />
-        <Route 
-          exact 
+        <Route
+          exact
           path="/application"
           element={<ApplicationPage />} />
-        <Route 
-          exact 
-          path="/startposrav" 
+        <Route
+          exact
+          path="/startposrav"
           element={<StartProvidePage />} />
-        <Route 
-          exact 
-          path="/stocks" 
+        <Route
+          exact
+          path="/stocks"
           element={<StocksPage />} />
-        <Route 
-          exact 
-          path="/stock" 
+        <Route
+          exact
+          path="/stock"
           element={<StokPage />} />
         <Route
-          exact 
-          path="/basket" 
-          element={<BasketPage />} />
-        <Route 
-          exact 
-          path="/help" 
-          element={<HelpPage />} />
-        <Route 
-          exact 
-          path="/pay/success" 
-          element={<PaySuccessPage />} />
-        <Route 
           exact
-          path="/product" 
+          path="/basket"
+          element={<BasketPage />} />
+        <Route
+          exact
+          path="/help"
+          element={<HelpPage />} />
+        <Route
+          exact
+          path="/pay/success"
+          element={<PaySuccessPage />} />
+        <Route
+          exact
+          path="/product"
           element={<ProductPage />} />
-        <Route 
-          exact 
-          path="/profile/admin/users" 
+        <Route
+          exact
+          path="/profile/admin/users"
           element={<AdminUsersPage />} />
-        <Route 
-          exact 
-          path="/profile/admin/user/edit" 
+        <Route
+          exact
+          path="/profile/admin/user/edit"
           element={<AdminUserEditPage />} />
-        <Route 
-          exact 
-          path="/profile/admin/user/add" 
+        <Route
+          exact
+          path="/profile/admin/user/add"
           element={<AdminUserAddPage />} />
-        <Route 
-          exact 
-          path="/profile/admin/providers" 
+        <Route
+          exact
+          path="/profile/admin/providers"
           element={<AdminProvidersPage />} />
-        <Route 
-          exact 
-          path="/profile/admin/provider/edit" 
+        <Route
+          exact
+          path="/profile/admin/provider/edit"
           element={<AdminProviderEditPage />} />
-        <Route 
-          exact 
-          path="/profile/admin/provider/add" 
+        <Route
+          exact
+          path="/profile/admin/provider/add"
           element={<AdminProviderAddPage />} />
-        <Route 
-          exact 
-          path="/profile/admin/prodo" 
+        <Route
+          exact
+          path="/profile/admin/complaints"
+          element={<AdminComplaintsPage />} />
+        <Route
+          exact
+          path="/profile/admin/prodo"
           element={<AdminProdoPage />} />
-        <Route 
-          exact 
-          path="/profile/admin" 
+        <Route
+          exact
+          path="/profile/admin"
           element={<AdminPage />} />
-        <Route 
-          exact 
+        <Route
+          exact
           path="/profile/postav"
           element={<PostavPage />} />
         <Route
@@ -167,39 +172,39 @@ function App() {
           element={<PostavProdoEditPage />}
         />
         <Route
-          exact 
-          path="/profile/postav/replys" 
+          exact
+          path="/profile/postav/replys"
           element={<ReplysPage />} />
-        <Route 
-          exact 
-          path="/profile/postav/reply" 
+        <Route
+          exact
+          path="/profile/postav/reply"
           element={<ReplyPage />} />
-        <Route 
-          exact 
+        <Route
+          exact
           path="/profile/postav/edit"
           element={<PostavEditPage />} />
-        <Route 
-          exact 
-          path="/profile/wallet" 
-          element={<WalletPage />} />
-        <Route 
+        <Route
           exact
-          path="/search" 
+          path="/profile/wallet"
+          element={<WalletPage />} />
+        <Route
+          exact
+          path="/search"
           element={<SearchPage />} />
-        <Route 
-          exact 
-          path="/signup" 
+        <Route
+          exact
+          path="/signup"
           element={<Signup />} />
-        <Route 
-          exact 
-          path="/500" 
+        <Route
+          exact
+          path="/500"
           element={<E500Page />} />
-        <Route 
-          exact 
-          path="/oops" 
+        <Route
+          exact
+          path="/oops"
           element={<CountryError />} />
-        <Route 
-          path="*" 
+        <Route
+          path="*"
           element={<E404Page />} />
       </Routes>
     </Router>

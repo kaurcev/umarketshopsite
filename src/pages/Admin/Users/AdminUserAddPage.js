@@ -40,48 +40,48 @@ export default function AdminUserAddPage() {
     const params = new URLSearchParams();
     params.append("u", username);
     params.append("me", localStorage.getItem('token'));
-    try{
+    try {
       const response = await fetch(
         `//${serverUrl}/api/adminpanel/checkusername.php?${params.toString()}`
       );
       const jsonTrans = await response.json();
-      if(jsonTrans.status){
+      if (jsonTrans.status) {
         setCheckuser(true);
-      }else{
+      } else {
         setCheckuser(false);
       }
-    }catch(error){
-        showModalWithText(error.message);
+    } catch (error) {
+      showModalWithText(error.message);
     }
   };
 
-  const SigninRequest = async () =>{
-      const params = new URLSearchParams();
-      params.append("username", username);
-      params.append("password", password);
-      params.append("surname", surname);
-      params.append("name", name);
-      params.append("firstname", firstname);
-      params.append("email", email);
-      params.append("r", role);
-      params.append("me", localStorage.getItem('token'));
-      try {
-        setLoading(true);
-        const responses = await fetch(
-          `//${serverUrl}/api/adminpanel/useradd.php?${params.toString()}`
-        );
-        const jsonTrans = await responses.json();
-        if (jsonTrans.status) {
-          showModalWithText(jsonTrans.message);
-          navigate('/profile/admin/users')
-        } else {
-          showModalWithText(jsonTrans.message);
-        }
-      } catch (error) {
-        showModalWithText(error.message);
-      } finally {
-        setLoading(false);
+  const SigninRequest = async () => {
+    const params = new URLSearchParams();
+    params.append("username", username);
+    params.append("password", password);
+    params.append("surname", surname);
+    params.append("name", name);
+    params.append("firstname", firstname);
+    params.append("email", email);
+    params.append("r", role);
+    params.append("me", localStorage.getItem('token'));
+    try {
+      setLoading(true);
+      const responses = await fetch(
+        `//${serverUrl}/api/adminpanel/useradd.php?${params.toString()}`
+      );
+      const jsonTrans = await responses.json();
+      if (jsonTrans.status) {
+        showModalWithText(jsonTrans.message);
+        navigate('/profile/admin/users')
+      } else {
+        showModalWithText(jsonTrans.message);
       }
+    } catch (error) {
+      showModalWithText(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const surnameHandler = (event) => {
@@ -111,7 +111,7 @@ export default function AdminUserAddPage() {
     setRole(event.target.value);
   };
 
-  
+
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -130,99 +130,99 @@ export default function AdminUserAddPage() {
       />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/admin/users">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
         </div>
         <div className="page">
-            <div>
-                <h1>Добавление пользователя</h1>
-              <form onSubmit={submitHandler}>
+          <div>
+            <h1>Добавление пользователя</h1>
+            <form onSubmit={submitHandler}>
               <p className="mini">Фамилия<span className="red">*</span></p>
-            <input
-              type="text"
-              placeholder="Фамилия пользователя"
-              maxLength="100"
-              value={surname}
-              required
-              onChange={surnameHandler}
-            />
-            <p className="mini">Имя<span className="red">*</span></p>
-            <input
-              type="text"
-              placeholder="Имя пользователя"
-              maxLength="100"
-              value={name}
-              required
-              onChange={nameHandler}
-            />
-            <p className="mini">
-              Отчество <span className="mini">(При наличии)</span>
-            </p>
-            <input
-              type="text"
-              placeholder="Отчество пользователя"
-              maxLength="100"
-              value={firstname}
-              onChange={firstnameHandler}
-            />
-            <p className="mini">Email<span className="red">*</span></p>
-            <input
-              type="email"
-              placeholder="Email пользователя"
-              maxLength="100"
-              value={email}
-              required
-              onChange={emailHandler}
-            />
-            <p className="mini">Логин<span className="red">*</span></p>
-            <input
-              type="text"
-              placeholder="Логин пользователя"
-              maxLength="100"
-              value={username}
-              required
-              onChange={usernameHandler}
-            />
-            {checkuser ? (
-            <p className="mini"><span className="red">Этот логин занят!</span></p>) : null}
-            <p className="mini">Пароль<span className="red">*</span></p>
-            <input
-              type="password"
-              placeholder="Пароль пользователя"
-              maxLength="100"
-              value={password}
-              required
-              onChange={passwordHandler}
-            />
-            <p className="mini">Повторите пароль<span className="red">*</span></p>
-            <input
-              type="password"
-              placeholder="Повторите пароль"
-              maxLength="100"
-              value={password}
-              required
-              onChange={passwordHandler}
-            />
-            <p className="mini">Роль польователя</p>
-            <select value={role} onChange={roleHandler}>
-              <option value="1">Пользователь</option>
-              <option value="2">Поставщик</option>
-              <option value="3">Администратор</option>
-              <option value="4">Тестировщик</option>
-            </select>
-            {role === "2" ? (<>
-              <p className="mini">После создания профиля поставщика, создайте организацию и привяжите пользователя как менеджера</p>
-            </>) : null}
+              <input
+                type="text"
+                placeholder="Фамилия пользователя"
+                maxLength="100"
+                value={surname}
+                required
+                onChange={surnameHandler}
+              />
+              <p className="mini">Имя<span className="red">*</span></p>
+              <input
+                type="text"
+                placeholder="Имя пользователя"
+                maxLength="100"
+                value={name}
+                required
+                onChange={nameHandler}
+              />
+              <p className="mini">
+                Отчество <span className="mini">(При наличии)</span>
+              </p>
+              <input
+                type="text"
+                placeholder="Отчество пользователя"
+                maxLength="100"
+                value={firstname}
+                onChange={firstnameHandler}
+              />
+              <p className="mini">Email<span className="red">*</span></p>
+              <input
+                type="email"
+                placeholder="Email пользователя"
+                maxLength="100"
+                value={email}
+                required
+                onChange={emailHandler}
+              />
+              <p className="mini">Логин<span className="red">*</span></p>
+              <input
+                type="text"
+                placeholder="Логин пользователя"
+                maxLength="100"
+                value={username}
+                required
+                onChange={usernameHandler}
+              />
+              {checkuser ? (
+                <p className="mini"><span className="red">Этот логин занят!</span></p>) : null}
+              <p className="mini">Пароль<span className="red">*</span></p>
+              <input
+                type="password"
+                placeholder="Пароль пользователя"
+                maxLength="100"
+                value={password}
+                required
+                onChange={passwordHandler}
+              />
+              <p className="mini">Повторите пароль<span className="red">*</span></p>
+              <input
+                type="password"
+                placeholder="Повторите пароль"
+                maxLength="100"
+                value={password}
+                required
+                onChange={passwordHandler}
+              />
+              <p className="mini">Роль польователя</p>
+              <select value={role} onChange={roleHandler}>
+                <option value="1">Пользователь</option>
+                <option value="2">Поставщик</option>
+                <option value="3">Администратор</option>
+                <option value="4">Тестировщик</option>
+              </select>
+              {role === "2" ? (<>
+                <p className="mini">После создания профиля поставщика, создайте организацию и привяжите пользователя как менеджера</p>
+              </>) : null}
               {loading ? (
-              <button disabled>
-                <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                <button disabled>
+                  <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
                 </button>
               ) : (
                 <button>Добавить</button>
               )}
-              </form>
-            </div>
+            </form>
+          </div>
         </div>
       </main>
       <Footer />

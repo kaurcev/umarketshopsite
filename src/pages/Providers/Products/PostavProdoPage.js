@@ -66,7 +66,7 @@ export default function PostavProdoPage() {
       <Header />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/postav">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
           <Link className="bt" to="/profile/postav/addprodo">

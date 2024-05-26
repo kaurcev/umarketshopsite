@@ -79,29 +79,34 @@ const LoadImages = ({ bannerImage, id }) => {
     loadbanner(image);
   };
 
-  const handleImageChange = (e) => {
-    const formData = new FormData();
-    const params = new URLSearchParams();
-    params.append("prod", id);
-    params.append("me", localStorage.getItem("token"));
-    formData.append("photo", e.target.files[0]);
-    fetch(`//${serverUrl}/product/images/add?${params.toString()}`, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
+
+  const handleImageChange = async (e) => {
+    try {
+      const formData = new FormData();
+      const params = new URLSearchParams();
+      params.append("prod", id);
+      params.append("me", localStorage.getItem('token'));
+      formData.append("photo", e.target.files[0]);
+      const responses = await fetch(`//${serverUrl}/product/images/add?${params.toString()}`, {
+        method: "POST",
+        body: formData,
+      });
+      const jsonTrans = await responses.json();
+      if (jsonTrans.status) {
         const newItem = {
           num: data.length + 1,
-          photo: data.photo,
+          photo: jsonTrans.data.imgname,
           prod: id,
         };
         setData((prevData) => [...prevData, newItem]);
-        showModalWithText("Фото добавлено!");
-      })
-      .catch((error) => {
-        showModalWithText("Error uploading image:", error);
-      });
+      } else {
+        showModalWithText(jsonTrans.message);
+      }
+    } catch (error) {
+      showModalWithText(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!id) return null;

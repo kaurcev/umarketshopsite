@@ -16,6 +16,7 @@ export default function AdminProviderEditPage() {
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [role, setRole] = useState("1");
 
   const searchParams = new URLSearchParams(location.search);
   const userid = searchParams.get("id");
@@ -43,12 +44,13 @@ export default function AdminProviderEditPage() {
       );
       const jsonTrans = await responses.json();
       setData(jsonTrans.data);
-      if(jsonTrans.status){
+      if (jsonTrans.status) {
         setSurname(jsonTrans.data.surname);
         setName(jsonTrans.data.name);
         setFirstname(jsonTrans.data.firstname);
         setEmail(jsonTrans.data.email);
-        setPhone(jsonTrans.data.phone)
+        setPhone(jsonTrans.data.phone);
+        setRole(jsonTrans.data.roleid);
       }
     } catch (error) {
       showModalWithText(error.message);
@@ -82,6 +84,10 @@ export default function AdminProviderEditPage() {
     setPhone(event.target.value);
   };
 
+  const roleHandler = (event) => {
+    setRole(event.target.value);
+  };
+
   const deleteprofile = async () => {
     try {
       setLoading(true);
@@ -92,7 +98,7 @@ export default function AdminProviderEditPage() {
         `//${serverUrl}/api/adminpanel/userdelete.php?${params.toString()}`
       );
       const jsonTrans = await responses.json();
-      if(jsonTrans.status){
+      if (jsonTrans.status) {
         navigate("/profile/admin/users")
       }
     } catch (error) {
@@ -113,12 +119,13 @@ export default function AdminProviderEditPage() {
       params.append("firstname", firstname);
       params.append("email", email);
       params.append("phone", phone);
+      params.append("r", role);
       params.append("me", localStorage.getItem('token'));
       const responses = await fetch(
         `//${serverUrl}/api/adminpanel/userupdate.php?${params.toString()}`
       );
       const jsonTrans = await responses.json();
-      if(jsonTrans.status){
+      if (jsonTrans.status) {
         navigate("/profile/admin/users")
       }
       showModalWithText(jsonTrans.message);
@@ -140,53 +147,60 @@ export default function AdminProviderEditPage() {
       />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/admin/users">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
         </div>
         <div className="page">
           {loading ? (
             <>
-            <div className="load">
-              
-            </div>
-            <div className="load">
-              
+              <div className="load">
+
               </div>
               <div className="load">
-              
+
               </div>
               <div className="load">
-              
+
+              </div>
+              <div className="load">
+
               </div>
             </>
           ) : (
             <div>
-                <h1>{data.username}</h1>
+              <h1>{data.username}</h1>
               <p>{data.created}</p>
               <form onSubmit={updatedata}>
-                  <p className="mini">Фамилия<span className="red">*</span></p>
-                  <input required maxLength="50" type="text" onChange={surnameHandler} value={surname} />
-                  <p className="mini">Имя<span className="red">*</span></p>
-                  <input required maxLength="50" type="text" onChange={nameHandler} value={name} />
-                  <p className="mini">Отчество</p>
-                  <input maxLength="50" type="text" onChange={firstnameHandler} value={firstname} />
-                  <p className="mini">Электронная почта<span className="red">*</span></p>
-                  <input required maxLength="100" type="email" onChange={emailHandler} value={email} />
-                  <p className="mini">Номер телефона<span className="red">*</span></p>
-                  <input required maxLength="30" type="tel" onChange={phoneHandler} value={phone} />
-                  <p className="mini">Адрес доставки (Указывается исключительно пользователем)</p>
-                  <p>{data.address}</p>
-                  <p className="mini">Баланс (Пополняется только пользователем)</p>
-                  <p>{data.wallet}</p>
-                  {loading ? (
+                <p className="mini">Фамилия<span className="red">*</span></p>
+                <input required maxLength="50" type="text" onChange={surnameHandler} value={surname} />
+                <p className="mini">Имя<span className="red">*</span></p>
+                <input required maxLength="50" type="text" onChange={nameHandler} value={name} />
+                <p className="mini">Отчество</p>
+                <input maxLength="50" type="text" onChange={firstnameHandler} value={firstname} />
+                <p className="mini">Электронная почта<span className="red">*</span></p>
+                <input required maxLength="100" type="email" onChange={emailHandler} value={email} />
+                <p className="mini">Номер телефона<span className="red">*</span></p>
+                <input required maxLength="30" type="tel" onChange={phoneHandler} value={phone} />
+                <p className="mini">Роль пользователя<span className="red">*</span></p>
+                <select value={role} onChange={roleHandler}>
+                  <option value="1">Пользователь</option>
+                  <option value="2">Поставщик</option>
+                  <option value="3">Администратор</option>
+                  <option value="4">Тестировщик</option>
+                </select>
+                <p className="mini">Адрес доставки (Указывается исключительно пользователем)</p>
+                <p>{data.address}</p>
+                <p className="mini">Баланс (Пополняется только пользователем)</p>
+                <p>{data.wallet}</p>
+                {loading ? (
                   <button disabled>
                     <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-                    </button>
-                  ) : (
-                    <button>Сохранить</button>
-                  )}
-                  <button onClick={() => deleteprofile()} className="red">Удалить профиль</button>
+                  </button>
+                ) : (
+                  <button>Сохранить</button>
+                )}
+                <button onClick={() => deleteprofile()} className="red">Удалить профиль</button>
               </form>
             </div>
           )}

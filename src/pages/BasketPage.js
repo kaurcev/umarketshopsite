@@ -78,8 +78,8 @@ export default function BasketPage() {
       />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/">
-            На главную
+          <Link className="bt" onClick={() => navigate(-1)}>
+            Вернуться назад
           </Link>
         </div>
         <div className="page">

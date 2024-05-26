@@ -52,7 +52,7 @@ export default function AdminUsersPage() {
         `//${serverUrl}/api/adminpanel/userall.php?${params.toString()}`
       );
       const jsonTrans = await responses.json();
-        setData(jsonTrans.data);
+      setData(jsonTrans.data);
     } catch (error) {
       showModalWithText(error.message);
     } finally {
@@ -78,28 +78,28 @@ export default function AdminUsersPage() {
       />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/admin">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
           <Link className="bt" to="/profile/admin/user/add">
-           Добавить пользователя
+            Добавить пользователя
           </Link>
         </div>
         <div className="page">
           <h3>ПОЛЬЗОВАТЕЛИ</h3>
           <p className="mini">Найдите пользователя, введя его юзернейм</p>
-          <form className="duo" onSubmit={searchstart}> 
-          <input required placeholder="Юзернейм пользователя" onChange={searchHandler} type="text" />
-          {loading ? (
-                  <button disabled>
-                    <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-                  </button>
-                ) : (
-                  <button>Поиск</button>
-                )}
-                <button onClick={() => fetchData()} className="red" type="reset">
-                  Сбросить изменения
-                </button>
+          <form className="duo" onSubmit={searchstart}>
+            <input required placeholder="Юзернейм пользователя" onChange={searchHandler} type="text" />
+            {loading ? (
+              <button disabled>
+                <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              </button>
+            ) : (
+              <button>Поиск</button>
+            )}
+            <button onClick={() => fetchData()} className="red" type="reset">
+              Сбросить изменения
+            </button>
           </form>
           <p className="mini">Тут все пользователи системы</p>
           {loading ? (
@@ -114,10 +114,10 @@ export default function AdminUsersPage() {
               {data.map((item) => (
                 <div key={item.id} className="cart reply">
                   <h4>{item.username}</h4>
-                  {item.roleid === "1" ? ( <><p className="mini"><i className="fa fa-user" aria-hidden="true"></i> {item.role}</p></>) : null}
-                  {item.roleid === "2" ? ( <><p className="mini"><i className="fa fa-cubes" aria-hidden="true"></i> {item.role}</p></>) : null}
-                  {item.roleid === "3" ? ( <><p className="mini"><i className="fa fa-star" aria-hidden="true"></i> {item.role}</p></>) : null}
-                  {item.roleid === "4" ? ( <><p className="mini"><i className="fa fa-code" aria-hidden="true"></i> {item.role}</p></>) : null}
+                  {item.roleid === "1" ? (<><p className="mini"><i className="fa fa-user" aria-hidden="true"></i> {item.role}</p></>) : null}
+                  {item.roleid === "2" ? (<><p className="mini"><i className="fa fa-cubes" aria-hidden="true"></i> {item.role}</p></>) : null}
+                  {item.roleid === "3" ? (<><p className="mini"><i className="fa fa-star" aria-hidden="true"></i> {item.role}</p></>) : null}
+                  {item.roleid === "4" ? (<><p className="mini"><i className="fa fa-code" aria-hidden="true"></i> {item.role}</p></>) : null}
                   <p className="mini">В числе участников с {item.created} </p>
                   <p>{item.surname} {item.name} {item.firstname}</p>
                   <p className="mini"><i className="fa fa-map-pin" aria-hidden="true"></i> {item.address}</p>

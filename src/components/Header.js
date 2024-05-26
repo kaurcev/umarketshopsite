@@ -44,7 +44,11 @@ export default function Header() {
           setGeo(data);
         })
         .catch((error) => {
-          showModalWithText(error.message);
+          let data = {
+            'city': "Неизвестно",
+            'region' : "Бог знает"
+          }
+          setGeo(data);
         });
     };
     getStatus();

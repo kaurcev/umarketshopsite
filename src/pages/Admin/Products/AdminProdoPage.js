@@ -1,17 +1,18 @@
 import React from "react";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProductBarAdmin from "../../../components/ProductBarAdmin";
 
 export default function AdminProdoPage() {
   document.title = "Панель администратора | Товары";
+  const navigate = useNavigate();
   return (
     <>
       <Header />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/admin">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
         </div>

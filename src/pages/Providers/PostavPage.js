@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import { serverUrl } from "../../config";
 import Footer from "../../components/Footer";
 
 export default function PostavPage() {
   document.title = "Панель поставщика";
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -35,7 +36,7 @@ export default function PostavPage() {
       <Header />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
           <Link className="bt" to="/profile/postav/edit">

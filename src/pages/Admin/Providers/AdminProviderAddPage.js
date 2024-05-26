@@ -13,7 +13,7 @@ export default function AdminProviderAddPage() {
   const [description, setDescription] = useState("");
   const [providerid, setProviderid] = useState("");
   const [name, setName] = useState("");
-  const [prodo, setProdo] = useState("");
+  const [prodo, setProdo] = useState("0");
   const [manager, setManager] = useState("");
   const [managerid, setManagerid] = useState("");
 
@@ -34,7 +34,7 @@ export default function AdminProviderAddPage() {
     }, 1500);
   };
 
-  const usernameHandler= (event) => {
+  const usernameHandler = (event) => {
     setManagerid(event.target.value);
   }
 
@@ -42,31 +42,31 @@ export default function AdminProviderAddPage() {
     const params = new URLSearchParams();
     params.append("u", name);
     params.append("me", localStorage.getItem('token'));
-    try{
+    try {
       const response = await fetch(
         `//${serverUrl}/api/adminpanel/checkusername.php?${params.toString()}`
       );
       const jsonTrans = await response.json();
-      if(jsonTrans.status){
+      if (jsonTrans.status) {
         setManager(`${jsonTrans.data.surname} ${jsonTrans.data.name} ${jsonTrans.data.firstname}`);
         setProviderid(jsonTrans.data.id)
-      }else{
+      } else {
         setManager("");
       }
-    }catch(error){
-        showModalWithText(error.message);
+    } catch (error) {
+      showModalWithText(error.message);
     }
   };
 
   useEffect(() => {
-    if(postavusername !== null){
+    if (postavusername !== null) {
       setManagerid(postavusername);
       checkusername(postavusername);
     }
-    if(postavname !== null){
+    if (postavname !== null) {
       setName(postavname);
     }
-    if(postavdesc !== null){
+    if (postavdesc !== null) {
       setDescription(postavdesc);
     }
     // eslint-disable-next-line
@@ -87,7 +87,7 @@ export default function AdminProviderAddPage() {
 
   const addpostav = async (event) => {
     event.preventDefault();
-    if(manager ==="") return null;
+    if (manager === "") return null;
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -100,7 +100,7 @@ export default function AdminProviderAddPage() {
         `//${serverUrl}/api/adminpanel/providers/add.php?${params.toString()}`
       );
       const jsonTrans = await responses.json();
-      if(jsonTrans.status){
+      if (jsonTrans.status) {
         navigate("/profile/admin/providers")
       }
       showModalWithText(jsonTrans.message);
@@ -122,24 +122,24 @@ export default function AdminProviderAddPage() {
       />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/admin/providers">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
         </div>
         <div className="page">
           {loading ? (
             <>
-            <div className="load">
-              
-            </div>
-            <div className="load">
-              
+              <div className="load">
+
               </div>
               <div className="load">
-              
+
               </div>
               <div className="load">
-              
+
+              </div>
+              <div className="load">
+
               </div>
             </>
           ) : (
@@ -148,36 +148,36 @@ export default function AdminProviderAddPage() {
               <p>Перед процедурой создания организации поставщика удостоверьтесь, что аккаунт поставщика имеет роль поставщика</p>
               <h3>Менеджер</h3>
               <p>Вы не сможете создать поставщика, не указав будущего менеджера</p>
-                  <div className="duo b">
-                    <input placeholder="Введите юзернейм" onChange={usernameHandler} type="text" value={managerid} />
-                    <button className="o" onClick={() => checkusername(managerid)}>Проверка пользователя</button>
-                  </div>
-                  {manager !== "" ? (
-                  <p className="mini"><span className="green"><i class="fa fa-check" aria-hidden="true"></i></span> В роли менеджера поставок на {name} будет выбран {manager}</p>
-                  ) : (
-                  <p className="mini"><span className="reds"><i class="fa fa-times" aria-hidden="true"></i></span> Пользователь не найден</p>
-                  )}
+              <div className="duo b">
+                <input placeholder="Введите юзернейм" onChange={usernameHandler} type="text" value={managerid} />
+                <button className="o" onClick={() => checkusername(managerid)}>Проверка пользователя</button>
+              </div>
+              {manager !== "" ? (
+                <p className="mini"><span className="green"><i class="fa fa-check" aria-hidden="true"></i></span> В роли менеджера поставок на {name} будет выбран {manager}</p>
+              ) : (
+                <p className="mini"><span className="reds"><i class="fa fa-times" aria-hidden="true"></i></span> Пользователь не найден</p>
+              )}
               <form onSubmit={addpostav}>
-              <p className="mini">Название поставщика<span className="red">*</span></p>
-                  <input placeholder="Наименование организации-поставщика" required maxLength="50" type="text" onChange={nameHandler} value={name} />
-                  <p className="mini">Описание поставщика<span className="red">*</span></p>
-                  <textarea placeholder="Описание организации поставщика" required maxLength="50" type="text" onChange={descriptionHandler} value={description} />
-                  <p className="mini">Работа поставщика</p>
-                  <select onChange={prodoHandler} value={prodo}>
-                    <option value="0">Отключена</option>
-                    <option value="1">Включена</option>
-                  </select>
-                  <h4>Email и номер телефона</h4>
-                  <p className="mini">Электронная почта и телефонный номер будут указаны в соответствии с данными менеджера</p>
-                  {loading ? (
+                <p className="mini">Название поставщика<span className="red">*</span></p>
+                <input placeholder="Наименование организации-поставщика" required maxLength="50" type="text" onChange={nameHandler} value={name} />
+                <p className="mini">Описание поставщика<span className="red">*</span></p>
+                <textarea placeholder="Описание организации поставщика" required maxLength="50" type="text" onChange={descriptionHandler} value={description} />
+                <p className="mini">Работа поставщика</p>
+                <select onChange={prodoHandler} value={prodo}>
+                  <option value="0">Отключена</option>
+                  <option value="1">Включена</option>
+                </select>
+                <h4>Email и номер телефона</h4>
+                <p className="mini">Электронная почта и телефонный номер будут указаны в соответствии с данными менеджера</p>
+                {loading ? (
                   <button disabled>
                     <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-                    </button>
-                  ) : (
-                    <>
+                  </button>
+                ) : (
+                  <>
                     {manager !== "" ? (<button>Сохранить</button>) : <button disabled>Сохранить</button>}
-                    </>
-                  )}
+                  </>
+                )}
               </form>
             </div>
           )}

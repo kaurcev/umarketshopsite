@@ -5,6 +5,7 @@ import ModalAlert from "../components/ModalAlert";
 
 export default function FormAddProdo() {
   const navigate = useNavigate();
+  const [selected, setSelected] = useState(false);
   const [loading, setLoading] = useState(false);
   const [bannerLoad, setBannerLoad] = useState(true);
   const [stoks, setStoks] = useState([]);
@@ -29,7 +30,10 @@ export default function FormAddProdo() {
   };
 
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+    try {
+      setSelected(true);
+      setImage(e.target.files[0]);
+    } catch {}
   };
 
   useEffect(() => {
@@ -52,29 +56,33 @@ export default function FormAddProdo() {
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
 
+  const uploadfiles = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("photo", image);
+      const responses = await fetch(`//${serverUrl}/loadimage`, {
+        method: "POST",
+        body: formData,
+      });
+      const jsonTrans = await responses.json();
+      if (jsonTrans.status) {
+        setBanner(jsonTrans.imgname);
+        setBannerLoad(false);
+      } else {
+        showModalWithText(jsonTrans.message);
+      }
+    } catch (error) {
+      showModalWithText(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSubmit = (e) => {
     setLoading(true);
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("photo", image);
-
-    fetch(`//${serverUrl}/loadimage`, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Image uploaded successfully:", data);
-        setBanner(data.imgname);
-        setBannerLoad(false);
-      })
-      .catch((error) => {
-        showModalWithText(error.message);
-      });
-    setLoading(false);
+    uploadfiles();
   };
-
   async function AddProdo() {
     try {
       setLoading(true);
@@ -129,13 +137,26 @@ export default function FormAddProdo() {
         {bannerLoad ? (
           <>
             <form className="photoload" onSubmit={handleSubmit}>
-              <input type="file" name="photo" onChange={handleImageChange} />
+              <input
+                type="file"
+                name="photo"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
               {loading ? (
                 <button disabled>
                   <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
                 </button>
               ) : (
-                <button type="submit">Загрузить</button>
+                <>
+                  {selected ? (
+                    <button type="submit">Загрузить</button>
+                  ) : (
+                    <button disabled type="submit">
+                      Выберите фото
+                    </button>
+                  )}
+                </>
               )}
             </form>
           </>

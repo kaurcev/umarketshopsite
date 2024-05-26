@@ -93,7 +93,7 @@ export default function ReplyPage() {
       />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/postav/replys">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
         </div>
