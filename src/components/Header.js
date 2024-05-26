@@ -46,9 +46,11 @@ export default function Header() {
         fetch(`//${serverUrl}/getinformation?${params.toString()}`)
           .then((response) => response.json())
           .then((data) => {
-            if (localStorage.getItem('token') && data.data.block === "1") {
+            if (!data.status) {
+              navigate('/logout');
+            } else if (data.data.block === "1") {
               alert("Ваш аккаунт был заблокирован администратором. Свяжитесь с нами по почте, указанной в подвале сайта для уточнения деталей");
-              navigate('/logout')
+              navigate('/logout');
             }
           })
           .catch((error) => {
