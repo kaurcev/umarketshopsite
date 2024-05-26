@@ -4,6 +4,9 @@ import { serverUrl } from "../config";
 import "../styles/header.css";
 import ProductBarloader from "./ProductBarloader";
 import ModalAlert from "../components/ModalAlert";
+import PlaceholderImage from "../img/logo.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function ProductBar() {
   const navigate = useNavigate();
@@ -80,7 +83,7 @@ export default function ProductBar() {
       ) : (
         data.map((item) => (
           <div className="productcart" key={item.id}>
-            <img src={`//${serverUrl}/img/${item.img}`} alt={item.name} />
+            <LazyLoadImage PlaceholderSrc={PlaceholderImage} effect="blur" src={`//${serverUrl}/img/${item.img}`} alt={item.name} />
             {item.stokpercent === null ? (
               <>
                 <p className="money">{item.money}₽</p>

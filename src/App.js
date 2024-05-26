@@ -44,6 +44,8 @@ import AdminProvidersPage from "./pages/Admin/Providers/AdminProvidersPage";
 import AdminProviderEditPage from "./pages/Admin/Providers/AdminProviderEditPage";
 import AdminProviderAddPage from "./pages/Admin/Providers/AdminProviderAddPage";
 import AdminComplaintsPage from "./pages/Admin/Complaints/AdminComplaintsPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import UseTermsPage from "./pages/UseTermsPage";
 
 function App() {
   return (
@@ -69,6 +71,14 @@ function App() {
           exact
           path="/logout"
           element={<LogoutPage />} />
+        <Route
+          exact
+          path="/privacy"
+          element={<PrivacyPage />} />
+        <Route
+          exact
+          path="/use-terms"
+          element={<UseTermsPage />} />
         <Route
           exact
           path="/application"

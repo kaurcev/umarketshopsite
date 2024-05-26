@@ -19,6 +19,7 @@ export default function AdminProviderEditPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [role, setRole] = useState("1");
+  const [block, setBlock] = useState("0");
 
   const searchParams = new URLSearchParams(location.search);
   const userid = searchParams.get("id");
@@ -53,6 +54,7 @@ export default function AdminProviderEditPage() {
         setEmail(jsonTrans.data.email);
         setPhone(jsonTrans.data.phone);
         setRole(jsonTrans.data.roleid);
+        setBlock(jsonTrans.data.block)
       }
     } catch (error) {
       showModalWithText(error.message);
@@ -90,6 +92,10 @@ export default function AdminProviderEditPage() {
     setRole(event.target.value);
   };
 
+  const blockHandler = (event) => {
+    setBlock(event.target.value);
+  };
+
   const deleteprofile = async () => {
     try {
       setLoading(true);
@@ -122,6 +128,7 @@ export default function AdminProviderEditPage() {
       params.append("email", email);
       params.append("phone", phone);
       params.append("r", role);
+      params.append("block", block);
       params.append("me", localStorage.getItem('token'));
       const responses = await fetch(
         `//${serverUrl}/api/adminpanel/userupdate.php?${params.toString()}`
@@ -190,6 +197,11 @@ export default function AdminProviderEditPage() {
                   <option value="2">Поставщик</option>
                   <option value="3">Администратор</option>
                   <option value="4">Тестировщик</option>
+                </select>
+                <p className="mini">Роль пользователя<span className="red">*</span></p>
+                <select value={block} onChange={blockHandler}>
+                  <option value="0">Разблокирован</option>
+                  <option value="1">Заблокирован</option>
                 </select>
                 <p className="mini">Адрес доставки (Указывается исключительно пользователем)</p>
                 <p>{data.address}</p>
