@@ -4,6 +4,7 @@ import { serverUrl } from "../../../config";
 import ModalAlert from "../../../components/ModalAlert";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import NoAuthPage from "../../../pages/NoAuthPage";
 
 export default function AdminComplaintsPage() {
   document.title = "Панель администратора | Жалобы";
@@ -90,7 +91,7 @@ export default function AdminComplaintsPage() {
     }
   }
 
-
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <ModalAlert

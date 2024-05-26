@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import StoksProvideBar from "../../../components/StoksProvideBar";
 
 export default function PostavStoksPage() {
+  const navigate = useNavigate();
   document.title = "Панель поставщика";
 
   return (
@@ -12,7 +13,7 @@ export default function PostavStoksPage() {
       <Header />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" to="/profile/postav">
+          <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
           <Link className="bt" to="/profile/postav/addstoks">

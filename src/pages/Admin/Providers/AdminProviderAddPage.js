@@ -4,6 +4,7 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModalAlert from "../../../components/ModalAlert";
+import NoAuthPage from "../../../pages/NoAuthPage";
 
 export default function AdminProviderAddPage() {
   document.title = "Добавление поставщика";
@@ -111,7 +112,7 @@ export default function AdminProviderAddPage() {
     }
   }
 
-
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />

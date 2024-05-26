@@ -5,6 +5,7 @@ import Footer from "../../../components/Footer";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModalAlert from "../../../components/ModalAlert";
 import ProductMiniPanel from "../../../components/ProductMiniPanel";
+import NoAuthPage from "../../../pages/NoAuthPage";
 
 export default function ReplyPage() {
   document.title = "Отзыв..";
@@ -83,6 +84,7 @@ export default function ReplyPage() {
     fetchData();
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />

@@ -5,6 +5,8 @@ import { serverUrl } from "../../../config";
 import Footer from "../../../components/Footer";
 import LoadImages from "../../../components/LoadImages";
 import ModalAlert from "../../../components/ModalAlert";
+import NoAuthPage from "../../../pages/NoAuthPage";
+
 
 export default function PostavProdoEditPage() {
   const navigate = useNavigate();
@@ -121,7 +123,7 @@ export default function PostavProdoEditPage() {
       setLoading(false);
     }
   }
-
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <ModalAlert
@@ -132,7 +134,7 @@ export default function PostavProdoEditPage() {
       <Header />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" onClick={() => navigate(-1)}>
+          <Link className="bt" onClick={() => navigate(-2)}>
             Вернуться назад
           </Link>
         </div>

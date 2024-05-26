@@ -4,6 +4,8 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ModalAlert from "../../../components/ModalAlert";
+import NoAuthPage from "../../../pages/NoAuthPage";
+
 
 export default function AdminProviderEditPage() {
   document.title = "Редактирование поставщика";
@@ -136,7 +138,7 @@ export default function AdminProviderEditPage() {
     }
   }
 
-
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />
@@ -147,7 +149,7 @@ export default function AdminProviderEditPage() {
       />
       <main className="profile pay">
         <div className="w250">
-          <Link className="bt" onClick={() => navigate(-1)}>
+          <Link className="bt" onClick={() => navigate(-2)}>
             Вернуться назад
           </Link>
         </div>

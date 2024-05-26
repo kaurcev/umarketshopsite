@@ -6,6 +6,8 @@ import Header from "../../components/Header";
 import PostMap from "../../components/PostMap";
 import Footer from "../../components/Footer";
 import ModalAlert from "../../components/ModalAlert";
+import NoAuthPage from "../NoAuthPage";
+
 
 export default function ProfileEditPage() {
   document.title = "Редактирование профиля";
@@ -111,7 +113,7 @@ export default function ProfileEditPage() {
   const handleButtonClick = (index, address) => {
     setAddress(`${index} ${address}`);
   };
-
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <ModalAlert

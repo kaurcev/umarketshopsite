@@ -4,6 +4,7 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAlert from "../../../components/ModalAlert";
+import NoAuthPage from "../../../pages/NoAuthPage";
 
 export default function ReplysPage() {
   document.title = "Панель поставщика | Отзывы";
@@ -48,6 +49,7 @@ export default function ReplysPage() {
     fetchData();
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />

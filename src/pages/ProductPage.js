@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import ReviewsBar from "../components/ReviewsBar";
 import FormAddRew from "../components/FormAddRew";
 import ProductView from "../components/ProductView";
+import E404Page from "./E404Page";
 
 export default function ProductPage() {
   const location = useLocation();
@@ -15,6 +16,7 @@ export default function ProductPage() {
     window.scrollTo(0, 0);
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
+  if (!proid) return (<E404Page />)
   return (
     <>
       <Header />

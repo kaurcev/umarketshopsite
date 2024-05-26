@@ -4,6 +4,8 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAlert from "../../../components/ModalAlert";
+import NoAuthPage from "../../../pages/NoAuthPage";
+
 
 export default function AdminUsersPage() {
   document.title = "Панель администратора | Пользователи";
@@ -68,6 +70,7 @@ export default function AdminUsersPage() {
   const searchHandler = (event) => {
     setSearchtext(event.target.value);
   };
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />

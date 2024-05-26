@@ -5,6 +5,7 @@ import ModalAlert from "./ModalAlert";
 import ComplaintAlert from "./ComplaintAlert";
 import "../styles/ProductView.css";
 import ProdImgBar from "./ProdImgBar";
+
 const ProductView = ({ id }) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
@@ -13,11 +14,10 @@ const ProductView = ({ id }) => {
 
   const [showComplaint, setShowComplaint] = useState(false);
   const [typeComplaint, setTypeComplaint] = useState("");
-  
+
   const showComplaintAlert = () => {
     setShowComplaint(true); // Показываем модальное окно
   };
-
 
   // Для отображения модального окна
   const [showModal, setShowModal] = useState(false);
@@ -42,8 +42,12 @@ const ProductView = ({ id }) => {
           `//${serverUrl}/product?${params.toString()}`
         );
         const JsonData = await responses.json();
-        setData(JsonData.data);
-        document.title = JsonData.data.name;
+        if (JsonData.status) {
+          setData(JsonData.data);
+          document.title = JsonData.data.name;
+        } else {
+          navigate('/product');
+        }
       } catch (error) {
         showModalWithText(error.message);
       } finally {
@@ -83,14 +87,14 @@ const ProductView = ({ id }) => {
       )
       .then(() => console.log("Done!"))
       .catch((err) => console.error(err));
-      showModalWithText("Ссылка скопирована");
+    showModalWithText("Ссылка скопирована");
   };
 
   const StockOpen = (sid) => {
     navigate(`/stock?id=${sid}`);
   };
 
-  const ComplaintProdo = () =>{
+  const ComplaintProdo = () => {
     setTypeComplaint("1");
     showComplaintAlert();
   }

@@ -60,7 +60,7 @@ export default function PostavProdoPage() {
       console.log(error);
     }
   };
-
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />

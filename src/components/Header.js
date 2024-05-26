@@ -37,6 +37,22 @@ export default function Header() {
           navigate("/500");
         });
     };
+
+    const fetchData = async () => {
+      const params = new URLSearchParams();
+      params.append('me', localStorage.getItem('token'));
+      fetch(`//${serverUrl}/getinformation?${params.toString()}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (localStorage.getItem('token') && !data.data.id) {
+            navigate('/logout')
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
     const getCity = async () => {
       fetch(`//get.geojs.io/v1/ip/geo.json`)
         .then((response) => response.json())
@@ -46,12 +62,13 @@ export default function Header() {
         .catch((error) => {
           let data = {
             'city': "Неизвестно",
-            'region' : "Бог знает"
+            'region': "Бог знает"
           }
           setGeo(data);
         });
     };
     getStatus();
+    fetchData();
     getCity();
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей

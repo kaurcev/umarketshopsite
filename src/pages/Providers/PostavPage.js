@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import { serverUrl } from "../../config";
 import Footer from "../../components/Footer";
+import NoAuthPage from "../NoAuthPage";
 
 export default function PostavPage() {
   document.title = "Панель поставщика";
@@ -31,6 +32,8 @@ export default function PostavPage() {
     fetchData();
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
+
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />

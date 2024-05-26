@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import FormAddProdo from "../../../components/FormAddProdo";
+import NoAuthPage from "../../../pages/NoAuthPage";
 
 export default function PostavProdoAddPage() {
   const navigate = useNavigate();
   document.title = "Панель поставщика";
-
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />

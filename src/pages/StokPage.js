@@ -51,6 +51,7 @@ export default function StokPage() {
     fetchData();
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
+
   return (
     <>
       <Header />

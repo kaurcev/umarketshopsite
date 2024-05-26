@@ -5,6 +5,8 @@ import { serverUrl } from "../config";
 import Footer from "../components/Footer";
 import ModalAlert from "../components/ModalAlert";
 import ProductBarloader from "../components/ProductBarloader";
+import NoAuthPage from "./NoAuthPage";
+
 
 export default function BasketPage() {
   document.title = "Ваша корзина";
@@ -68,6 +70,7 @@ export default function BasketPage() {
     navigate(`/product?id=${id}`);
   };
 
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />

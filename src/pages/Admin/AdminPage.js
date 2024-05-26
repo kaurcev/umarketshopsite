@@ -3,12 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { YandexMetrica, AnalyticsGoogle } from "../../config";
+import NoAuthPage from "../NoAuthPage";
 
 export default function AdminPage() {
   document.title = "Панель администратора";
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
   const [local, setLocal] = useState("");
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function AdminPage() {
       navigate("/logout");
     }
   };
-
+  if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
       <Header />
