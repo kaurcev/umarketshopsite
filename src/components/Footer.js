@@ -16,6 +16,11 @@ export default function Footer() {
                 info@umarketshop.site
               </Link>
             </p>
+            <p className="mini">
+              <Link href="https://kaurcev.t.me">
+                Александр Каурцев
+              </Link>
+            </p>
           </div>
           <div>
             <p className="mini">
