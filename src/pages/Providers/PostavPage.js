@@ -54,9 +54,6 @@ export default function PostavPage() {
           <Link className="bt" to="/profile/postav/replys">
             Отзывы товарам
           </Link>
-          <Link className="bt" to="/profile">
-            Руководство молодого поставщика
-          </Link>
         </div>
         <div className="page">
           {loading ? (

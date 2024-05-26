@@ -69,7 +69,7 @@ main {
 	animation: loadpage 0.5s ease;
 }
 
-main input{
+main input {
 	padding: 10px 15px;
 	border-radius: 10px;
 	background-color: var(--color-header);
@@ -172,17 +172,17 @@ button:disabled {
 	font-weight: 700;
 	width: fit-content;
 }
-.green{
+
+.green {
 	color: var(--green);
 }
-.reds{
+
+.reds {
 	color: var(--red);
 }
 
 
-@keyframes bluropen {
-	
-}
+@keyframes bluropen {}
 
 @keyframes bluropen {
 	0% {
@@ -196,7 +196,18 @@ button:disabled {
 	}
 }
 
-.fullscreen{
+pre.logs {
+	padding: 10px;
+	overflow: auto;
+	background: #131313;
+	color: #fff;
+	border-radius: 10px;
+	max-height: 30vh;
+	font-size: 13px;
+	font-family: revert-layer;
+}
+
+.fullscreen {
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -212,7 +223,7 @@ button:disabled {
 	animation: bluropen 0.1s ease-in;
 }
 
-.fullscreen .panel{
+.fullscreen .panel {
 	background-color: var(--color-body-bg);
 	padding: 15px;
 	width: 100%;
@@ -221,7 +232,8 @@ button:disabled {
 	border-radius: 10px;
 	box-shadow: 0 4px 10px 0 #00000025;
 }
-.fullscreen .panel .center{
+
+.fullscreen .panel .center {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -229,7 +241,7 @@ button:disabled {
 	gap: 10px;
 }
 
-.fullscreen .panel form{
+.fullscreen .panel form {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -801,29 +813,33 @@ main form.photoload input[type="file"]:hover {
 		flex-direction: column-reverse;
 	}
 
-	.fullscreen{
+	.fullscreen {
 		justify-content: end;
 	}
-	.fullscreen .panel h3.duo.b{
+
+	.fullscreen .panel h3.duo.b {
 		flex-wrap: wrap;
 		flex-direction: row;
 	}
+
 	@keyframes swap {
-		0%{
+		0% {
 			bottom: -100px;
 		}
-		100%{
+
+		100% {
 			bottom: 0px;
 		}
 	}
-	.fullscreen .panel{
+
+	.fullscreen .panel {
 		position: absolute;
 		animation: con 0.15s ease-in;
 	}
 
 }
 
-.duo.b.w{
+.duo.b.w {
 	flex-direction: row;
 	flex-wrap: nowrap;
 }
