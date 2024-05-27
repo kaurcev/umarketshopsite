@@ -124,23 +124,6 @@ export default function Header() {
                 <i className="fa fa-location-arrow" aria-hidden="true"></i>{" "}
                 {geo.city} | {geo.region}
               </Link>
-              {localStorage.getItem("local") === "1" ? (
-                <>
-                  <Link className="betatest" to="//bapi.umarketshop.site">
-                    Локальный сервер
-                  </Link>
-                </>
-              ) : (
-                <>
-                  <Link className="betatest">
-                    <i
-                      className="fa fa-exclamation-triangle"
-                      aria-hidden="true"
-                    ></i>{" "}
-                    Идёт тестирование системы
-                  </Link>
-                </>
-              )}
             </span>
             <span>
               <Link className="info" to="/startposrav">

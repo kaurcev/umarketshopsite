@@ -1,0 +1,39 @@
+useEffect(() => {
+    window.scrollTo(0, 0);
+    const fetchData = async () => {
+        try {
+            setLoading(true);
+            const params = new URLSearchParams();
+            params.append("id", id);
+            const responses = await fetch(
+                `//${serverUrl}/api/pay/product.php?${params.toString()}`
+            );
+            const JsonData = await responses.json();
+        } catch (error) {
+            showModalWithText(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+    fetchData();
+    // eslint-disable-next-line
+}, []); // Пустой массив зависимостей
+
+
+              {localStorage.getItem("local") === "1" ? (
+                <>
+                  <Link className="betatest" to="//bapi.umarketshop.site">
+                    Локальный сервер
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link className="betatest">
+                    <i
+                      className="fa fa-exclamation-triangle"
+                      aria-hidden="true"
+                    ></i>{" "}
+                    Идёт тестирование системы
+                  </Link>
+                </>
+              )}

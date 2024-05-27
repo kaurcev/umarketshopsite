@@ -46,6 +46,9 @@ import AdminProviderAddPage from "./pages/Admin/Providers/AdminProviderAddPage";
 import AdminComplaintsPage from "./pages/Admin/Complaints/AdminComplaintsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import UseTermsPage from "./pages/UseTermsPage";
+import PaysTran from "./pages/Profile/PaysTran";
+import PaysTranPostav from "./pages/Providers/PaysTran";
+import PaysTranAdmin from "./pages/Admin/PaysTran";
 
 function App() {
   return (
@@ -111,6 +114,18 @@ function App() {
           exact
           path="/product"
           element={<ProductPage />} />
+        <Route
+          exact
+          path="/profile/admin/trans"
+          element={<PaysTranAdmin />} />
+        <Route
+          exact
+          path="/profile/paystran"
+          element={<PaysTran />} />
+        <Route
+          exact
+          path="/profile/postav/paystran"
+          element={<PaysTranPostav />} />
         <Route
           exact
           path="/profile/admin/users"

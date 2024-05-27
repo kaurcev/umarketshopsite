@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import ModalAlert from "../components/ModalAlert";
 import ProductBarloader from "../components/ProductBarloader";
 import NoAuthPage from "./NoAuthPage";
+import PayAlert from "../components/PayAlert";
 
 
 export default function BasketPage() {
@@ -13,6 +14,10 @@ export default function BasketPage() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [paycode, setPaycode] = useState();
+  const [postav, setPostav] = useState();
+  const [basket, setPayBasket] = useState();
+  const [money, setMoney] = useState();
 
   // Для отображения модального окна
   const [showModal, setShowModal] = useState(false);
@@ -25,6 +30,24 @@ export default function BasketPage() {
       setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
     }, 3000);
   };
+
+
+  const [showComplaint, setShowComplaint] = useState(false);
+  const [typeComplaint, setTypeComplaint] = useState("");
+
+  const showComplaintAlert = () => {
+    setShowComplaint(true); // Показываем модальное окно
+  };
+
+  const GoToPay = (id, basket, postav, money) => {
+    setPaycode(id);
+    setPayBasket(basket);
+    setPostav(postav);
+    setMoney(money);
+    setTypeComplaint("1");
+    showComplaintAlert();
+  }
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -79,6 +102,15 @@ export default function BasketPage() {
         onClose={() => setShowModal(false)}
         text={modalText}
       />
+      <PayAlert
+        show={showComplaint}
+        type={typeComplaint}
+        product={paycode}
+        basket={basket}
+        postav={postav}
+        money={money}
+        onClose={() => setShowComplaint(false)}
+      />
       <main className="profile pay">
         <div className="w250">
           <Link className="bt" onClick={() => navigate(-1)}>
@@ -116,6 +148,11 @@ export default function BasketPage() {
                           <p class="money">{item.money} ₽</p>
                           <h5>{item.name}</h5>
                           <p className="desc mini">{item.description}</p>
+                          <button
+                            onClick={() => GoToPay(item.product_id, item.id, item.postav, item.money)}
+                          >
+                            Перейти к оформлению
+                          </button>
                           <button
                             className="o"
                             onClick={() => openprodo(item.product_id)}

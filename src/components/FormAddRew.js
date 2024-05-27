@@ -39,9 +39,8 @@ const FormAddRew = ({ id }) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
-          showModalWithText("Отзыв добавлен");
+          showModalWithText("Отзыв добавлен. Скоро его увидят все!");
           setReview("");
-          window.scrollTo(0, 0);
         } else {
           showModalWithText("Что-то пошло не так");
         }

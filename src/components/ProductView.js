@@ -42,12 +42,7 @@ const ProductView = ({ id }) => {
           `//${serverUrl}/product?${params.toString()}`
         );
         const JsonData = await responses.json();
-        if (JsonData.status) {
-          setData(JsonData.data);
-          document.title = JsonData.data.name;
-        } else {
-          navigate('/product');
-        }
+        setData(JsonData.data);
       } catch (error) {
         showModalWithText(error.message);
       } finally {

@@ -25,21 +25,22 @@ export default function AdminComplaintsPage() {
     }, 1500);
   };
 
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const params = new URLSearchParams();
+      params.append("me", localStorage.getItem('token'));
+      const responses = await fetch(`//${serverUrl}/api/сomplaints/all.php?${params.toString()}`);
+      const jsonTrans = await responses.json();
+      setData(jsonTrans.data);
+    } catch (error) {
+      showModalWithText(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const params = new URLSearchParams();
-        params.append("me", localStorage.getItem('token'));
-        const responses = await fetch(`//${serverUrl}/api/сomplaints/all.php?${params.toString()}`);
-        const jsonTrans = await responses.json();
-        setData(jsonTrans.data);
-      } catch (error) {
-        showModalWithText(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchData();
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
@@ -63,6 +64,7 @@ export default function AdminComplaintsPage() {
       const jsonTrans = await responses.json();
       if (jsonTrans.status) {
         showModalWithText("Отличная работа!");
+        fetchData();
       }
     } catch (error) {
       showModalWithText(error.message);

@@ -1,6 +1,6 @@
 {
   "name": "umarketshop",
-  "version": "0.0.4.6",
+  "version": "0.0.4.8",
   "build": "0001",
   "private": true,
   "dependencies": {

@@ -42,6 +42,9 @@ export default function PostavPage() {
           <Link className="bt" onClick={() => navigate(-1)}>
             Вернуться назад
           </Link>
+          <Link className='bt' to='/profile/postav/paystran'>
+            Покупки и доставка
+          </Link>
           <Link className="bt" to="/profile/postav/edit">
             Редактировать данные
           </Link>
