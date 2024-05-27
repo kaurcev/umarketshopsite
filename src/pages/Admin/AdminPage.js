@@ -72,6 +72,7 @@ export default function AdminPage() {
           <Link className="bt" to="/profile/admin/trans">
             Финансовый отдел
           </Link>
+          <Link target="_blank" className='bt' to='https://bugs.umarketshop.site/'>Баг-трекер</Link>
         </div>
         <div className="page">
           {loading ? (

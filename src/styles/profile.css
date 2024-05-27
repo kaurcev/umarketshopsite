@@ -107,6 +107,7 @@ main.profile .w250 a.bt.red {
 
 .payslist .itempay .big {
 	font-size: 24px;
+	flex-basis: 100px;
 }
 
 .payslist .itempay .info {

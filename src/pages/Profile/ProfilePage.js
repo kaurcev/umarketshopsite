@@ -96,7 +96,7 @@ export default function ProfilePage() {
                                 <p>Адрес доставки: {data.address}</p>
                             </div>
                             <h4>ВАШИ ВОЗМОЖНОСТИ</h4>
-                            <p>{data.rdescription}</p>
+                            <pre>{data.rdescription}</pre>
                         </>
                     )}
                     <h4>ТЕКУЩИЕ СЕАНСЫ</h4>
