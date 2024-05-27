@@ -35,18 +35,18 @@ const PayAlert = ({ show, onClose, postav, basket, product, money }) => {
 
   return (
     <div className="fullscreen">
-      <div className="panel">
-        <p>ID товара №{product}</p>
-        <p>ID корзинного товара №{basket}</p>
-        <p>ID провайдера №{postav}</p>
-        <p>Это твой токен {localStorage.getItem("token")}</p>
-        <div className="duo b">
+      <div className="panel center">
+        <p>Вы собираетесь оформить товар с артиклом №{product}</p>
+        <div>
+          <h4>С вашего баланса карты будет списано {money}Р</h4>
+          <p className="mini">После этой страницы вы будете перенаправлены на страницу с покупками</p>
+        </div>
+        <div className="duo gap10">
           {loading ? (<>
             <button disabled><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i></button>
           </>) : (<>
             <button onClick={() => addPayRequest()}>Типа покупка</button>
           </>)}
-          <button onClick={() => addPayRequest()}>Типа покупка</button>
           <button onClick={onClose} className="o">Типа отмена покупки</button>
         </div>
       </div>

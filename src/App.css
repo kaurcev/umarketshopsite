@@ -207,6 +207,17 @@ pre.logs {
 	font-family: revert-layer;
 }
 
+.fullscreen .panel.center {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.gap10 {
+	gap: 10px;
+	display: flex
+}
+
 .fullscreen {
 	position: fixed;
 	top: 0px;
