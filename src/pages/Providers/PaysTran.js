@@ -96,36 +96,38 @@ export default function PaysTranPostav() {
                 <div className='page'>
                     <h3>{document.title}</h3>
                     <p>Это товары, которые пользователи оплатиили и ждут отправления</p>
-                    <div className="reviews">
-                        {data.map((item) => (
-                            <div className="review" key={item.id}>
-                                <h4>Тикет №{item.id}</h4>
-                                <p className='mini'>Стоимость товара</p>
-                                <p>{item.money}</p>
-                                {item.status !== "0" ? (<>
-                                    <p>Сделка прошла успешно.</p>
-                                </>) : (<>
-                                    {item.status_user === "0" ? (<>
-                                        <p className='mini'>трекеркод</p>
-                                        {
-                                            item.tackercode === null ? (<>
-                                                <div className='duo'>
-                                                    <input onChange={trackHandler} placeholder='Введите тут трекеркод отправки' />
-                                                    <button onClick={() => trueprovider(item.id)}>Отправить</button>
-                                                </div>
-                                            </>) : (<>
-                                                <p>{item.tackercode}</p>
-                                            </>)}
+                    {loading ? (<><div className='noauth'></div></>) : (<>
+                        <div className="reviews">
+                            {data.map((item) => (
+                                <div className="review" key={item.id}>
+                                    <h4>Тикет №{item.id}</h4>
+                                    <p className='mini'>Стоимость товара</p>
+                                    <p>{item.money}</p>
+                                    {item.status !== "0" ? (<>
+                                        <p>Сделка прошла успешно.</p>
                                     </>) : (<>
-                                        <p>Пользователь подтвердил приём товара</p>
-                                        {item.status_postav === "0" ? (<> <button onClick={() => postavtrue(item.id)}>Подтвердить сделку</button><p className='mini'>Подтверждайте только в том случае, если товар был принят</p></>) : null}
+                                        {item.status_user === "0" ? (<>
+                                            <p className='mini'>трекеркод</p>
+                                            {
+                                                item.tackercode === null ? (<>
+                                                    <div className='duo'>
+                                                        <input onChange={trackHandler} placeholder='Введите тут трекеркод отправки' />
+                                                        <button onClick={() => trueprovider(item.id)}>Отправить</button>
+                                                    </div>
+                                                </>) : (<>
+                                                    <p>{item.tackercode}</p>
+                                                </>)}
+                                        </>) : (<>
+                                            <p>Пользователь подтвердил приём товара</p>
+                                            {item.status_postav === "0" ? (<> <button onClick={() => postavtrue(item.id)}>Подтвердить сделку</button><p className='mini'>Подтверждайте только в том случае, если товар был принят</p></>) : null}
 
+                                        </>)}
                                     </>)}
-                                </>)}
-                                <button onClick={() => navigate(`/product?id=${item.product}`)} className='o'>Открыть товар</button>
-                            </div>
-                        ))}
-                    </div>
+                                    <button onClick={() => navigate(`/product?id=${item.product}`)} className='o'>Открыть товар</button>
+                                </div>
+                            ))}
+                        </div>
+                    </>)}
                 </div>
             </main>
             <Footer />

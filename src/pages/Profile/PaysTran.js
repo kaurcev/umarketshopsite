@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { serverUrl } from "../../config";
-import { getBrowser, getDevice } from "../../functions";
 import Header from '../../components/Header';
 import '../../styles/profile.css';
 import Footer from '../../components/Footer';
@@ -83,37 +82,39 @@ export default function PaysTran() {
                         </li>
                     </ul>
                     <h4>Тут показаны все совершённые Вами покупки</h4>
-                    <div className="reviews">
-                        {data.map((item) => (
-                            <div className="review" key={item.id}>
-                                <h4>Тикет №{item.id}</h4>
-                                <p className='mini'>Стоимость</p>
-                                <p>{item.money}</p>
-                                <button onClick={() => navigate(`/product?id=${item.product}`)} className='o'>Открыть товар</button>
-                                {item.status !== "0" ? (<>
-                                    <p>Сделка прошла успешно.</p>
-                                    <button className='o'>Написать отзыв</button>
-                                </>) : (<>
-                                    {item.status_user === "1" ? (<>
-                                        <p>Вы подтвердили получение товара</p>
-                                        <button onClick={() => navigate(`/product?id=${item.product}`)} className='o'>Написать жалобу</button>
+                    {loading ? (<><div className='noauth'>Загрузка</div></>) : (<>
+                        <div className="reviews">
+                            {data.map((item) => (
+                                <div className="review" key={item.id}>
+                                    <h4>Тикет №{item.id}</h4>
+                                    <p className='mini'>Стоимость</p>
+                                    <p>{item.money}</p>
+                                    <button onClick={() => navigate(`/product?id=${item.product}`)} className='o'>Открыть товар</button>
+                                    {item.status !== "0" ? (<>
+                                        <p>Сделка прошла успешно.</p>
+                                        <button className='o'>Написать отзыв</button>
                                     </>) : (<>
-                                        <p className='mini'>Статус отправки</p>
-                                        {item.tackercode !== null ? (<>
-                                            <p>Поставщик приложил трекер-код: {item.tackercode}</p>
-                                            <div className='duo'>
-                                                <button onClick={() => usertrue(item.id)}>Подтвердить получение</button>
-                                                <button onClick={() => navigate(`/product?id=${item.product}`)} className='o'>Написать жалобу</button>
-                                            </div>
+                                        {item.status_user === "1" ? (<>
+                                            <p>Вы подтвердили получение товара</p>
+                                            <button onClick={() => navigate(`/product?id=${item.product}`)} className='o'>Написать жалобу</button>
                                         </>) : (<>
-                                            <p>Ожидание отправки товара</p>
+                                            <p className='mini'>Статус отправки</p>
+                                            {item.tackercode !== null ? (<>
+                                                <p>Поставщик приложил трекер-код: {item.tackercode}</p>
+                                                <div className='duo'>
+                                                    <button onClick={() => usertrue(item.id)}>Подтвердить получение</button>
+                                                    <button onClick={() => navigate(`/product?id=${item.product}`)} className='o'>Написать жалобу</button>
+                                                </div>
+                                            </>) : (<>
+                                                <p>Ожидание отправки товара</p>
+                                            </>)}
                                         </>)}
+                                        <p className='mini'>{item.status_postav === "0" ? (<>Поставщик ещё не отметил согласия на удачную сделку.</>) : (<>Этот текст пропадёт, когда транкзакцию подтвердят</>)}</p>
                                     </>)}
-                                    <p className='mini'>{item.status_postav === "0" ? (<>Поставщик ещё не отметил согласия на удачную сделку.</>) : (<>Этот текст пропадёт, когда транкзакцию подтвердят</>)}</p>
-                                </>)}
-                            </div>
-                        ))}
-                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </>)}
                 </div>
             </main>
             <Footer />

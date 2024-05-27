@@ -41,6 +41,11 @@ const PayAlert = ({ show, onClose, postav, basket, product, money }) => {
         <p>ID провайдера №{postav}</p>
         <p>Это твой токен {localStorage.getItem("token")}</p>
         <div className="duo b">
+          {loading ? (<>
+            <button disabled><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i></button>
+          </>) : (<>
+            <button onClick={() => addPayRequest()}>Типа покупка</button>
+          </>)}
           <button onClick={() => addPayRequest()}>Типа покупка</button>
           <button onClick={onClose} className="o">Типа отмена покупки</button>
         </div>
