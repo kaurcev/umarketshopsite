@@ -45,9 +45,9 @@ const PayAlert = ({ show, onClose, postav, basket, product, money }) => {
           {loading ? (<>
             <button disabled><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i></button>
           </>) : (<>
-            <button onClick={() => addPayRequest()}>Типа покупка</button>
+            <button onClick={() => addPayRequest()}>Списать</button>
           </>)}
-          <button onClick={onClose} className="o">Типа отмена покупки</button>
+          <button onClick={onClose} className="o">Отмена</button>
         </div>
       </div>
     </div >
