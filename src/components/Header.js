@@ -9,6 +9,7 @@ export default function Header() {
   const navigate = useNavigate();
   const [searchtext, setSearchtext] = useState("");
   const [geo, setGeo] = useState("");
+  const [adress, setAdress] = useState("");
   const [data, setData] = useState([]);
   let searchTimeout;
 
@@ -46,6 +47,12 @@ export default function Header() {
         fetch(`//${serverUrl}/getinformation?${params.toString()}`)
           .then((response) => response.json())
           .then((data) => {
+            if (data.data.address !== "Адрес не указан") {
+              setAdress(data.data.address);
+
+            } else {
+              getCity();
+            }
             if (!data.status) {
               navigate('/logout');
             } else if (data.data.block === "1") {
@@ -64,6 +71,7 @@ export default function Header() {
         .then((response) => response.json())
         .then((data) => {
           setGeo(data);
+          setAdress(`${data.city} ${data.region}`)
         })
         .catch((error) => {
           let data = {
@@ -75,7 +83,6 @@ export default function Header() {
     };
     getStatus();
     fetchData();
-    getCity();
     // eslint-disable-next-line
   }, []); // Пустой массив зависимостей
 
@@ -122,7 +129,7 @@ export default function Header() {
               <Link to="/profile/wallet">{geo.country_code3}</Link>
               <Link to="/profile/">
                 <i className="fa fa-location-arrow" aria-hidden="true"></i>{" "}
-                {geo.city} | {geo.region}
+                {adress}
               </Link>
             </span>
             <span>
