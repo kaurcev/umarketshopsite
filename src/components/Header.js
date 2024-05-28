@@ -49,7 +49,6 @@ export default function Header() {
           .then((data) => {
             if (data.data.address !== "Адрес не указан") {
               setAdress(data.data.address);
-
             } else {
               getCity();
             }
@@ -64,6 +63,7 @@ export default function Header() {
             console.log(error);
           });
       }
+      getCity();
     };
 
     const getCity = async () => {
