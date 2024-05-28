@@ -107,18 +107,22 @@ export default function AdminPage() {
                   <p>Наиболее простой способ контроля активности пользователей. Нажмите на любую карточку</p>
                 </div>
                 <div className="duo">
-                  <Link to={YandexMetrica} className="cartpanel">
-                    <h4>Yandex Metrika</h4>
-                    <div>
-                      <p className="mini">Тут можно оформить отчёты в формате PDF, сделать анализ поведения пользователей, карты скрллинга, нажатий, вебвизор и многое другое</p>
-                    </div>
-                  </Link>
-                  <Link to={AnalyticsGoogle} className="cartpanel">
-                    <h4>Google Analytics</h4>
-                    <div>
-                      <p className="mini">Тут так же можно сделать анализ поведения пользователей, а так же смотреть на пользователей, которые прямо сейчас находятся на сайте в реальном времени</p>
-                    </div>
-                  </Link>
+                  <div className="yandex">
+                    <Link to={YandexMetrica} className="cartpanel">
+                      <div>
+                        <h4>Yandex Metrika</h4>
+                        <p className="mini">Тут можно оформить отчёты в формате PDF, сделать анализ поведения пользователей, карты скрллинга, нажатий, вебвизор и многое другое</p>
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="google">
+                    <Link to={AnalyticsGoogle} className="cartpanel">
+                      <div>
+                        <h4>Google Analytics</h4>
+                        <p className="mini">Тут так же можно сделать анализ поведения пользователей, а так же смотреть на пользователей, которые прямо сейчас находятся на сайте в реальном времени</p>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
                 <div>
                   <h3><i className="fa fa-terminal" aria-hidden="true"></i> Лог-файлы</h3>

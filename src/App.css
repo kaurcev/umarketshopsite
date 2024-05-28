@@ -182,8 +182,6 @@ button:disabled {
 }
 
 
-@keyframes bluropen {}
-
 @keyframes bluropen {
 	0% {
 		backdrop-filter: blur(0px);
@@ -198,13 +196,13 @@ button:disabled {
 
 pre.logs {
 	padding: 10px;
-	overflow: auto;
+	overflow: scroll;
 	background: #131313;
 	color: #fff;
-	border-radius: 10px;
-	max-height: 30vh;
-	font-size: 13px;
-	font-family: revert-layer;
+	border-radius: 8px;
+	max-height: 50vh;
+	font-size: 14px;
+	font-family: Segoe UI;
 }
 
 .fullscreen .panel.center {
@@ -216,6 +214,18 @@ pre.logs {
 .gap10 {
 	gap: 10px;
 	display: flex
+}
+
+.cartpanel.yandex img {
+	width: 100%;
+	object-fit: scale-down;
+	z-index: 0;
+}
+
+.cartpanel.google img {
+	width: 100%;
+	object-fit: scale-down;
+	z-index: 0;
 }
 
 .fullscreen {
@@ -693,6 +703,7 @@ main form.photoload input[type="file"] {
 main form.photoload input[type="file"]:hover {
 	animation: scroll-border 0.5s infinite;
 }
+
 
 /* Ключевые кадры анимации */
 @keyframes scroll-border {

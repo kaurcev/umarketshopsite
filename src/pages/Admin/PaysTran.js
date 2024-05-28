@@ -8,7 +8,7 @@ import NoAuthPage from "../NoAuthPage";
 
 
 export default function PaysTranAdmin() {
-    document.title = "Панель администратора | ";
+    document.title = "Панель администратора | Подтверждение сделок";
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);

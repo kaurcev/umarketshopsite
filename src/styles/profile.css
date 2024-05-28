@@ -123,6 +123,43 @@ main.profile .w250 a.bt.red {
 	margin: 2px;
 }
 
+.yandex {
+	background: url(../img/yandex.png);
+	background-size: cover;
+	flex-grow: 1;
+	flex-basis: 500px;
+	border: 1px solid;
+	border-radius: 10px;
+}
+
+.google {
+	background: url(../img/google.png);
+	background-size: cover;
+	flex-grow: 1;
+	flex-basis: 500px;
+	border: 1px solid;
+	border-radius: 10px;
+	height: 300px;
+}
+
+main.profile .page .yandex .cartpanel,
+main.profile .page .google .cartpanel {
+	background: none;
+	align-items: start;
+	justify-content: end;
+	padding: 0px;
+	backdrop-filter: blur(1px);
+	height: 300px;
+	background-color: #00000022;
+}
+
+main.profile .page .yandex .cartpanel div,
+main.profile .page .google .cartpanel div {
+	padding: 5px 10px;
+	background-color: var(--akcent);
+	height: 100px;
+	border-radius: 0px 0px 10px 10px;
+}
 
 /*#region мобильный адаптив*/
 @media (max-width: 899px) {
