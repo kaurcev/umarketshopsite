@@ -1,38 +1,167 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --color-font: #141414;
+    --color-body-bg: #FFFFFF;
+    --color-body-bg-two: #f2f4f8;
+    --color-header: #FFFFFF;
+    --akcent: #4E50FF;
+    --akcent-two: #CECFFF;
+    --akcent-tree: #4E50FF;
+    --footer: #4E50FF;
+    --akcent-four: #CECFFF;
+    --red: #f81c5e;
+    --green: #00bd6e;
+    --border: #4d4d4d;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-font: #e1e3e6;
+        --color-body-bg: #141414;
+        --color-body-bg-two: #4e4e4e;
+        --akcent-two: #222222;
+        --akcent-tree: #c4c4c4;
+        --akcent-four: #CECFFF;
+        --color-header: #222222;
+        --footer: #222222;
+        --border: #4d4d4d;
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html,
+body {
+    margin: 0px;
+    background-color: var(--color-body-bg);
+    color: var(--color-font);
+    -ms-overflow-style: none;
+    /* IE 10+ */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+* {
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-decoration: none;
+    outline: none;
+    text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+
+@keyframes loadpage {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+html,
+body {
+    margin: 0px;
+}
+
+header {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+    box-shadow: 0 4px 10px 0px #00000025;
+    z-index: 100;
+    background-color: var(--color-header);
+}
+
+header .header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .header div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+a {
+    color: var(--akcent);
+}
+
+
+header .logo {
+    max-height: 35px;
+}
+
+a.bt,
+button {
+    width: 100%;
+    background-color: var(--akcent);
+    padding: 8px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid var(--akcent);
+}
+
+main {
+    padding-top: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    animation: loadpage 0.5s ease;
+}
+
+.welcome {
+    width: 100%;
+    height: 130vh;
+    background: linear-gradient(180deg, #ffffff, var(--akcent));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.welcome img {
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 10px;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.duo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.duo * {
+    flex-basis: 40%;
+    flex-grow: 1;
+}
+
+main img {
+    width: 100%;
+    box-shadow: 0 4px 10px 0 #00000043;
+    border-radius: 10px;
 }

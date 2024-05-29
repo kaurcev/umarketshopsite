@@ -50,6 +50,10 @@
 ## umarketshop.site
 [![Netlify Status](https://api.netlify.com/api/v1/badges/948701b0-f9c4-40b6-8f07-8946d6c55c42/deploy-status)](https://app.netlify.com/sites/sunny-blancmange-7e001d/deploys)
 
+<img src="https://mini.s-shot.ru/1920x1080/800/png/?http://umarketshop.site">
+
+
+
 ### Хостинг | Развертывание
 <p style="display: flex; gap: 10px; background: #fff; padding: 10px">
     <img src='./landing/src/logos/netlify.svg' height="30px">

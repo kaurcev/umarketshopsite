@@ -7,11 +7,9 @@ export default function Header() {
     const [loading, setLoading] = useState(false);
 
     const getToken = () => {
-        const cookieValue = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('token='))
-            .split('=')[1];
-        return cookieValue;
+        // eslint-disable-next-line
+        const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        return token;
     }
 
     useEffect(() => {
