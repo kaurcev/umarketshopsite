@@ -1,13 +1,125 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --color-font: #141414;
+  --color-body-bg: #FFFFFF;
+  --color-body-bg-two: #f2f4f8;
+  --color-header: #FFFFFF;
+  --akcent: #4E50FF;
+  --akcent-two: #CECFFF;
+  --akcent-tree: #4E50FF;
+  --footer: #4E50FF;
+  --akcent-four: #CECFFF;
+  --red: #f81c5e;
+  --green: #00bd6e;
+  --border: #4d4d4d;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-font: #e1e3e6;
+    --color-body-bg: #141414;
+    --color-body-bg-two: #4e4e4e;
+    --akcent-two: #222222;
+    --akcent-tree: #c4c4c4;
+    --akcent-four: #CECFFF;
+    --color-header: #222222;
+    --footer: #222222;
+    --border: #4d4d4d;
+  }
+}
+
+html,
+body {
+  margin: 0px;
+  background-color: var(--color-body-bg);
+  color: var(--color-font);
+  -ms-overflow-style: none;
+  /* IE 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+
+* {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-decoration: none;
+  outline: none;
+  text-decoration: none;
+}
+
+
+@keyframes loadpage {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+html,
+body {
+  margin: 0px;
+}
+
+header {
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  padding: 10px;
+  box-shadow: 0 4px 10px 0px #00000025;
+  z-index: 100;
+  background-color: var(--color-header);
+}
+
+.header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+a {
+  color: var(--akcent);
+}
+
+
+.logo {
+  max-height: 35px;
+}
+
+main {
+  padding-top: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  animation: loadpage 0.5s ease;
+}
+
+
+a.bt,
+button {
+  width: 100%;
+  background-color: var(--akcent);
+  padding: 8px;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--akcent);
 }

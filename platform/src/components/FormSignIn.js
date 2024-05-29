@@ -64,6 +64,9 @@ export default function FormSignIn() {
         if (jsonTrans.status) {
           console.log(jsonTrans.data.token);
           localStorage.setItem("token", jsonTrans.data.token);
+          const date = new Date();
+          date.setMonth(date.getMonth() + 1);
+          document.cookie = `token=${jsonTrans.data.token}; expires=${date.toUTCString()}; domain=.umarketshop.site; path=/`;
           navigate("/");
         } else {
           showModalWithText(jsonTrans.message);
