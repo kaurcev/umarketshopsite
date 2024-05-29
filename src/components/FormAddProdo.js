@@ -33,7 +33,7 @@ export default function FormAddProdo() {
     try {
       setSelected(true);
       setImage(e.target.files[0]);
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -46,6 +46,9 @@ export default function FormAddProdo() {
           `//${serverUrl}/mystocks?${params.toString()}`
         );
         const jsonTrans = await responses.json();
+        if (!jsonTrans.status) {
+          navigate("/profile");
+        }
         setStoks(jsonTrans.data);
       } catch (error) {
       } finally {

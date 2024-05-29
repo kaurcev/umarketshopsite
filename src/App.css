@@ -211,6 +211,10 @@ pre.logs {
 	justify-content: space-between;
 }
 
+.right {
+	text-align: right;
+}
+
 .gap10 {
 	gap: 10px;
 	display: flex

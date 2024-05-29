@@ -11,6 +11,8 @@ export default function FormSignIn() {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [pswshow, setPswshow] = useState(false);
+  const [pswshowstat, setPswshowstat] = useState("password");
 
   // Для отображения модального окна
   const [showModal, setShowModal] = useState(false);
@@ -36,6 +38,15 @@ export default function FormSignIn() {
     event.preventDefault();
     loginRequest(username, password);
   };
+  const pswOpen = (code) => {
+    if (1 === code) {
+      setPswshow(false);
+      setPswshowstat("password");
+    } else {
+      setPswshow(true);
+      setPswshowstat("text");
+    }
+  }
 
   const loginRequest = async (usernametext, passwordtext) => {
     if (usernametext === "" || passwordtext === "") {
@@ -87,10 +98,11 @@ export default function FormSignIn() {
         <input
           maxLength="50"
           placeholder="Ваш пароль"
-          type="password"
+          type={pswshowstat}
           value={password}
           onChange={passwordHandler}
         />
+        {pswshow ? (<> <p onClick={() => pswOpen(1)} className="mini right">Скрыть пароль</p></>) : (<> <p onClick={() => pswOpen(2)} className="mini right">Показать пароль</p></>)}
         {loading ? (
           <p>
             <button disabled>
@@ -102,7 +114,7 @@ export default function FormSignIn() {
             <button>Войти</button>
           </p>
         )}
-        <p className="center">
+        <p className="center mini">
           <Link to="/signup">Ещё нет аккаунта</Link>
         </p>
       </form>

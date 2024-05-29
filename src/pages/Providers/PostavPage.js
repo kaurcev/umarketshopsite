@@ -23,8 +23,12 @@ export default function PostavPage() {
         );
         const jsonData = await response.json();
         setData(jsonData.data);
+        if (!jsonData.status) {
+          navigate("/profile");
+        }
       } catch (error) {
         console.log(error);
+
       } finally {
         setLoading(false);
       }

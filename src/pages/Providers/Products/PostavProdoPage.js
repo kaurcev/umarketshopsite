@@ -22,6 +22,9 @@ export default function PostavProdoPage() {
           `//${serverUrl}/provider/myproducts?${params.toString()}`
         );
         const jsonData = await response.json();
+        if (!jsonData.status) {
+          navigate("/profile");
+        }
         setData(jsonData.data);
       } catch (error) {
         console.log(error);

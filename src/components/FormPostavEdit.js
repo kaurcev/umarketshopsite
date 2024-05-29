@@ -35,6 +35,9 @@ export default function FormPostavEdit() {
           `//${serverUrl}/provider/me?${params.toString()}`
         );
         const jsonData = await response.json();
+        if (!jsonData.status) {
+          navigate("/profile");
+        }
         setData(jsonData.data);
         setName(jsonData.data.name);
         setDescription(jsonData.data.description);
