@@ -33,7 +33,7 @@ export default function Header() {
                 setLoading(false);
             }
         };
-        if (localStorage.getItem('token') !== null) {
+        if (getToken() !== null) {
             fetchData();
         }
         // eslint-disable-next-line
@@ -56,7 +56,7 @@ export default function Header() {
             </header>
             <main>
                 {
-                    localStorage.getItem('token') === null ? (<>Необходимо <a href="//app.umarketshop.site/auth">авторизироваться</a></>) : (<>
+                    getToken() === null ? (<>Необходимо <a href="//app.umarketshop.site/auth">авторизироваться</a></>) : (<>
                         {
                             loading ? (
                                 <>
