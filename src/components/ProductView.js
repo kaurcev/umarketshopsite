@@ -5,12 +5,35 @@ import ModalAlert from "./ModalAlert";
 import ComplaintAlert from "./ComplaintAlert";
 import "../styles/ProductView.css";
 import ProdImgBar from "./ProdImgBar";
+import PayAlert from "../components/PayAlert";
 
 const ProductView = ({ id }) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [basketadd, setBasketadd] = useState(false);
+
+  const [paycode, setPaycode] = useState();
+  const [postav, setPostav] = useState();
+  const [basket, setPayBasket] = useState();
+  const [money, setMoney] = useState();
+
+
+
+  const [showPay, setShowPay] = useState(false);
+  const showPayAlert = () => {
+    setShowPay(true); // Показываем модальное окно
+  };
+  const GoToPay = (id, basket, postav, money) => {
+    setPaycode(id);
+    setPayBasket(basket);
+    setPostav(postav);
+    setMoney(money);
+    showPayAlert();
+  }
+
+
+
 
   const [showComplaint, setShowComplaint] = useState(false);
   const [typeComplaint, setTypeComplaint] = useState("");
@@ -107,6 +130,14 @@ const ProductView = ({ id }) => {
         type={typeComplaint}
         to={id}
         onClose={() => setShowComplaint(false)}
+      />
+      <PayAlert
+        show={showPay}
+        product={paycode}
+        basket={basket}
+        postav={postav}
+        money={money}
+        onClose={() => setShowPay(false)}
       />
       {loading ? (
         <>
@@ -222,7 +253,14 @@ const ProductView = ({ id }) => {
                     </>
                   )}
                 </div>
-                <button>Купить в один клик</button>
+                {localStorage.getItem("token") === null ? (
+                  <>
+                    <button disabled>Чтобы купить товар, нужно авторизироваться</button>
+                  </>
+                ) : (<>
+                  <button onClick={() => GoToPay(data.id, null, data.provider_id, data.money)}>Купить в один клик</button>
+                </>)}
+
                 <div className="postavprofile">
                   <p className="mini">Связаться с поставщиком</p>
                   <p>{data.provider_email}</p>

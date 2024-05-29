@@ -32,11 +32,10 @@ export default function BasketPage() {
   };
 
 
-  const [showComplaint, setShowComplaint] = useState(false);
-  const [typeComplaint, setTypeComplaint] = useState("");
+  const [showPay, setShowPay] = useState(false);
 
-  const showComplaintAlert = () => {
-    setShowComplaint(true); // Показываем модальное окно
+  const showPayAlert = () => {
+    setShowPay(true); // Показываем модальное окно
   };
 
   const GoToPay = (id, basket, postav, money) => {
@@ -44,8 +43,7 @@ export default function BasketPage() {
     setPayBasket(basket);
     setPostav(postav);
     setMoney(money);
-    setTypeComplaint("1");
-    showComplaintAlert();
+    showPayAlert();
   }
 
 
@@ -103,13 +101,12 @@ export default function BasketPage() {
         text={modalText}
       />
       <PayAlert
-        show={showComplaint}
-        type={typeComplaint}
+        show={showPay}
         product={paycode}
         basket={basket}
         postav={postav}
         money={money}
-        onClose={() => setShowComplaint(false)}
+        onClose={() => setShowPay(false)}
       />
       <main className="profile pay">
         <div className="w250">
