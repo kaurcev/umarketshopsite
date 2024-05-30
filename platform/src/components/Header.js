@@ -130,7 +130,9 @@ export default function Header() {
         <div className="header">
           <div className="minipan">
             <span>
-              <Link to="/profile/wallet">{wallet}₽ | {geo.country_code3}</Link>
+              {
+                roleid > 0 ? (<Link to="/profile/wallet">{wallet}₽ | {geo.country_code3}</Link>) : (<Link>{geo.country_code3}</Link>)
+              }
               <Link to="/profile/">
                 <i className="fa fa-location-arrow" aria-hidden="true"></i>{" "}
                 {adress}
@@ -140,9 +142,7 @@ export default function Header() {
               {
                 roleid === "1" ? (<Link className="info" to="/startposrav">
                   Как стать поставщиком
-                </Link>) : (<Link className="info">
-                  Загружаем
-                </Link>)
+                </Link>) : null
               }
               <Link to="/application">Мобильное приложение</Link>
               <Link to="/stocks">Акции</Link>

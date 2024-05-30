@@ -5,6 +5,7 @@ import logo from '../img/logo.png';
 export default function Header() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [infoload, setInfoload] = useState(false);
 
     const getToken = () => {
         // eslint-disable-next-line
@@ -22,9 +23,7 @@ export default function Header() {
                 const jsonTrans = await responses.json();
                 setData(jsonTrans.data);
                 if (!jsonTrans.status) {
-                    localStorage.removeItem('token');
-                    alert("Войдите в аккаунт снова");
-                    window.location.href = '//app.umarketshop.site/auth';
+                    setInfoload(true);
                 }
             } catch (error) {
             } finally {
@@ -42,19 +41,22 @@ export default function Header() {
         <>
             <header>
                 <div className="header">
-                    {loading}
                     <div>
-                        <img className="logo" alt="uMarket Shop" src={logo} /> <span>Баг-трекер</span>
+                        <img className="logo" alt="uMarket Shop" src={logo} /><span>Баг-трекер</span>
                     </div>
                     <div>
-                        <span>{data.username}</span>
-                        <a className="bt" href="//app.umarketshop.site/">Вернуться в систему</a>
+                        {infoload ? (<>
+                            <a className="bt" href="//app.umarketshop.site/">Войти</a>
+                        </>) : (<>
+                            <span>{data.username}</span>
+                            <a className="bt" href="//app.umarketshop.site/">Вернуться в систему</a>
+                        </>)}
                     </div>
                 </div>
             </header>
             <main>
                 {
-                    getToken() === null ? (<>Необходимо <a href="//app.umarketshop.site/auth">авторизироваться</a></>) : (<>
+                    infoload ? (<>Чтобы выйти в систему, нужно нажать на кнопку " Авторизироваться в системе юМаркет Шопа" на этой <a href="//app.umarketshop.site/auth">странице</a></>) : (<>
                         {
                             loading ? (
                                 <>
