@@ -491,7 +491,7 @@ img {
 	flex-direction: column;
 	justify-content: space-between;
 	gap: 5px;
-	flex-basis: 220px;
+	flex-basis: 228px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	box-shadow: 0 0 0 0 #00000000;
 	border-radius: 20px;
