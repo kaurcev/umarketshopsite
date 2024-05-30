@@ -10,6 +10,8 @@ export default function Header() {
   const [searchtext, setSearchtext] = useState("");
   const [geo, setGeo] = useState("");
   const [adress, setAdress] = useState("");
+  const [wallet, setWallet] = useState("");
+  const [roleid, setRoleID] = useState("");
   const [data, setData] = useState([]);
   let searchTimeout;
 
@@ -47,6 +49,8 @@ export default function Header() {
         fetch(`//${serverUrl}/getinformation?${params.toString()}`)
           .then((response) => response.json())
           .then((data) => {
+            setWallet(data.data.wallet);
+            setRoleID(data.data.roleid)
             if (data.data.address !== "Адрес не указан") {
               setAdress(data.data.address);
             } else {
@@ -126,16 +130,20 @@ export default function Header() {
         <div className="header">
           <div className="minipan">
             <span>
-              <Link to="/profile/wallet">{geo.country_code3}</Link>
+              <Link to="/profile/wallet">{wallet}₽ | {geo.country_code3}</Link>
               <Link to="/profile/">
                 <i className="fa fa-location-arrow" aria-hidden="true"></i>{" "}
                 {adress}
               </Link>
             </span>
             <span>
-              <Link className="info" to="/startposrav">
-                Как стать поставщиком
-              </Link>
+              {
+                roleid === "1" ? (<Link className="info" to="/startposrav">
+                  Как стать поставщиком
+                </Link>) : (<Link className="info">
+                  Загружаем
+                </Link>)
+              }
               <Link to="/application">Мобильное приложение</Link>
               <Link to="/stocks">Акции</Link>
               <Link to="/help">Помощь</Link>

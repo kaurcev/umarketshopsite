@@ -6,7 +6,26 @@ import { useNavigate } from "react-router-dom";
 const PayAlert = ({ show, onClose, postav, basket, product, money }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [moneys, setMoneys] = useState(false);
   if (!show) return null;
+
+  // eslint-disable-next-line
+  const moneyLoad = async () => {
+    try {
+      setLoading(true);
+      const params = new URLSearchParams();
+      params.append('me', localStorage.getItem('token'));
+      const responses = await fetch(
+        `//${serverUrl}/getinformation?${params.toString()}`
+      );
+      const jsonData = await responses.json();
+      setMoneys(jsonData.data.wallet);
+    } catch {
+
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const addPayRequest = async () => {
     try {
@@ -45,7 +64,13 @@ const PayAlert = ({ show, onClose, postav, basket, product, money }) => {
           {loading ? (<>
             <button disabled><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i></button>
           </>) : (<>
-            <button onClick={() => addPayRequest()}>Списать</button>
+            {
+              moneys > money ? (<>
+                <button onClick={() => addPayRequest()}>Списать</button>
+              </>) : (<>
+                <button disabled>Недостаточно средств..</button>
+              </>)
+            }
           </>)}
           <button onClick={onClose} className="o">Отмена</button>
         </div>
