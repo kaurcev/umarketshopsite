@@ -46,7 +46,7 @@ export default function Header() {
                     </div>
                     <div>
                         {infoload ? (<>
-                            <a className="bt" href="//app.umarketshop.site/">Войти</a>
+                            <a className="bt" href="//app.umarketshop.site/auth">Войти</a>
                         </>) : (<>
                             <span>{data.username}</span>
                             <a className="bt" href="//app.umarketshop.site/">Вернуться в систему</a>
