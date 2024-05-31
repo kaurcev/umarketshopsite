@@ -79,6 +79,10 @@ main.productpage img.preview {
 	padding: 10px;
 }
 
+main.productpage img.preview.load {
+	background: none;
+}
+
 main.productpage .imgback {
 	width: 100%;
 	background-color: var(--color-body-bg-two);
@@ -177,6 +181,7 @@ main.productpage .moneycart {
 	justify-content: space-between;
 	background-color: var(--color-header);
 	padding: 20px;
+	gap: 10px;
 }
 
 main.productpage .postavprofile {

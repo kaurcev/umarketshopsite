@@ -87,6 +87,7 @@ export default function PostavProdoEditPage() {
   };
 
   const stoksHandler = (event) => {
+    console.log(event.target.value);
     setStok(event.target.value);
   };
 
@@ -166,7 +167,7 @@ export default function PostavProdoEditPage() {
                   />
                   <p className="mini">Выберите акцию (При наличии)</p>
                   <select onChange={stoksHandler}>
-                    <option value={data.stok}>Не указано</option>
+                    <option value="0">Не указано</option>
                     {stoks.map((item) => (
                       <option key={item.id} value={item.id}>
                         {item.name}

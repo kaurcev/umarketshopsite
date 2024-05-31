@@ -24,11 +24,14 @@ const ProductView = ({ id }) => {
   const showPayAlert = () => {
     setShowPay(true); // Показываем модальное окно
   };
-  const GoToPay = (id, basket, postav, money) => {
+  const GoToPay = (id, basket, postav, money, oldmoney) => {
     setPaycode(id);
     setPayBasket(basket);
     setPostav(postav);
     setMoney(money);
+    if (oldmoney != null) {
+      setMoney(oldmoney);
+    }
     showPayAlert();
   }
 
@@ -258,7 +261,7 @@ const ProductView = ({ id }) => {
                     <button disabled>Чтобы купить товар, нужно авторизироваться</button>
                   </>
                 ) : (<>
-                  <button onClick={() => GoToPay(data.id, null, data.provider_id, data.money)}>Купить в один клик</button>
+                  <button onClick={() => GoToPay(data.id, null, data.provider_id, data.money, data.oldmoney)}>Купить в один клик</button>
                 </>)}
 
                 <div className="postavprofile">

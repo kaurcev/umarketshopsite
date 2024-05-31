@@ -39,14 +39,17 @@ const ProdImgBar = ({ id, banner }) => {
   if (!id) return null;
   return (
     <>
-      <div className="imagebar">
-        {loading ? (
-          <>
-            <div className="review load"></div>
-            <div className="review load"></div>
-            <div className="review load"></div>
-          </>
-        ) : (
+      {loading ? (<>
+        <div className="imagebar">
+          <div className="miniimage load"></div>
+          <div className="miniimage load"></div>
+          <div className="miniimage load"></div>
+        </div>
+        <div className="imgback">
+          <img className="preview load" alt="" />
+        </div>
+      </>) : (<>
+        <div className="imagebar">
           <>
             {data.length < 1 ? (
               <>
@@ -71,13 +74,15 @@ const ProdImgBar = ({ id, banner }) => {
                   />
                 ))}
               </>
-            )}{" "}
+            )}
           </>
-        )}
-      </div>
-      <div className="imgback" style={{ backgroundImage: `url("${img}")` }}>
-        <img src={img} className="preview" alt={data.name} />
-      </div>
+        </div>
+
+        <div className="imgback" style={{ backgroundImage: `url("${img}")` }}>
+          <img src={img} className="preview" alt={data.name} />
+        </div>
+
+      </>)}
     </>
   );
 };
