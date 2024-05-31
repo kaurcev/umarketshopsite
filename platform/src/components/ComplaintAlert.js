@@ -39,41 +39,42 @@ const ComplaintAlert = ({ show, onClose, to, type }) => {
       setSently(false);
     } finally {
       setLoading(false);
-    }}
+    }
+  }
 
   return (
-    <div className="fullscreen">
+    <div className="fullscreen" onDoubleClick={onClose}>
       <div className="panel">
         {
           sently ? (<>
-          <div className="center">
-          <img src={survey} alt="Принято"/>
-          <h3>Жалоба принята</h3>
-          <p className="mini">Наша модерация примет меры</p>
-          <button className="o" onClick={onClose}>Закрыть окно</button>
-          </div>
+            <div className="center">
+              <img src={survey} alt="Принято" />
+              <h3>Жалоба принята</h3>
+              <p className="mini">Наша модерация примет меры</p>
+              <button className="o" onClick={onClose}>Закрыть окно</button>
+            </div>
           </>) : (<>
-                  <h3 className="duo b">
-        <span>Отправить жалобу</span>
-        <span className="reds" onClick={onClose}><i className="fa fa-close" aria-hidden="true"></i></span>
-        </h3>
-        <p>В этом окне вы можете отправить жалобу</p>
-        <form onSubmit={submitHandler} >
-          <p className="mini">Опишите ниже то, что случилось или не понравилось Вам</p>
-          <textarea onChange={reviewHandler} placeholder="Введите то, что Вам не понравилось" />
-          <p className="mini">После отправки модерация рассмотрит Вашу жалобу и примет меры</p>
-          {loading ? (
-          <p>
-            <button disabled>
-              <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-            </button>
-          </p>
-        ) : (
-          <p>
-            <button>Отправить жалобу</button>
-          </p>
-        )}
-        </form>
+            <h3 className="duo b">
+              <span>Отправить жалобу</span>
+              <span className="reds" onClick={onClose}><i className="fa fa-close" aria-hidden="true"></i></span>
+            </h3>
+            <p>В этом окне вы можете отправить жалобу</p>
+            <form onSubmit={submitHandler} >
+              <p className="mini">Опишите ниже то, что случилось или не понравилось Вам</p>
+              <textarea onChange={reviewHandler} placeholder="Введите то, что Вам не понравилось" />
+              <p className="mini">После отправки модерация рассмотрит Вашу жалобу и примет меры</p>
+              {loading ? (
+                <p>
+                  <button disabled>
+                    <i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                  </button>
+                </p>
+              ) : (
+                <p>
+                  <button>Отправить жалобу</button>
+                </p>
+              )}
+            </form>
           </>)
         }
       </div>

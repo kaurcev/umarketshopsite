@@ -4,6 +4,8 @@ import Header from "../../../components/Header";
 import { serverUrl } from "../../../config";
 import Footer from "../../../components/Footer";
 import NoAuthPage from "../../NoAuthPage";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function PostavProdoPage() {
   document.title = "Панель поставщика";
@@ -87,7 +89,7 @@ export default function PostavProdoPage() {
               <>
                 {data.map((item) => (
                   <div className="productcart" key={item.id}>
-                    <img
+                    <LazyLoadImage effect="blur"
                       src={`//${serverUrl}/img/${item.img}`}
                       alt={item.name}
                     />

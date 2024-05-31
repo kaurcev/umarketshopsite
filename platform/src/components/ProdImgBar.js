@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { serverUrl } from "../config";
 import "../styles/ReviewBar.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ProdImgBar = ({ id, banner }) => {
   const [data, setData] = useState([]);
@@ -53,7 +55,8 @@ const ProdImgBar = ({ id, banner }) => {
           <>
             {data.length < 1 ? (
               <>
-                <img
+                <LazyLoadImage
+                  effect="blur"
                   className="miniimage"
                   onClick={() => imageopen(`//${serverUrl}/img/${img}`)}
                   src={`//${serverUrl}/img/${img}`}
@@ -63,7 +66,8 @@ const ProdImgBar = ({ id, banner }) => {
             ) : (
               <>
                 {data.map((item) => (
-                  <img
+                  <LazyLoadImage
+                    effect="blur"
                     key={item.num}
                     className="miniimage"
                     onClick={() =>
@@ -79,7 +83,7 @@ const ProdImgBar = ({ id, banner }) => {
         </div>
 
         <div className="imgback" style={{ backgroundImage: `url("${img}")` }}>
-          <img src={img} className="preview" alt={data.name} />
+          <LazyLoadImage src={img} className="preview" alt={data.name} />
         </div>
 
       </>)}

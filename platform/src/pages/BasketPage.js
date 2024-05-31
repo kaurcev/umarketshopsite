@@ -7,7 +7,8 @@ import ModalAlert from "../components/ModalAlert";
 import ProductBarloader from "../components/ProductBarloader";
 import NoAuthPage from "./NoAuthPage";
 import PayAlert from "../components/PayAlert";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function BasketPage() {
   document.title = "Ваша корзина";
@@ -138,7 +139,7 @@ export default function BasketPage() {
                     <>
                       {data.map((item) => (
                         <div className="productcart" key={item.id}>
-                          <img
+                          <LazyLoadImage effect="blur"
                             src={`//${serverUrl}/img/${item.img}`}
                             alt={item.name}
                           />

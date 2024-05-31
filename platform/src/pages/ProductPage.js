@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ReviewsBar from "../components/ReviewsBar";
 import FormAddRew from "../components/FormAddRew";
 import ProductView from "../components/ProductView";
 import E404Page from "./E404Page";
@@ -23,7 +22,6 @@ export default function ProductPage() {
       <main className="productpage">
         <ProductView id={proid} />
         <FormAddRew id={proid} />
-        <ReviewsBar id={proid} />
       </main>
       <Footer />
     </>
