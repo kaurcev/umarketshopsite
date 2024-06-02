@@ -6,13 +6,84 @@
 юМаркет Шоп - платформа электронной коммерции
 </p>
 
-# юМаркет Шоп
+### юМаркет Шоп (uMarket Shop) v1.0 - платформа электронной коммерции
 
-Скоро опишу
+Данная версия включает в себя:
 
-## О проекте
+Общее:
+- Показачный лендинг;
+- Авторизация;
+- Регистрация;
+- Добавление товара в корзину;
+- Страница товара;
+- Просмотр отзывов;
+- Возможность оставить отзыв на товар;
+- Страница акции;
+- Поиск товаров по ключевым словам;
+- Управление сеансами авторизации;
+- Пополнение баланса через Юмани;
+- Контроль покупки.
 
-Ниже описаны основные домены и их назначение.
+Возможности поставщика:
+- Панель поставщика;
+- Редактирование данных о организации поставщика;
+- Добавление товаров;
+- Редактирование данных о товаре;
+- Загрузка фотографий товара;
+- Возможность дать ответ на отзыв.
+
+Возможности администратора:
+- Панель администратора;
+- Переключение с глобального сервера на локальный (Для разработки);
+- Информация о проекте (Версия React);
+- Переход к Яндекс-метрике;
+- Переход к Google Analytics;
+- Логирование подключений к сайту;
+- Просмотрт всех пользователей;
+- Поиска пользователей по юзернейму;
+- Редактирования данных пользователя;
+- Удаления аккаунта;
+- Вывод всех поставщиков;
+- Поиска поставщиков;
+- Редактирование данных поставщика;
+- Возможность смены менеджера у организации поставщика;
+- Просмотр жалоб пользователей о товаре;
+- Подтверждение удачных сделок.
+
+Возможности тестировщика:
+- Все возможности пользователя;
+- Доступ к баг-трекеру.
+
+###  Технические характеристики платформы:
+
+### Хостинг серверной части
+<p style="display: flex; gap: 10px; background: #fff; padding: 10px">
+    <img src='./landing/src/logos/sweb.svg' height="30px">
+</p>
+
+#### Технологии, используемые в работе серверной части
+
+<p style="display: flex; gap: 10px; background: #fff; padding: 10px">
+<img src='./landing/src/logos/php.svg' height="30px">
+<img src='./landing/src/logos/phpmeadmin.svg' height="30px">
+<img src='./landing/src/logos/Mysql.png' height="30px">
+</p>
+
+
+### Хостинг клиентской части
+<p style="display: flex; gap: 10px; background: #fff; padding: 10px">
+    <img src='./landing/src/logos/netlify.svg' height="30px">
+</p>
+
+#### Технологии, используемые в работе клиентской части
+
+<p style="display: flex; gap: 10px; background: #fff; padding: 10px">
+<img src='./landing/src/logos/react.svg' height="30px">
+<img src='./landing/src/logos/nodejs.svg' height="30px">
+<img src='./landing/src/logos/pwa.svg' height="30px">
+</p>
+
+
 
 ## api.umarketshop.site
 На этом домене расположена серверная часть платформы.
@@ -22,18 +93,6 @@
 
 <img src="./landing/src/img/api.png">
 
-### Хостинг | Развертывание
-<p style="display: flex; gap: 10px; background: #fff; padding: 10px">
-    <img src='./landing/src/logos/sweb.svg' height="30px">
-</p>
-
-#### Технологии, используемые в работе
-
-<p style="display: flex; gap: 10px; background: #fff; padding: 10px">
-<img src='./landing/src/logos/php.svg' height="30px">
-<img src='./landing/src/logos/phpmeadmin.svg' height="30px">
-<img src='./landing/src/logos/Mysql.png' height="30px">
-</p>
 
 
 ### Пример работы методом REST API
@@ -50,25 +109,21 @@
 ## umarketshop.site
 [![Netlify Status](https://api.netlify.com/api/v1/badges/948701b0-f9c4-40b6-8f07-8946d6c55c42/deploy-status)](https://app.netlify.com/sites/sunny-blancmange-7e001d/deploys)
 
-<img src="https://mini.s-shot.ru/1920x1080/800/png/?http://umarketshop.site">
+Это показачный лендинг, который описывает площадку для потенциальных пользователей.
 
-
-
-### Хостинг | Развертывание
-<p style="display: flex; gap: 10px; background: #fff; padding: 10px">
-    <img src='./landing/src/logos/netlify.svg' height="30px">
-</p>
-
-#### Технологии, используемые в работе
-
-<p style="display: flex; gap: 10px; background: #fff; padding: 10px">
-<img src='./landing/src/logos/react.svg' height="30px">
-<img src='./landing/src/logos/nodejs.svg' height="30px">
-<img src='./landing/src/logos/pwa.svg' height="30px">
-</p>
+<img src="https://mini.s-shot.ru/1920x1080/800/png/?http://umarketshop.site/?1">
 
 ## app.umarketshop.site
 [![Netlify Status](https://api.netlify.com/api/v1/badges/181c5c2d-1895-4821-abb8-e8e0802f6a0c/deploy-status)](https://app.netlify.com/sites/lovely-muffin-e8afc6/deploys)
 
+Это само веб-приложение платформы электронной коммерции. Тут пользователь уже регистрируется, авторизуется и пользуется всеми описанными возможностями выше.
+
+<img src="https://mini.s-shot.ru/1920x1080/800/png/?http://app.umarketshop.site/?1">
+
+
 ## bugs.umarketshop.site
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c589157c-f291-485e-ad9e-1d0e6f912c78/deploy-status)](https://app.netlify.com/sites/inspiring-medovik-be139c/deploys)
+
+Это баг-трекер. Эта страница создана для информирования тестировщиков о тестировании, а так же получения доступа к подаче отчета.
+
+<img src="https://mini.s-shot.ru/1920x1080/800/png/?http://bugs.umarketshop.site/?1">
