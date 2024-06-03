@@ -43,7 +43,7 @@ export default function SearchPage() {
     <>
       <Header />
       <main>
-        <h4>РЕЗУЛЬТАТЫ ПОИСКА ПО ЗАПРОСУ: "{search}"</h4>
+        <h4 className="searchtextinfo">РЕЗУЛЬТАТЫ ПОИСКА ПО ЗАПРОСУ: "{search}"</h4>
         <div className="productbar">
           {loading ? (
             <>

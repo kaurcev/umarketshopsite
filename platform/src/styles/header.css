@@ -115,13 +115,39 @@ header .header nav {
 /*#region мобильный адаптив*/
 @media (max-width: 899px) {
 	header {
-		position: fixed;
-		top: 0px;
+		position: sticky;
+		top: -25px;
+		background-color: transparent;
+		box-shadow: none;
+		width: 96%;
+		left: 2%;
+		padding: 0px;
 	}
 
-	header .header .minipan {
+	header .header {
+		padding: 0px;
+
+	}
+
+	header .header .mainpan {
+		background-color: var(--color-header);
+		padding: 5px;
+		border-radius: 10px;
+		box-shadow: 0 4px 10px 4px #0000001f;
+	}
+
+	header .header .minipan span {
 		display: none;
 	}
+
+	header .header .minipan span:first-child {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row-reverse;
+		width: 100%;
+		padding: 4px 0px;
+	}
+
 
 	header .header .logo {
 		display: none;
@@ -129,19 +155,21 @@ header .header nav {
 
 	header .header nav {
 		position: fixed;
-		bottom: 0px;
+		bottom: 10px;
 		background-color: var(--color-header);
-		width: 100%;
+		backdrop-filter: blur(10px);
+		width: 96%;
 		max-width: none;
-		left: 0px;
+		left: 2%;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-evenly;
-		padding: 10px 10px 15px 10px;
-		box-shadow: 0 0 10px 0 #0000001f;
+		padding: 10px;
+		box-shadow: 0 4px 10px 4px #0000001f;
 		z-index: 100;
 		gap: 10px;
+		border-radius: 10px;
 	}
 
 	header .header .mainpan nav a {
@@ -150,16 +178,13 @@ header .header nav {
 		gap: 8px;
 		padding: 4px 6px;
 		border-radius: 8px;
+		color: var(--color-font);
 	}
 
 	header .header .mainpan nav a:active {
 		background: var(--akcent-two);
 		color: var(--akcent);
 		padding: 4px 6px;
-	}
-
-	header .header {
-		padding: 0px;
 	}
 }
 

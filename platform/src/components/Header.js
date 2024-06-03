@@ -161,6 +161,7 @@ export default function Header() {
                 required
                 placeholder="Введите для поиска"
                 onChange={searchHandler}
+                maxLength={40}
                 list="searchvar"
               />
               <datalist id="searchvar">
