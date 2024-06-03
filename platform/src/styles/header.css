@@ -142,8 +142,8 @@ header .header nav {
 
 	header .header .minipan span:first-child {
 		display: flex;
-		justify-content: space-between;
-		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: center;
 		width: 100%;
 		padding: 4px 0px;
 	}
