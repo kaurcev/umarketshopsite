@@ -8,7 +8,7 @@
 
 ![app.umarketshop.site](https://img.shields.io/website?style=flat-square&url=https://app.umarketshop.site)
 
-![api.umarketshop.site](https://img.shields.io/website?style=flat-square&url=https://api.umarketshop.site)
+![api.umarketshop.site](https://img.shields.io/website?style=flat-square&url=http://api.umarketshop.site)
 
 
 ![umarketshop.site](https://img.shields.io/website?style=flat-square&url=https://umarketshop.site)
