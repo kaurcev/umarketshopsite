@@ -6,6 +6,17 @@
 юМаркет Шоп - платформа электронной коммерции
 </p>
 
+![app.umarketshop.site](https://img.shields.io/website?style=flat-square&url=https://app.umarketshop.site)
+
+![api.umarketshop.site](https://img.shields.io/website?style=flat-square&url=https://api.umarketshop.site)
+
+
+![umarketshop.site](https://img.shields.io/website?style=flat-square&url=https://umarketshop.site)
+  
+
+![bugs.umarketshop.site](https://img.shields.io/website?style=flat-square&url=https://bugs.umarketshop.site)
+ 
+
 ### юМаркет Шоп (uMarket Shop) v1.0 - платформа электронной коммерции
 
 Данная версия включает в себя:
