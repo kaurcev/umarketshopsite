@@ -67,6 +67,18 @@ export default function FormPostavEdit() {
   };
 
   function EditdataloadRequest() {
+    if (!name) {
+      showModalWithText("Вы не указали наименование");
+      return null;
+    }
+    if (!description) {
+      showModalWithText("Вы не указали описание");
+      return null;
+    }
+    if (!prodo) {
+      showModalWithText("Выберите статус работоспособности");
+      return null;
+    }
     const params = new URLSearchParams();
     params.append("name", name);
     params.append("description", description);

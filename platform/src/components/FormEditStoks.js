@@ -79,6 +79,22 @@ export default function FormEditStoks() {
     try {
       setLoading(true);
       const params = new URLSearchParams();
+      if (!name) {
+        showModalWithText("Вы не указали название акции");
+        return null;
+      }
+      if (!description) {
+        showModalWithText("Вы не указали описание акции");
+        return null;
+      }
+      if (!dateend) {
+        showModalWithText("Укажите дату окончания акции");
+        return null;
+      }
+      if (!percent) {
+        showModalWithText("Укажите процент скидки на товар");
+        return null;
+      }
       params.append("id", stockid);
       params.append("name", name);
       params.append("descr", description);
@@ -117,7 +133,7 @@ export default function FormEditStoks() {
           onChange={nameHandler}
         />
         <p className="mini">Процент скидки на товар</p>
-        <input type="num" value={percent} onChange={percentHandler} />
+        <input type="number" value={percent} placeholder="от 0 до 100" min="0" max="100" onChange={percentHandler} />
         <p className="mini">Описание акции</p>
         <textarea
           maxLength="5000"

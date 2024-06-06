@@ -38,7 +38,7 @@ export default function ReplysPage() {
           document.title = jsonTrans.data.name;
           setData(jsonTrans.data);
         } else {
-          navigate("/400");
+          showModalWithText("У вас еще нет товаров, чтобы им были отзывы");
         }
       } catch (error) {
         showModalWithText(error.message);

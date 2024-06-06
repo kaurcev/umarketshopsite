@@ -41,54 +41,63 @@ export default function Header() {
           navigate("/500");
         });
     };
+    getStatus();
+    fetchData();
+    // eslint-disable-next-line
+  }, []);
 
-    const fetchData = async () => {
-      if (localStorage.getItem('token') !== null) {
-        const params = new URLSearchParams();
-        params.append('me', localStorage.getItem('token'));
-        fetch(`//${serverUrl}/getinformation?${params.toString()}`)
-          .then((response) => response.json())
-          .then((data) => {
-            setWallet(data.data.wallet);
-            setRoleID(data.data.roleid)
-            if (data.data.address !== "Адрес не указан") {
-              setAdress(data.data.address);
-            } else {
-              getCity();
-            }
-            if (!data.status) {
-              navigate('/logout');
-            } else if (data.data.block === "1") {
-              alert("Ваш аккаунт был заблокирован администратором. Свяжитесь с нами по почте, указанной в подвале сайта для уточнения деталей");
-              navigate('/logout');
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-      getCity();
-    };
-
-    const getCity = async () => {
-      fetch(`//get.geojs.io/v1/ip/geo.json`)
+  const fetchData = async () => {
+    if (localStorage.getItem('token') !== null) {
+      const params = new URLSearchParams();
+      params.append('me', localStorage.getItem('token'));
+      fetch(`//${serverUrl}/getinformation?${params.toString()}`)
         .then((response) => response.json())
         .then((data) => {
-          setGeo(data);
-          setAdress(`${data.city} ${data.region}`)
+          setWallet(data.data.wallet);
+          setRoleID(data.data.roleid)
+          if (data.data.address !== "Адрес не указан") {
+            setAdress(data.data.address);
+          } else {
+            getCity();
+          }
+          if (!data.status) {
+            navigate('/logout');
+          } else if (data.data.block === "1") {
+            alert("Ваш аккаунт был заблокирован администратором. Свяжитесь с нами по почте, указанной в подвале сайта для уточнения деталей");
+            navigate('/logout');
+          }
         })
         .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  const getCity = async () => {
+    fetch(`//get.geojs.io/v1/ip/geo.json`)
+      .then((response) => response.json())
+      .then((data) => {
+        setGeo(data);
+        setAdress(`${data.city} ${data.region}`)
+      })
+      .catch((error) => {
+        let data = {
+          'city': "Неизвестно",
+          'region': "Бог знает"
+        }
+        setGeo(data);
+      }).finally(() => {
+        if (!geo.region) {
           let data = {
             'city': "Неизвестно",
             'region': "Бог знает"
           }
-          setGeo(data);
-        });
-    };
-    getStatus();
-    fetchData();
-    // eslint-disable-next-line
-  }, []); // Пустой массив зависимостей
+          setAdress(`${data.city} ${data.region}`)
+          console.log(adress);
+        }
+      });
+  };
+
 
   const searchHandler = (event) => {
     clearTimeout(searchTimeout);
@@ -202,3 +211,4 @@ export default function Header() {
     </>
   );
 }
+

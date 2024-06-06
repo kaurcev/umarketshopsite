@@ -6,12 +6,26 @@ import Footer from "../../../components/Footer";
 import NoAuthPage from "../../NoAuthPage";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import ModalAlert from "../../../components/ModalAlert";
 
 export default function PostavProdoPage() {
   document.title = "Панель поставщика";
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+
+
+  // Для отображения модального окна
+  const [showModal, setShowModal] = useState(false);
+  const [modalText, setModalText] = useState("");
+
+  const showModalWithText = (text) => {
+    setModalText(text); // Устанавливаем текст для модального окна
+    setShowModal(true); // Показываем модальное окно
+    setTimeout(() => {
+      setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+    }, 1500);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +39,7 @@ export default function PostavProdoPage() {
         );
         const jsonData = await response.json();
         if (!jsonData.status) {
-          navigate("/profile");
+          showModalWithText("Кажется, что у вас нет товаров");
         }
         setData(jsonData.data);
       } catch (error) {
@@ -69,6 +83,11 @@ export default function PostavProdoPage() {
   if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
   return (
     <>
+      <ModalAlert
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        text={modalText}
+      />
       <Header />
       <main className="profile pay">
         <div className="w250">
