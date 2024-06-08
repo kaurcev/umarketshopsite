@@ -11,6 +11,7 @@ export default function FormSignUp() {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordtrue, setPasswordtrue] = useState("");
   const [surname, setSurname] = useState("");
   const [name, setName] = useState("");
   const [firstname, setFirstname] = useState("");
@@ -51,6 +52,10 @@ export default function FormSignUp() {
     setPassword(event.target.value);
   };
 
+  const passwordtrueHandler = (event) => {
+    setPasswordtrue(event.target.value);
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
     SigninRequest(username, password, surname, name, firstname, email);
@@ -73,6 +78,10 @@ export default function FormSignUp() {
     ) {
       showModalWithText("Вы не указали данных");
     } else {
+      if (passwordtrue !== passwordtext) {
+        showModalWithText("Пароли не совпадают");
+        return null;
+      }
       const params = new URLSearchParams();
       params.append("username", usernametext);
       params.append("password", passwordtext);
@@ -180,8 +189,8 @@ export default function FormSignUp() {
               type="password"
               placeholder="Повторите пароль"
               maxLength="100"
-              value={password}
-              onChange={passwordHandler}
+              value={passwordtrue}
+              onChange={passwordtrueHandler}
             />
           </div>
         </div>

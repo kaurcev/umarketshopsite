@@ -70,6 +70,8 @@ export default function Header() {
         .catch((error) => {
           console.log(error);
         });
+    } else {
+      getCity();
     }
   };
 
@@ -82,15 +84,15 @@ export default function Header() {
       })
       .catch((error) => {
         let data = {
-          'city': "Неизвестно",
-          'region': "Бог знает"
+          'city': "",
+          'region': "Регион не определён"
         }
         setGeo(data);
       }).finally(() => {
-        if (!geo.region) {
+        if (!geo) {
           let data = {
-            'city': "Неизвестно",
-            'region': "Бог знает"
+            'city': "",
+            'region': "Регион не определён"
           }
           setAdress(`${data.city} ${data.region}`)
           console.log(adress);
