@@ -1,7 +1,7 @@
 {
   "name": "umarketshop",
   "version": "0.0.5.3",
-  "build": "005",
+  "build": "006",
   "private": true,
   "dependencies": {
     "@pbe/react-yandex-maps": "^1.2.5",
