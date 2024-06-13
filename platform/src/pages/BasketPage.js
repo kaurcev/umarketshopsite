@@ -107,6 +107,7 @@ export default function BasketPage() {
         basket={basket}
         postav={postav}
         money={money}
+        wallet={localStorage.getItem("wallet")}
         onClose={() => setShowPay(false)}
       />
       <main className="profile pay">

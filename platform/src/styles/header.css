@@ -1,6 +1,6 @@
 header {
 	position: sticky;
-	top: -33px;
+	top: -25px;
 	width: 100%;
 	background-color: var(--color-header);
 	height: fit-content;

@@ -140,6 +140,7 @@ const ProductView = ({ id }) => {
         basket={basket}
         postav={postav}
         money={money}
+        wallet={localStorage.getItem("wallet")}
         onClose={() => setShowPay(false)}
       />
       {loading ? (

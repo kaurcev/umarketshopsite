@@ -54,6 +54,8 @@ export default function Header() {
         .then((response) => response.json())
         .then((data) => {
           setWallet(data.data.wallet);
+          localStorage.setItem("wallet", data.data.wallet);
+          // alert(data.data.wallet);
           setRoleID(data.data.roleid)
           if (data.data.address !== "Адрес не указан") {
             setAdress(data.data.address);
@@ -69,6 +71,8 @@ export default function Header() {
         })
         .catch((error) => {
           console.log(error);
+        }).finally(() => {
+
         });
     } else {
       getCity();
