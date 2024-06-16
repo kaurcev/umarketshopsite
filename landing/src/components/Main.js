@@ -28,7 +28,7 @@ import ЮMoney from '../logos/ЮMoney.png';
 export default function Welcome() {
     return (
         <main>
-            <div class="page" id="welcome">
+            <div class="page" id="about">
                 <div class="cont">
                     <h1>юМаркет Шоп</h1>
                     <p>Платформа электронной коммерции</p>
@@ -58,7 +58,7 @@ export default function Welcome() {
                     <img src={ЮMoney} alt="" />
                 </div>
             </div>
-            <div class="page">
+            <div class="page" id="api">
                 <div class="cont">
                     <h3>API юМаркет Шоп</h3>
                     <p>Система основана на технологии REST API, что позволяет дать публичное API для интеграции площадки на собственные сайты или приложения.</p>
@@ -67,7 +67,8 @@ export default function Welcome() {
                 </div>
                 <img src={apipage} alt="" />
             </div>
-            <div class="page">
+
+            <div class="page" id="bugs">
                 <div class="cont">
                     <h3>Баг-трекер юМаркет Шоп</h3>
                     <p>Платформа оснащена отделом тестирования.</p>
@@ -77,18 +78,27 @@ export default function Welcome() {
                 </div>
                 <img src={bugspage} alt="" />
             </div>
-            <h2>Интеграция в социальные сети</h2>
+
             <div class="page">
+                <div class="cont">
+                    <h2>Интеграция в социальные сети</h2>
+                </div>
                 <img src={vk} alt="" />
                 <img src={tg} alt="" />
             </div>
-            <h2>Адаптация под мобильные устройства</h2>
+
             <div class="page">
+                <div class="cont">
+                    <h2>Адаптация под мобильные устройства</h2>
+                </div>
                 <img src={phone} alt="" />
                 <img src={phone2} alt="" />
             </div>
-            <h2>Контроль и анализ взаймодействия посетителей с платформой</h2>
+
             <div class="page">
+                <div class="cont">
+                    <h2>Контроль и анализ взаймодействия посетителей с платформой</h2>
+                </div>
                 <img src={google} alt="" />
                 <img src={yandex} alt="" />
             </div>

@@ -8,11 +8,11 @@ export default function Header() {
                 <div class="header">
                     <nav>
                         <img class="logo" src={logo} alt="#" />
-                        <a href="#">О проекте</a>
-                        <a href="#">API</a>
-                        <a href="#">Баг-трекер</a>
-                        <a href="#">Политика конфиденциальности</a>
-                        <a href="#">Правила использования</a>
+                        <a href="#about">О проекте</a>
+                        <a href="#api">API</a>
+                        <a href="#bugs">Баг-трекер</a>
+                        <a href="//app.umarketshop.site/privacy">Политика конфиденциальности</a>
+                        <a href="//app.umarketshop.site/use-terms">Правила использования</a>
                     </nav>
                     <button>Перейти</button>
                 </div>
