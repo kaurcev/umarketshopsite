@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+
 :root {
     --color-font: #141414;
     --color-body-bg: #FFFFFF;
@@ -29,17 +30,6 @@
     }
 }
 
-html,
-body {
-    margin: 0px;
-    background-color: var(--color-body-bg);
-    color: var(--color-font);
-    -ms-overflow-style: none;
-    /* IE 10+ */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
 
 * {
     box-sizing: border-box;
@@ -51,61 +41,87 @@ body {
     text-decoration: none;
 }
 
-
-@keyframes loadpage {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+a {
+    color: #000;
 }
 
 html,
 body {
     margin: 0px;
+    padding: 30px 0px;
 }
 
 header {
-    position: sticky;
+    padding: 10px;
+    position: fixed;
     top: 0px;
     left: 0px;
-    padding: 10px;
-    box-shadow: 0 4px 10px 0px #00000025;
-    z-index: 100;
-    background-color: var(--color-header);
+    width: 100%;
+    box-shadow: 0 0 10px 0 #00000023;
+    background-color: #fff;
 }
 
-header .header {
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.header nav {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.header nav a {
+    opacity: 0.6;
+}
+
+.logo {
+    height: 30px;
+    width: fit-content;
+}
+
+main {
+    min-height: 100vh;
+    padding: 10px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header .header div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
 }
 
-a {
-    color: var(--akcent);
+#welcome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 80vh;
 }
 
+main img {
+    width: 80%;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+}
 
-header .logo {
-    max-height: 35px;
+.cont {
+    width: 100%;
+    max-width: 400px;
 }
 
 a.bt,
 button {
-    width: 100%;
     background-color: var(--akcent);
     padding: 8px;
     font-size: 14px;
@@ -114,54 +130,33 @@ button {
     border: 1px solid var(--akcent);
 }
 
-main {
-    padding-top: 30px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    min-height: 100vh;
-    animation: loadpage 0.5s ease;
-}
-
-.welcome {
-    width: 100%;
-    height: 130vh;
-    background: linear-gradient(180deg, #ffffff, var(--akcent));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-.welcome img {
-    width: 100%;
-    max-width: 1200px;
-    border-radius: 10px;
-}
-
 .page {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.duo {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    gap: 20px;
+    gap: 10px;
+    min-height: fit-content;
+    align-items: start;
 }
 
-.duo * {
-    flex-basis: 40%;
-    flex-grow: 1;
-}
-
-main img {
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 40px;
     width: 100%;
-    box-shadow: 0 4px 10px 0 #00000043;
-    border-radius: 10px;
+    align-items: start;
+    justify-content: start;
+    height: min-content;
+}
+
+.grid img {
+    flex-grow: 1;
+    flex-basis: 100px;
+    max-height: 50px;
+    object-fit: scale-down;
+    border: none;
+}
+
+.grid img:hover {
+    transform: scale(1.5);
 }

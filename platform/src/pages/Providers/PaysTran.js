@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import '../../styles/profile.css';
 import Footer from '../../components/Footer';
 import NoAuthPage from "../NoAuthPage";
+import ModalAlert from '../../components/ModalAlert';
 
 
 export default function PaysTranPostav() {
@@ -13,6 +14,18 @@ export default function PaysTranPostav() {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const [track, setTrack] = useState('');
+
+    // Для отображения модального окна
+    const [showModal, setShowModal] = useState(false);
+    const [modalText, setModalText] = useState("");
+
+    const showModalWithText = (text) => {
+        setModalText(text); // Устанавливаем текст для модального окна
+        setShowModal(true); // Показываем модальное окно
+        setTimeout(() => {
+            setShowModal(false); // Автоматически скрываем модальное окно через 3 секунды
+        }, 3000);
+    };
 
     const fetchData = async () => {
         try {
@@ -49,7 +62,7 @@ export default function PaysTranPostav() {
             );
             const jsonTrans = await responses.json();
             if (jsonTrans.status) {
-                alert("Успешно");
+                showModalWithText("Успешно");
                 fetchData();
             }
         } catch (error) {
@@ -70,7 +83,7 @@ export default function PaysTranPostav() {
             );
             const jsonTrans = await responses.json();
             if (jsonTrans.status) {
-                alert("Успешно");
+                showModalWithText("Успешно");
             }
         } catch (error) {
             console.log(error);
@@ -86,6 +99,11 @@ export default function PaysTranPostav() {
     if (!localStorage.getItem('token')) return (<><NoAuthPage /></>);
     return (
         <>
+            <ModalAlert
+                show={showModal}
+                onClose={() => setShowModal(false)}
+                text={modalText}
+            />
             <Header />
             <main className='profile'>
                 <div className='w250'>
@@ -96,7 +114,9 @@ export default function PaysTranPostav() {
                 <div className='page'>
                     <h3>{document.title}</h3>
                     <p>Это товары, которые пользователи оплатиили и ждут отправления</p>
-                    {loading ? (<><div className='noauth'></div></>) : (<>
+                    {loading ? (<><div className='noauth'>
+                        Загрузка
+                    </div></>) : (<>
                         <div className="reviews">
                             {data.map((item) => (
                                 <div className="review" key={item.id}>

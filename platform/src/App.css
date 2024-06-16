@@ -173,6 +173,16 @@ button:disabled {
 	width: fit-content;
 }
 
+.statyellow {
+	padding: 5px 10px;
+	font-size: 12px;
+	border-radius: 10px;
+	border: 2px solid #fb7600;
+	color: #fb7600;
+	font-weight: 700;
+	width: fit-content;
+}
+
 .green {
 	color: var(--green);
 }

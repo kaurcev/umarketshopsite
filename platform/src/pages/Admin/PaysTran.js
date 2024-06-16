@@ -86,9 +86,25 @@ export default function PaysTranAdmin() {
                                             <button className='o'>Профиль поставщика</button>
                                             <button className='o' >Посмотреть товар</button>
                                         </div>
+                                        {(item.status_user === item.status_postav) === "1" ? (<>
+                                            <button onClick={() => admintrue(item.id)}>Подтвердить перевод</button>
+                                        </>) : null}
                                         <button onClick={() => admintrue(item.id)}>Подтвердить перевод</button>
-                                        {item.status_user !== "0" ? (<><p>Пользователь сделал всё правильно</p></>) : (<>В процессе</>)}
-                                        {item.status_postav !== "0" ? (<><p>Поставщик сделал всё правильно</p></>) : (<>В процессе</>)}
+                                        {item.status_user !== "0" ? (<>
+                                            <p className="statcheck">
+                                                <i className="fa fa-clock-o" aria-hidden="true"></i> Пользователь сделал всё правильно
+                                            </p></>) : (<>
+                                                <p className="statyellow">
+                                                    <i className="fa fa-clock-o" aria-hidden="true"></i> В процессе
+                                                </p>
+                                            </>)}
+                                        {item.status_postav !== "0" ? (<>
+                                            <p className="statcheck">
+                                                <i className="fa fa-clock-o" aria-hidden="true"></i> Поставщик сделал всё правильно
+                                            </p></>) : (<>
+                                                <p className="statyellow">
+                                                    <i className="fa fa-clock-o" aria-hidden="true"></i> В процессе
+                                                </p></>)}
                                     </>)}
                                     <p className='mini'>Вы так же можете глянуть <Link to="/profile/admin/complaints">жалобы</Link></p>
                                 </div>
