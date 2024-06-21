@@ -82,13 +82,13 @@ export default function WalletCart() {
               <input type="hidden" name="receiver" value="4100110853907883" />
               <input type="hidden" name="label" defaultValue={data.username} />
               <input type="hidden" name="quickpay-form" value="button" />
-              <p className="mini">Сумма поплнения (От 500₽)</p>
+              <p className="mini">Сумма поплнения (От 100₽)</p>
               <input
                 type="number"
                 name="sum"
                 required
-                min="500"
-                defaultValue="500"
+                min="100"
+                defaultValue="100"
                 data-type="number"
               />
               <p className="mini">
