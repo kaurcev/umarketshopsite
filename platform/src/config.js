@@ -14,7 +14,7 @@ const url = () => {
   if (localStorage.getItem("local") === "1") {
     return "bapi.umarketshop.site";
   } else {
-    return "api.umarketshop.site";
+    return "backend";
   }
 };
 
